@@ -1,0 +1,597 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectOptions>
+    <Version Value="9"/>
+    <PathDelim Value="\"/>
+    <General>
+      <SessionStorage Value="InIDEConfig"/>
+      <MainUnit Value="0"/>
+      <AutoCreateForms Value="False"/>
+      <Title Value="sgcd"/>
+      <ResourceType Value="res"/>
+      <UseXPManifest Value="True"/>
+      <Icon Value="0"/>
+    </General>
+    <i18n>
+      <EnableI18N LFM="False"/>
+    </i18n>
+    <VersionInfo>
+      <UseVersionInfo Value="True"/>
+      <AutoIncrementBuild Value="True"/>
+      <MinorVersionNr Value="1"/>
+      <RevisionNr Value="48"/>
+      <BuildNr Value="630"/>
+      <Language Value="040A"/>
+      <StringTable CompanyName="FP-UNA" OriginalFilename="sgcd.exe" ProductVersion="SGCD alpha"/>
+    </VersionInfo>
+    <BuildModes Count="1">
+      <Item1 Name="Default" Default="True"/>
+    </BuildModes>
+    <PublishOptions>
+      <Version Value="2"/>
+      <IncludeFileFilter Value="*.(pas|pp|inc|lfm|lpr|lrs|lpi|lpk|sh|xml)"/>
+      <ExcludeFileFilter Value="*.(bak|ppu|o|so);*~;backup"/>
+    </PublishOptions>
+    <RunParams>
+      <local>
+        <FormatVersion Value="1"/>
+      </local>
+    </RunParams>
+    <RequiredPackages Count="6">
+      <Item1>
+        <PackageName Value="lhelpcontrolpkg"/>
+      </Item1>
+      <Item2>
+        <PackageName Value="lazreport"/>
+      </Item2>
+      <Item3>
+        <PackageName Value="SynEdit"/>
+      </Item3>
+      <Item4>
+        <PackageName Value="FCL"/>
+      </Item4>
+      <Item5>
+        <PackageName Value="SQLDBLaz"/>
+      </Item5>
+      <Item6>
+        <PackageName Value="LCL"/>
+      </Item6>
+    </RequiredPackages>
+    <Units Count="63">
+      <Unit0>
+        <Filename Value="sgcd.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="sgcd"/>
+      </Unit0>
+      <Unit1>
+        <Filename Value="Login\login.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="Login1"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="login"/>
+      </Unit1>
+      <Unit2>
+        <Filename Value="clases\Principal\principal.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="Principal1"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="Principal"/>
+      </Unit2>
+      <Unit3>
+        <Filename Value="clases\Maestro\frmmaestro.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="Maestro"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="frmMaestro"/>
+      </Unit3>
+      <Unit4>
+        <Filename Value="clases\Maestro\frmAbm.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="Abm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="frmAbm"/>
+      </Unit4>
+      <Unit5>
+        <Filename Value="datos\frmsgcddatamodule.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="SGCDDataModule"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="DataModule"/>
+        <UnitName Value="frmsgcddatamodule"/>
+      </Unit5>
+      <Unit6>
+        <Filename Value="clases\Maestro\frmpopup.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="Popup"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="frmpopup"/>
+      </Unit6>
+      <Unit7>
+        <Filename Value="clases\Maestro\frmproceso.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="Proceso"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="frmProceso"/>
+      </Unit7>
+      <Unit8>
+        <Filename Value="clases\Maestro\frmreporte.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="Reporte"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="frmReporte"/>
+      </Unit8>
+      <Unit9>
+        <Filename Value="clases\Genericos\frmacademia.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="ABMAcademia"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="frmAcademia"/>
+      </Unit9>
+      <Unit10>
+        <Filename Value="clases\Genericos\frmaranceles.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="ABMAranceles"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="frmaranceles"/>
+      </Unit10>
+      <Unit11>
+        <Filename Value="clases\Genericos\frmequipos.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="AbmEquipos"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="frmequipos"/>
+      </Unit11>
+      <Unit12>
+        <Filename Value="clases\Genericos\frmperiodoslectivos.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="AbmPeriodosLectivos"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="frmPeriodosLectivos"/>
+      </Unit12>
+      <Unit13>
+        <Filename Value="clases\Genericos\frmmodulos.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="AbmModulos"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="frmmodulos"/>
+      </Unit13>
+      <Unit14>
+        <Filename Value="clases\Genericos\frmsecciones.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="AbmSecciones"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="frmsecciones"/>
+      </Unit14>
+      <Unit15>
+        <Filename Value="clases\Genericos\frmclases.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="ABMClases"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="frmClases"/>
+      </Unit15>
+      <Unit16>
+        <Filename Value="clases\Genericos\frmmaterias.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="AbmMaterias"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="frmMaterias"/>
+      </Unit16>
+      <Unit17>
+        <Filename Value="clases\Genericos\frmpersonas.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="AbmPersonas"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="frmpersonas"/>
+      </Unit17>
+      <Unit18>
+        <Filename Value="clases\Genericos\frmalumnos.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="AbmAlumnos"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="frmalumnos"/>
+      </Unit18>
+      <Unit19>
+        <Filename Value="clases\Genericos\frmempleados.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="AbmEmpleados"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="frmempleados"/>
+      </Unit19>
+      <Unit20>
+        <Filename Value="clases\Genericos\frmpersonasext.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="AbmPersonasExt"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="frmpersonasext"/>
+      </Unit20>
+      <Unit21>
+        <Filename Value="clases\Academicos\frmdesarrollomateria.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="AbmDesarrolloMateria"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="frmDesarrolloMateria"/>
+      </Unit21>
+      <Unit22>
+        <Filename Value="clases\Administrativos\frmmatriculacion.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="ProcesoMatriculacion"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="frmmatriculacion"/>
+      </Unit22>
+      <Unit23>
+        <Filename Value="clases\Academicos\frmtrabajos.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="AbmTrabajos"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="frmtrabajos"/>
+      </Unit23>
+      <Unit24>
+        <Filename Value="clases\Academicos\frmexamenes.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="AbmExamenes"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="frmexamenes"/>
+      </Unit24>
+      <Unit25>
+        <Filename Value="clases\Genericos\frmgrupos2.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="ABMGrupos"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="frmgrupos2"/>
+      </Unit25>
+      <Unit26>
+        <Filename Value="clases\Academicos\frmentrega.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="ProcesoEntrega"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="frmentrega"/>
+      </Unit26>
+      <Unit27>
+        <Filename Value="clases\Administrativos\frmfacturacion.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="ProcesoFacturacion"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="frmfacturacion"/>
+      </Unit27>
+      <Unit28>
+        <Filename Value="clases\Genericos\frmbuscaralumnos.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="PopupSeleccionAlumnos"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="frmbuscaralumnos"/>
+      </Unit28>
+      <Unit29>
+        <Filename Value="datos\mensajes.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="mensajes"/>
+      </Unit29>
+      <Unit30>
+        <Filename Value="clases\Administrativos\frmcuotaarancel.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="CuotaArancel"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="frmCuotaArancel"/>
+      </Unit30>
+      <Unit31>
+        <Filename Value="clases\Administrativos\frmbuscartalonario.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="PopupBuscarTalonario"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="frmbuscartalonario"/>
+      </Unit31>
+      <Unit32>
+        <Filename Value="clases\Administrativos\frmtalonarios.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="AbmTalonarios"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="frmtalonarios"/>
+      </Unit32>
+      <Unit33>
+        <Filename Value="clases\Administrativos\frmnotacredito.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="ProcesoNotaCredito"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="frmnotacredito"/>
+      </Unit33>
+      <Unit34>
+        <Filename Value="clases\Administrativos\frmrecibo.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="ProcesoRecibo"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="frmrecibo"/>
+      </Unit34>
+      <Unit35>
+        <Filename Value="clases\Administrativos\frmbuscartalonarionc.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="PopupBuscarTalonarioNC"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="frmbuscartalonarioNC"/>
+      </Unit35>
+      <Unit36>
+        <Filename Value="clases\Administrativos\frmcobro.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="ProcesoCobro"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="frmcobro"/>
+      </Unit36>
+      <Unit37>
+        <Filename Value="clases\Administrativos\frmseleccionarfacturas.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="PopupSeleccionarFacturas"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="frmseleccionarfacturas"/>
+      </Unit37>
+      <Unit38>
+        <Filename Value="clases\Administrativos\frmbuscartalonariorec.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="PopupBuscarTalonarioRec"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="frmbuscartalonariorec"/>
+      </Unit38>
+      <Unit39>
+        <Filename Value="clases\Administrativos\frmseleccionarunafactura.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="PopupSeleccionarUnaFactura"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="frmseleccionarUnaFactura"/>
+      </Unit39>
+      <Unit40>
+        <Filename Value="clases\Administrativos\frmseleccionaruncomprobante.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="PopupSeleccionarUnComprobante"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="frmseleccionarUnComprobante"/>
+      </Unit40>
+      <Unit41>
+        <Filename Value="clases\Administrativos\frmprocesocompras.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="ProcesoFactCompra"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="frmProcesoCompras"/>
+      </Unit41>
+      <Unit42>
+        <Filename Value="clases\Administrativos\frmjustificativos.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="AbmJustificativos"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="frmjustificativos"/>
+      </Unit42>
+      <Unit43>
+        <Filename Value="clases\Administrativos\frmprocesorecibocompra.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="ProcesoReciboCompra"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="frmprocesorecibocompra"/>
+      </Unit43>
+      <Unit44>
+        <Filename Value="clases\Administrativos\frmhistorico.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="ProcesoHistorico"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="frmhistorico"/>
+      </Unit44>
+      <Unit45>
+        <Filename Value="clases\Administrativos\frmmultas.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="ProcesoMultas"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="frmmultas"/>
+      </Unit45>
+      <Unit46>
+        <Filename Value="clases\Academicos\frmcalificar.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="ProcesoCalificar"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="frmcalificar"/>
+      </Unit46>
+      <Unit47>
+        <Filename Value="clases\Administrativos\frmgenerardeuda.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="ProcesoGenerarDeuda"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="frmgenerardeuda"/>
+      </Unit47>
+      <Unit48>
+        <Filename Value="clases\Administrativos\frmseleccionararancel.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="PopupSeleccionarArancel"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="frmseleccionararancel"/>
+      </Unit48>
+      <Unit49>
+        <Filename Value="clases\Genericos\frmpopupparamreporthistorico.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="TPopUpParamReportHistorico"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="frmpopupparamreporthistorico"/>
+      </Unit49>
+      <Unit50>
+        <Filename Value="datos\manejoerrores.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="manejoerrores"/>
+      </Unit50>
+      <Unit51>
+        <Filename Value="clases\Academicos\frmregistroanecdotico.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="AbmRegistroAnecdotico"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="frmRegistroAnecdotico"/>
+      </Unit51>
+      <Unit52>
+        <Filename Value="clases\Academicos\frmparampopupcertifestudio.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="PopUpParamReportCertif"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="frmparampopupcertifestudio"/>
+      </Unit52>
+      <Unit53>
+        <Filename Value="clases\Academicos\frmparampopupreportasistencia.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="PopUpParamReportAsistencia"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="frmparampopupreportasistencia"/>
+      </Unit53>
+      <Unit54>
+        <Filename Value="clases\Genericos\frmlistaalumnos.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="ProcesoListaALumnos"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="frmListaALumnos"/>
+      </Unit54>
+      <Unit55>
+        <Filename Value="clases\Academicos\frmcalcularnota.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="ProcesoCalcularNota"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="frmcalcularnota"/>
+      </Unit55>
+      <Unit56>
+        <Filename Value="clases\Administrativos\frmconfirmar.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="ProcesoConfirmar"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="frmConfirmar"/>
+      </Unit56>
+      <Unit57>
+        <Filename Value="clases\Academicos\frmescala.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="ProcesoEscala"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="frmescala"/>
+      </Unit57>
+      <Unit58>
+        <Filename Value="clases\Administrativos\frmmatriculados.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="AlumnosMatriculados"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="frmmatriculados"/>
+      </Unit58>
+      <Unit59>
+        <Filename Value="clases\Administrativos\frmprocesocargahoraprof.pas"/>
+        <IsPartOfProject Value="True"/>
+        <HasResources Value="True"/>
+        <UnitName Value="frmprocesocargahoraprof"/>
+      </Unit59>
+      <Unit60>
+        <Filename Value="clases\Genericos\frmpopupmodulo.pas"/>
+        <IsPartOfProject Value="True"/>
+        <HasResources Value="True"/>
+        <UnitName Value="frmpopupmodulo"/>
+      </Unit60>
+      <Unit61>
+        <Filename Value="clases\Administrativos\frmprestamoequipo.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="ProcesoPrestamo"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="frmprestamoequipo"/>
+      </Unit61>
+      <Unit62>
+        <Filename Value="clases\Administrativos\frmcuentasxcobrar.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="ProcesoCuentasAlumno"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="frmcuentasxcobrar"/>
+      </Unit62>
+    </Units>
+  </ProjectOptions>
+  <CompilerOptions>
+    <Version Value="11"/>
+    <PathDelim Value="\"/>
+    <Target>
+      <Filename Value="sgcd"/>
+    </Target>
+    <SearchPaths>
+      <IncludeFiles Value="$(ProjOutDir)"/>
+      <OtherUnitFiles Value="Login;clases\Principal;clases\Maestro;clases\Genericos\Academia;datos;clases\Genericos;clases\Administrativos;clases\Academicos;reportes"/>
+      <UnitOutputDirectory Value="lib\$(TargetCPU)-$(TargetOS)"/>
+    </SearchPaths>
+    <CodeGeneration>
+      <Optimizations>
+        <OptimizationLevel Value="0"/>
+      </Optimizations>
+    </CodeGeneration>
+    <Linking>
+      <Options>
+        <Win32>
+          <GraphicApplication Value="True"/>
+        </Win32>
+      </Options>
+    </Linking>
+    <Other>
+      <CompilerMessages>
+        <MsgFileName Value=""/>
+      </CompilerMessages>
+      <CompilerPath Value="$(CompPath)"/>
+    </Other>
+  </CompilerOptions>
+  <Debugging>
+    <Exceptions Count="3">
+      <Item1>
+        <Name Value="EAbort"/>
+      </Item1>
+      <Item2>
+        <Name Value="ECodetoolError"/>
+      </Item2>
+      <Item3>
+        <Name Value="EFOpenError"/>
+      </Item3>
+    </Exceptions>
+  </Debugging>
+</CONFIG>

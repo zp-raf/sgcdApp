@@ -1,0 +1,1226 @@
+inherited ABMClases: TABMClases
+  Left = 706
+  Height = 665
+  Top = 230
+  Width = 700
+  Caption = 'Clases'
+  ClientHeight = 645
+  ClientWidth = 700
+  Constraints.MinHeight = 640
+  Constraints.MinWidth = 700
+  OnCreate = FormCreate
+  OnResize = FormResize
+  inherited StaticTextEmpezar: TStaticText
+    TabOrder = 3
+  end
+  inherited ButtonPanel1: TButtonPanel
+    Top = 605
+    Width = 688
+    TabOrder = 4
+  end
+  inherited PanelEliminar: TPanel[2]
+    Height = 599
+    Width = 700
+    ClientHeight = 599
+    ClientWidth = 700
+    TabOrder = 2
+    inherited DBGrid1: TDBGrid
+      Height = 455
+      Width = 638
+      Columns = <      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'FECHA'
+          Width = 52
+          FieldName = 'FECHA'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'TEMA'
+          Width = 47
+          FieldName = 'TEMA'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'ACTIVIDADES'
+          Width = 87
+          FieldName = 'ACTIVIDADES'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'MATERIALES'
+          Width = 83
+          FieldName = 'MATERIALES'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'OBJETIVOGENERAL'
+          Width = 117
+          FieldName = 'OBJETIVOGENERAL'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'OBJETIVOSESPECIFICOS'
+          Width = 141
+          FieldName = 'OBJETIVOSESPECIFICOS'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'EVALUACION'
+          Width = 87
+          FieldName = 'EVALUACION'
+        end      
+        item
+          PickList.Strings = (
+            'Didactica'
+            'Didactica'
+            'Tecnica Teatral'
+            'Tecnica Teatral'
+            'Maquillaje'
+            'Maquillaje'
+            'Atuendo'
+            'Atuendo'
+            'Coreografia'
+            'Coreografia'
+            'Tecnica Teatral'
+            'Tecnica Teatral'
+            'Maquillaje'
+            'Maquillaje'
+            'Atuendo'
+            'Atuendo'
+            'Coreografia'
+            'Coreografia'
+            'Tecnologia'
+            'Tecnologia'
+            'Maquillaje'
+            'Maquillaje'
+            'Atuendo'
+            'Atuendo'
+            'Coreografia'
+            'Tecnologia'
+            'Tecnologia'
+          )
+          Title.Caption = 'NOMBRE_MATERIA'
+          Width = 119
+          FieldName = 'NOMBRE_MATERIA'
+        end      
+        item
+          PickList.Strings = (
+            'A'
+            'B'
+            'A'
+            'B'
+            'A'
+            'B'
+            'B'
+            'A'
+            'A'
+            'B'
+            'A'
+            'B'
+            'A'
+            'B'
+            'A'
+            'B'
+            'A'
+            'B'
+            'A'
+            'B'
+            'B'
+            'B'
+            'A'
+            'B'
+            'B'
+            'A'
+            'B'
+          )
+          Title.Caption = 'NOMBRE_SECCION'
+          Width = 118
+          FieldName = 'NOMBRE_SECCION'
+        end      
+        item
+          PickList.Strings = (
+            'Lizzie Paniagua'
+            'Lizzie Paniagua'
+            'Mario Santander'
+            'Mario Santander'
+            'Pedro Acosta'
+            'Pedro Acosta'
+            'Liz Mora'
+            'Angelica Benitez'
+            'Liz Peña'
+            'Liz Peña'
+            'Mario Santander'
+            'Mario Santander'
+            'Pedro Acosta'
+            'Pedro Acosta'
+            'Natalia Ramos'
+            'Natalia Ramos'
+            'Natalia Ramos'
+            'Natalia Ramos'
+            'Liz Mora'
+            'Angelica Benitez'
+            'Pedro Acosta'
+            'Pedro Acosta'
+            'Angelica Benitez'
+            'Liz Mora'
+            'Viviana Galeano'
+            'Angelica Benitez'
+            'Liz Mora'
+          )
+          Title.Caption = 'NOMBRE_COMPLETO'
+          Width = 132
+          FieldName = 'NOMBRE_COMPLETO'
+        end>
+      OnKeyUp = DBGrid1KeyUp
+      OnMouseDown = DBGrid1MouseDown
+    end
+    inherited DBNavigatorEliminar: TDBNavigator
+      Top = 527
+      Hints.Strings = (      )
+    end
+  end
+  inherited PanelModificar: TPanel[3]
+    Height = 599
+    Width = 700
+    ClientHeight = 599
+    ClientWidth = 700
+    TabOrder = 0
+    inherited DBGrid2: TDBGrid
+      Height = 455
+      Width = 638
+      Columns = <      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'FECHA'
+          Width = 52
+          FieldName = 'FECHA'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'TEMA'
+          Width = 47
+          FieldName = 'TEMA'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'ACTIVIDADES'
+          Width = 87
+          FieldName = 'ACTIVIDADES'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'MATERIALES'
+          Width = 83
+          FieldName = 'MATERIALES'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'OBJETIVOGENERAL'
+          Width = 117
+          FieldName = 'OBJETIVOGENERAL'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'OBJETIVOSESPECIFICOS'
+          Width = 141
+          FieldName = 'OBJETIVOSESPECIFICOS'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'EVALUACION'
+          Width = 87
+          FieldName = 'EVALUACION'
+        end      
+        item
+          PickList.Strings = (
+            'Didactica'
+            'Didactica'
+            'Tecnica Teatral'
+            'Tecnica Teatral'
+            'Maquillaje'
+            'Maquillaje'
+            'Atuendo'
+            'Atuendo'
+            'Coreografia'
+            'Coreografia'
+            'Tecnica Teatral'
+            'Tecnica Teatral'
+            'Maquillaje'
+            'Maquillaje'
+            'Atuendo'
+            'Atuendo'
+            'Coreografia'
+            'Coreografia'
+            'Tecnologia'
+            'Tecnologia'
+            'Maquillaje'
+            'Maquillaje'
+            'Atuendo'
+            'Atuendo'
+            'Coreografia'
+            'Tecnologia'
+            'Tecnologia'
+          )
+          Title.Caption = 'NOMBRE_MATERIA'
+          Width = 119
+          FieldName = 'NOMBRE_MATERIA'
+        end      
+        item
+          PickList.Strings = (
+            'A'
+            'B'
+            'A'
+            'B'
+            'A'
+            'B'
+            'B'
+            'A'
+            'A'
+            'B'
+            'A'
+            'B'
+            'A'
+            'B'
+            'A'
+            'B'
+            'A'
+            'B'
+            'A'
+            'B'
+            'B'
+            'B'
+            'A'
+            'B'
+            'B'
+            'A'
+            'B'
+          )
+          Title.Caption = 'NOMBRE_SECCION'
+          Width = 118
+          FieldName = 'NOMBRE_SECCION'
+        end      
+        item
+          PickList.Strings = (
+            'Lizzie Paniagua'
+            'Lizzie Paniagua'
+            'Mario Santander'
+            'Mario Santander'
+            'Pedro Acosta'
+            'Pedro Acosta'
+            'Liz Mora'
+            'Angelica Benitez'
+            'Liz Peña'
+            'Liz Peña'
+            'Mario Santander'
+            'Mario Santander'
+            'Pedro Acosta'
+            'Pedro Acosta'
+            'Natalia Ramos'
+            'Natalia Ramos'
+            'Natalia Ramos'
+            'Natalia Ramos'
+            'Liz Mora'
+            'Angelica Benitez'
+            'Pedro Acosta'
+            'Pedro Acosta'
+            'Angelica Benitez'
+            'Liz Mora'
+            'Viviana Galeano'
+            'Angelica Benitez'
+            'Liz Mora'
+          )
+          Title.Caption = 'NOMBRE_COMPLETO'
+          Width = 132
+          FieldName = 'NOMBRE_COMPLETO'
+        end>
+      OnMouseDown = DBGrid2MouseDown
+    end
+    inherited DBNavigatorModificar: TDBNavigator
+      Top = 527
+      Hints.Strings = (      )
+    end
+  end
+  inherited PanelNuevo: TPanel[4]
+    Height = 599
+    Width = 700
+    ClientHeight = 599
+    ClientWidth = 700
+    TabOrder = 1
+    object DateEditFecha: TDateEdit[0]
+      Left = 8
+      Height = 23
+      Top = 248
+      Width = 80
+      CalendarDisplaySettings = [dsShowHeadings, dsShowDayNames]
+      OKCaption = 'OK'
+      CancelCaption = 'Cancel'
+      DateOrder = doDMY
+      ButtonWidth = 23
+      CharCase = ecNormal
+      NumGlyphs = 1
+      MaxLength = 10
+      TabOrder = 1
+    end
+    object Label5: TLabel[1]
+      AnchorSideLeft.Control = DateEditFecha
+      AnchorSideTop.Side = asrCenter
+      AnchorSideBottom.Control = DateEditFecha
+      Left = 8
+      Height = 15
+      Top = 233
+      Width = 93
+      Anchors = [akLeft, akBottom]
+      BorderSpacing.Right = 8
+      Caption = 'Fecha (requerido)'
+      ParentColor = False
+    end
+    object GroupBox1: TGroupBox[2]
+      Left = 8
+      Height = 232
+      Top = 0
+      Width = 688
+      Anchors = [akTop, akLeft, akRight]
+      Caption = 'Materia'
+      ClientHeight = 214
+      ClientWidth = 684
+      TabOrder = 0
+      object Label6: TLabel
+        Left = 9
+        Height = 15
+        Top = 2
+        Width = 44
+        Anchors = []
+        Caption = 'Profesor'
+        ParentColor = False
+      end
+      object Edit1: TEdit
+        Left = 9
+        Height = 23
+        Top = 16
+        Width = 257
+        OnChange = Edit1Change
+        OnEnter = Edit1Enter
+        TabOrder = 0
+      end
+      object DBGrid4: TDBGrid
+        Left = 9
+        Height = 163
+        Top = 44
+        Width = 256
+        Color = clWindow
+        Columns = <        
+          item
+            Title.Caption = 'NOMBRE_COMPLETO'
+            Width = 132
+            FieldName = 'NOMBRE_COMPLETO'
+          end>
+        DataSource = dsProfesor
+        Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgAutoSizeColumns]
+        ReadOnly = True
+        TabOrder = 1
+        OnCellClick = DBGrid4CellClick
+      end
+      object DBGrid3: TDBGrid
+        Left = 294
+        Height = 195
+        Top = 12
+        Width = 293
+        Color = clWindow
+        Columns = <        
+          item
+            Title.Caption = 'MATERIA'
+            Width = 65
+            FieldName = 'NOMBRE_MATERIA'
+          end        
+          item
+            Title.Caption = 'SECCION'
+            FieldName = 'NOMBRE_SECCION'
+          end        
+          item
+            Title.Caption = 'PERIODO'
+            FieldName = 'NOMBRE_PERIODO'
+          end>
+        DataSource = dsDesarrolloMat
+        Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgAutoSizeColumns, dgCellEllipsis]
+        ReadOnly = True
+        TabOrder = 2
+      end
+      object Label1: TLabel
+        AnchorSideLeft.Control = DBGrid3
+        AnchorSideBottom.Control = DBGrid3
+        Left = 294
+        Height = 15
+        Top = -3
+        Width = 45
+        Anchors = [akLeft, akBottom]
+        Caption = 'Materias'
+        ParentColor = False
+      end
+    end
+    object MemoNuevoTema: TMemo[3]
+      AnchorSideTop.Control = MemoNuevoObjGral
+      AnchorSideTop.Side = asrBottom
+      AnchorSideRight.Side = asrBottom
+      AnchorSideBottom.Side = asrBottom
+      Left = 8
+      Height = 136
+      Top = 456
+      Width = 216
+      ScrollBars = ssAutoBoth
+      TabOrder = 5
+    end
+    object LabelNuevoTema: TLabel[4]
+      AnchorSideLeft.Control = MemoNuevoTema
+      AnchorSideBottom.Control = MemoNuevoTema
+      Left = 8
+      Height = 15
+      Top = 441
+      Width = 30
+      Anchors = [akLeft, akBottom]
+      Caption = 'Tema'
+      ParentColor = False
+    end
+    object MemoNuevoActividades: TMemo[5]
+      AnchorSideLeft.Control = MemoNuevoTema
+      AnchorSideLeft.Side = asrBottom
+      AnchorSideTop.Control = MemoNuevoObjEspfco
+      AnchorSideTop.Side = asrBottom
+      AnchorSideRight.Side = asrBottom
+      AnchorSideBottom.Side = asrBottom
+      Left = 240
+      Height = 136
+      Top = 456
+      Width = 216
+      BorderSpacing.Left = 16
+      ScrollBars = ssAutoBoth
+      TabOrder = 6
+    end
+    object LabelNuevoActividades: TLabel[6]
+      AnchorSideLeft.Control = MemoNuevoActividades
+      AnchorSideBottom.Control = MemoNuevoActividades
+      Left = 240
+      Height = 15
+      Top = 441
+      Width = 61
+      Anchors = [akLeft, akBottom]
+      Caption = 'Actividades'
+      ParentColor = False
+    end
+    object LabelNuevoMaterial: TLabel[7]
+      AnchorSideLeft.Control = MemoNuevoMaterial
+      AnchorSideBottom.Control = MemoNuevoMaterial
+      Left = 472
+      Height = 15
+      Top = 281
+      Width = 54
+      Anchors = [akLeft, akBottom]
+      Caption = 'Materiales'
+      ParentColor = False
+    end
+    object LabelNuevoObjGral: TLabel[8]
+      AnchorSideLeft.Control = MemoNuevoObjGral
+      AnchorSideBottom.Control = MemoNuevoObjGral
+      Left = 8
+      Height = 15
+      Top = 281
+      Width = 88
+      Anchors = [akLeft, akBottom]
+      Caption = 'Objetivo General'
+      ParentColor = False
+    end
+    object MemoNuevoObjGral: TMemo[9]
+      AnchorSideTop.Side = asrBottom
+      AnchorSideRight.Side = asrBottom
+      AnchorSideBottom.Side = asrBottom
+      Left = 8
+      Height = 136
+      Top = 296
+      Width = 216
+      BorderSpacing.Bottom = 24
+      ScrollBars = ssAutoBoth
+      TabOrder = 2
+    end
+    object MemoNuevoMaterial: TMemo[10]
+      AnchorSideLeft.Control = MemoNuevoObjEspfco
+      AnchorSideLeft.Side = asrBottom
+      AnchorSideTop.Side = asrBottom
+      AnchorSideRight.Side = asrBottom
+      AnchorSideBottom.Side = asrBottom
+      Left = 472
+      Height = 136
+      Top = 296
+      Width = 216
+      BorderSpacing.Left = 16
+      BorderSpacing.Bottom = 24
+      ScrollBars = ssAutoBoth
+      TabOrder = 4
+    end
+    object LabelNuevoObjEspfco: TLabel[11]
+      AnchorSideLeft.Control = MemoNuevoObjEspfco
+      AnchorSideBottom.Control = MemoNuevoObjEspfco
+      Left = 240
+      Height = 15
+      Top = 281
+      Width = 101
+      Anchors = [akLeft, akBottom]
+      Caption = 'Objetivo Específico'
+      ParentColor = False
+    end
+    object MemoNuevoObjEspfco: TMemo[12]
+      AnchorSideLeft.Control = MemoNuevoObjGral
+      AnchorSideLeft.Side = asrBottom
+      AnchorSideTop.Side = asrBottom
+      AnchorSideRight.Side = asrBottom
+      AnchorSideBottom.Side = asrBottom
+      Left = 240
+      Height = 136
+      Top = 296
+      Width = 216
+      BorderSpacing.Left = 16
+      BorderSpacing.Bottom = 24
+      ScrollBars = ssAutoBoth
+      TabOrder = 3
+    end
+    object MemoNuevoEvaluacion: TMemo[13]
+      AnchorSideLeft.Control = MemoNuevoActividades
+      AnchorSideLeft.Side = asrBottom
+      AnchorSideTop.Control = MemoNuevoMaterial
+      AnchorSideTop.Side = asrBottom
+      AnchorSideRight.Side = asrBottom
+      AnchorSideBottom.Side = asrBottom
+      Left = 472
+      Height = 136
+      Top = 456
+      Width = 216
+      BorderSpacing.Left = 16
+      ScrollBars = ssAutoBoth
+      TabOrder = 7
+    end
+    object LabelNuevoEvaluacion: TLabel[14]
+      AnchorSideLeft.Control = MemoNuevoEvaluacion
+      AnchorSideBottom.Control = MemoNuevoEvaluacion
+      Left = 472
+      Height = 15
+      Top = 441
+      Width = 57
+      Anchors = [akLeft, akBottom]
+      Caption = 'Evaluación'
+      ParentColor = False
+    end
+  end
+  inherited MainMenu1: TMainMenu
+    left = 648
+  end
+  inherited Datasource1: TDatasource
+    left = 632
+    top = 232
+  end
+  inherited SQLQuery1: TSQLQuery
+    FieldDefs = <    
+      item
+        Name = 'ID'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'DESARROLLOMATERIAID'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'FECHA'
+        DataType = ftDate
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'TEMA'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'OBJETIVOGENERAL'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'OBJETIVOSESPECIFICOS'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'ACTIVIDADES'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'MATERIALES'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'EVALUACION'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end>
+    SQL.Strings = (
+      'select * from CLASE;'
+    )
+    left = 576
+    top = 232
+    object SQLQuery1ID: TLongintField[0]
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      ReadOnly = False
+      Required = True
+    end
+    object SQLQuery1DESARROLLOMATERIAID: TLongintField[1]
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'DESARROLLOMATERIAID'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object SQLQuery1FECHA: TDateField[2]
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FECHA'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object SQLQuery1TEMA: TStringField[3]
+      DisplayWidth = 255
+      FieldKind = fkData
+      FieldName = 'TEMA'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 255
+    end
+    object SQLQuery1OBJETIVOGENERAL: TStringField[4]
+      DisplayWidth = 255
+      FieldKind = fkData
+      FieldName = 'OBJETIVOGENERAL'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 255
+    end
+    object SQLQuery1OBJETIVOSESPECIFICOS: TStringField[5]
+      DisplayWidth = 255
+      FieldKind = fkData
+      FieldName = 'OBJETIVOSESPECIFICOS'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 255
+    end
+    object SQLQuery1ACTIVIDADES: TStringField[6]
+      DisplayWidth = 255
+      FieldKind = fkData
+      FieldName = 'ACTIVIDADES'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 255
+    end
+    object SQLQuery1MATERIALES: TStringField[7]
+      DisplayWidth = 255
+      FieldKind = fkData
+      FieldName = 'MATERIALES'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 255
+    end
+    object SQLQuery1EVALUACION: TStringField[8]
+      DisplayWidth = 255
+      FieldKind = fkData
+      FieldName = 'EVALUACION'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 255
+    end
+    object IDDesarrolloMat: TLongintField[9]
+      DisplayWidth = 10
+      FieldKind = fkLookup
+      FieldName = 'IDDesarrolloMat'
+      Index = 9
+      KeyFields = 'DESARROLLOMATERIAID'
+      LookupCache = False
+      LookupDataSet = qryDesarrolloMat
+      LookupKeyFields = 'ID'
+      LookupResultField = 'ID'
+      ProviderFlags = []
+      ReadOnly = False
+      Required = False
+    end
+    object StringField1: TStringField[10]
+      DisplayWidth = 255
+      FieldKind = fkLookup
+      FieldName = 'NOMBRE_MATERIA'
+      Index = 10
+      KeyFields = 'DESARROLLOMATERIAID'
+      LookupCache = False
+      LookupDataSet = qryDetalle
+      LookupKeyFields = 'ID'
+      LookupResultField = 'NOMBRE_MATERIA'
+      ProviderFlags = []
+      ReadOnly = False
+      Required = False
+      Size = 255
+    end
+    object StringField2: TStringField[11]
+      DisplayWidth = 255
+      FieldKind = fkLookup
+      FieldName = 'NOMBRE_SECCION'
+      Index = 11
+      KeyFields = 'DESARROLLOMATERIAID'
+      LookupCache = False
+      LookupDataSet = qryDetalle
+      LookupKeyFields = 'ID'
+      LookupResultField = 'NOMBRE_SECCION'
+      ProviderFlags = []
+      ReadOnly = False
+      Required = False
+      Size = 255
+    end
+    object StringField3: TStringField[12]
+      DisplayWidth = 511
+      FieldKind = fkLookup
+      FieldName = 'NOMBRE_COMPLETO'
+      Index = 12
+      KeyFields = 'DESARROLLOMATERIAID'
+      LookupCache = False
+      LookupDataSet = qryDetalle
+      LookupKeyFields = 'ID'
+      LookupResultField = 'NOMBRE_COMPLETO'
+      ProviderFlags = []
+      ReadOnly = False
+      Required = False
+      Size = 511
+    end
+  end
+  object dsDesarrolloMat: TDatasource[8]
+    DataSet = qryDesarrolloMat
+    left = 512
+    top = 144
+  end
+  object qryDesarrolloMat: TSQLQuery[9]
+    FieldDefs = <    
+      item
+        Name = 'ID'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'SECCIONID'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'MATERIAID'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'ACTIVO'
+        DataType = ftSmallint
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'PERIODOLECTIVOID'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'EMPLEADOPERSONAID'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'NOMBRE_SECCION'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'NOMBRE_MATERIA'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'NOMBRE_PERIODO'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'NOMBRE_COMPLETO'
+        DataType = ftString
+        Precision = -1
+        Size = 511
+      end>
+    Filtered = True
+    OnFilterRecord = qryDesarrolloMatFilterRecord
+    Database = SGCDDataModule.dbConn
+    Transaction = SGCDDataModule.sqlTran
+    ReadOnly = True
+    SQL.Strings = (
+      'select * from v_desarrollo_mat_activo_det'
+    )
+    Params = <>
+    left = 376
+    top = 144
+    object qryDesarrolloMatID: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object qryDesarrolloMatSECCIONID: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'SECCIONID'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object qryDesarrolloMatMATERIAID: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'MATERIAID'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object qryDesarrolloMatEMPLEADOPERSONAID: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'EMPLEADOPERSONAID'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object qryDesarrolloMatNOMBRE_SECCION: TStringField
+      DisplayLabel = 'SECCION'
+      DisplayWidth = 255
+      FieldKind = fkData
+      FieldName = 'NOMBRE_SECCION'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 255
+    end
+    object qryDesarrolloMatNOMBRE_MATERIA: TStringField
+      DisplayLabel = 'MATERIA'
+      DisplayWidth = 255
+      FieldKind = fkData
+      FieldName = 'NOMBRE_MATERIA'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 255
+    end
+    object qryDesarrolloMatNOMBRE_PERIODO: TStringField
+      DisplayLabel = 'PERIODO'
+      DisplayWidth = 255
+      FieldKind = fkData
+      FieldName = 'NOMBRE_PERIODO'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 255
+    end
+    object qryDesarrolloMatNOMBRE_COMPLETO: TStringField
+      DisplayWidth = 511
+      FieldKind = fkData
+      FieldName = 'NOMBRE_COMPLETO'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 511
+    end
+    object qryDesarrolloMatPERIODOLECTIVOID: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'PERIODOLECTIVOID'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object qryProfesor: TSQLQuery[10]
+    FieldDefs = <    
+      item
+        Name = 'ID'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'NOMBRE'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'APELLIDO'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'CEDULA'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'FECHANAC'
+        DataType = ftDate
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'SEXO'
+        DataType = ftString
+        Precision = -1
+        Size = 1
+      end    
+      item
+        Name = 'ACTIVO'
+        DataType = ftSmallint
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'ESENCARGADO'
+        DataType = ftSmallint
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'ESADMINISTRATIVO'
+        DataType = ftSmallint
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'NOMBRE_COMPLETO'
+        DataType = ftString
+        Precision = -1
+        Size = 511
+      end>
+    Filtered = True
+    OnFilterRecord = qryProfesorFilterRecord
+    Database = SGCDDataModule.dbConn
+    Transaction = SGCDDataModule.sqlTran
+    SQL.Strings = (
+      'select * from v_profesores_activos'
+    )
+    Params = <>
+    left = 48
+    top = 112
+    object qryProfesorID: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qryProfesorNOMBRE_COMPLETO: TStringField
+      DisplayWidth = 511
+      FieldKind = fkData
+      FieldName = 'NOMBRE_COMPLETO'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 511
+    end
+  end
+  object dsProfesor: TDatasource[11]
+    DataSet = qryProfesor
+    left = 112
+    top = 112
+  end
+  object qryDetalle: TSQLQuery[12]
+    FieldDefs = <    
+      item
+        Name = 'ID'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'SECCIONID'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'MATERIAID'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'ACTIVO'
+        DataType = ftSmallint
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'PERIODOLECTIVOID'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'EMPLEADOPERSONAID'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'NOMBRE_SECCION'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'NOMBRE_MATERIA'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'NOMBRE_PERIODO'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'NOMBRE_COMPLETO'
+        DataType = ftString
+        Precision = -1
+        Size = 511
+      end>
+    Database = SGCDDataModule.dbConn
+    Transaction = SGCDDataModule.sqlTran
+    ReadOnly = True
+    SQL.Strings = (
+      'select * from v_desarrollo_mat_activo_det'
+    )
+    Params = <>
+    left = 635
+    top = 96
+    object qryDetalleID: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qryDetalleNOMBRE_SECCION: TStringField
+      DisplayWidth = 255
+      FieldKind = fkData
+      FieldName = 'NOMBRE_SECCION'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 255
+    end
+    object qryDetalleNOMBRE_MATERIA: TStringField
+      DisplayWidth = 255
+      FieldKind = fkData
+      FieldName = 'NOMBRE_MATERIA'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 255
+    end
+    object qryDetalleNOMBRE_COMPLETO: TStringField
+      DisplayWidth = 511
+      FieldKind = fkData
+      FieldName = 'NOMBRE_COMPLETO'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 511
+    end
+  end
+end

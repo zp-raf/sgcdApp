@@ -1,0 +1,17 @@
+inherited PopupBuscarTalonarioRec: TPopupBuscarTalonarioRec
+  ClientHeight = 300
+  inherited DBGrid1: TDBGrid
+    Height = 148
+  end
+  inherited ButtonCancel: TButton
+    Top = 244
+  end
+  inherited ButtonOK: TButton
+    Top = 244
+  end
+  inherited qry: TSQLQuery
+    SQL.Strings = (
+      'select * from v_talonarios_re'
+    )
+  end
+end

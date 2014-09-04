@@ -1,0 +1,156 @@
+inherited ProcesoConfirmar: TProcesoConfirmar
+  Left = 332
+  Top = 137
+  Caption = 'Confirmar alumnos y matriculas'
+  ClientHeight = 620
+  inherited ButtonPanel1: TButtonPanel
+    Top = 580
+    OKButton.OnClick = OKButtonClick
+    CancelButton.OnClick = CancelButtonClick
+  end
+  inherited Alumnos: TGroupBox
+    Height = 557
+    ClientHeight = 539
+    inherited DBGrid1: TDBGrid
+      Height = 439
+      Columns = <      
+        item
+          PickList.Strings = (          )
+          ReadOnly = True
+          Title.Caption = 'NOMBRE'
+          Width = 136
+          FieldName = 'NOMBRE'
+        end      
+        item
+          PickList.Strings = (          )
+          ReadOnly = True
+          Title.Caption = 'APELLIDO'
+          Width = 117
+          FieldName = 'APELLIDO'
+        end      
+        item
+          PickList.Strings = (          )
+          ReadOnly = True
+          Title.Caption = 'CEDULA'
+          Width = 75
+          FieldName = 'CEDULA'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'FECHANAC'
+          Width = 71
+          FieldName = 'FECHANAC'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'SEXO'
+          Width = 41
+          FieldName = 'SEXO'
+        end      
+        item
+          ButtonStyle = cbsCheckboxColumn
+          PickList.Strings = (          )
+          Title.Caption = 'CONFIRMADO'
+          Width = 84
+          FieldName = 'ALUMNO_CONFIRMADO'
+        end      
+        item
+          PickList.Strings = (          )
+          ReadOnly = True
+          Title.Caption = 'ID_MATRICULA'
+          Width = 90
+          FieldName = 'ID_MATRICULA'
+        end      
+        item
+          ButtonStyle = cbsCheckboxColumn
+          PickList.Strings = (          )
+          Title.Caption = 'CONFIRMADA'
+          Width = 83
+          FieldName = 'MATRICULA_CONFIRMADA'
+        end      
+        item
+          PickList.Strings = (          )
+          ReadOnly = True
+          Title.Caption = 'MATERIA'
+          Width = 60
+          FieldName = 'NOMBRE_MATERIA_DET'
+        end      
+        item
+          PickList.Strings = (          )
+          ReadOnly = True
+          Title.Caption = 'SECCION'
+          Width = 60
+          FieldName = 'NOMBRE_SECCION'
+        end      
+        item
+          PickList.Strings = (          )
+          ReadOnly = True
+          Title.Caption = 'PERIODO'
+          Width = 61
+          FieldName = 'NOMBRE_PERIODO'
+        end      
+        item
+          PickList.Strings = (          )
+          ReadOnly = True
+          Title.Caption = 'PROFESOR'
+          Width = 69
+          FieldName = 'NOMBRE_PROFESOR'
+        end>
+      Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgMultiselect, dgPersistentMultiSelect, dgAutoSizeColumns]
+      OnTitleClick = DBGrid1TitleClick
+    end
+    inherited DBLookupComboBox1: TDBLookupComboBox
+      Height = 23
+    end
+    inherited Materia: TLabel
+      Height = 15
+      Top = 50
+      Width = 40
+    end
+    inherited DBLookupComboBox2: TDBLookupComboBox
+      Height = 23
+    end
+    inherited Periodo: TLabel
+      Height = 15
+      Top = 50
+      Width = 41
+    end
+    inherited DBLookupComboBox3: TDBLookupComboBox
+      Height = 23
+    end
+    inherited Profesor: TLabel
+      Height = 15
+      Top = 3
+      Width = 44
+    end
+    inherited LabeledEdit1: TLabeledEdit
+      Height = 23
+      EditLabel.Height = 15
+      EditLabel.Top = -2
+    end
+    inherited CheckGroup1: TCheckGroup
+      Data = {
+        020000000303
+      }
+    end
+    inherited CheckGroup2: TCheckGroup
+      Data = {
+        020000000303
+      }
+    end
+    inherited Seleccionar: TGroupBox
+      inherited SeleccionarTodo: TButton
+        Height = 25
+        Width = 54
+      end
+      inherited SeleccionarNada: TButton
+        Height = 25
+        Width = 54
+      end
+    end
+    inherited CheckBox1: TCheckBox
+      Height = 19
+      Width = 119
+    end
+  end
+end

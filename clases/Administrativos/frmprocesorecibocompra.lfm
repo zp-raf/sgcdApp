@@ -1,0 +1,1417 @@
+inherited ProcesoReciboCompra: TProcesoReciboCompra
+  Left = 395
+  Height = 681
+  Top = 155
+  Width = 919
+  Caption = 'Recibos de Compras'
+  ClientHeight = 661
+  ClientWidth = 919
+  OnClose = FormClose
+  OnCreate = FormCreate
+  OnShow = FormShow
+  inherited ButtonPanel1: TButtonPanel
+    Top = 621
+    Width = 907
+  end
+  object PairSplitter1: TPairSplitter[1]
+    AnchorSideTop.Side = asrBottom
+    Cursor = crSizeNS
+    Left = 6
+    Height = 411
+    Top = 192
+    Width = 1387
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    Position = 344
+    SplitterType = pstVertical
+    object PairSplitterSide1: TPairSplitterSide
+      Cursor = crArrow
+      Left = 0
+      Height = 344
+      Top = 0
+      Width = 1387
+      ClientWidth = 1387
+      ClientHeight = 344
+      object Detalles: TGroupBox
+        AnchorSideLeft.Control = PairSplitterSide1
+        AnchorSideTop.Control = PairSplitterSide1
+        AnchorSideRight.Control = PairSplitterSide1
+        AnchorSideRight.Side = asrBottom
+        AnchorSideBottom.Control = PairSplitterSide1
+        AnchorSideBottom.Side = asrBottom
+        Left = 0
+        Height = 344
+        Top = 0
+        Width = 1387
+        Anchors = [akTop, akLeft, akRight, akBottom]
+        Caption = 'Detalles'
+        ClientHeight = 326
+        ClientWidth = 1383
+        TabOrder = 0
+        object DBGrid1: TDBGrid
+          AnchorSideLeft.Control = Detalles
+          AnchorSideTop.Control = Detalles
+          AnchorSideRight.Control = Detalles
+          AnchorSideRight.Side = asrBottom
+          AnchorSideBottom.Control = DBNavigator1
+          Left = 8
+          Height = 277
+          Top = 8
+          Width = 1367
+          Anchors = [akTop, akLeft, akRight, akBottom]
+          BorderSpacing.Around = 8
+          Color = clWindow
+          Columns = <          
+            item
+              Title.Caption = 'CANTIDAD'
+              Width = 74
+              FieldName = 'CANTIDAD'
+            end          
+            item
+              Title.Caption = 'DETALLE'
+              Width = 62
+              FieldName = 'DETALLE'
+            end          
+            item
+              Title.Caption = 'PRECIO UNITARIO'
+              Width = 112
+              FieldName = 'PRECIO_UNITARIO'
+            end          
+            item
+              ReadOnly = True
+              Title.Caption = 'TOTAL'
+              Width = 52
+              FieldName = 'TOTAL'
+            end>
+          DataSource = dsDetalle
+          Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgAlwaysShowSelection, dgCancelOnExit, dgAutoSizeColumns]
+          TabOrder = 0
+          OnKeyDown = DBGrid1KeyDown
+        end
+        object DBNavigator1: TDBNavigator
+          AnchorSideLeft.Control = Detalles
+          AnchorSideBottom.Control = Detalles
+          AnchorSideBottom.Side = asrBottom
+          Left = 8
+          Height = 25
+          Top = 293
+          Width = 241
+          Anchors = [akLeft, akBottom]
+          BevelOuter = bvNone
+          BorderSpacing.Around = 8
+          ChildSizing.EnlargeHorizontal = crsScaleChilds
+          ChildSizing.EnlargeVertical = crsScaleChilds
+          ChildSizing.ShrinkHorizontal = crsScaleChilds
+          ChildSizing.ShrinkVertical = crsScaleChilds
+          ChildSizing.Layout = cclLeftToRightThenTopToBottom
+          ChildSizing.ControlsPerLine = 100
+          ClientHeight = 25
+          ClientWidth = 241
+          Options = []
+          TabOrder = 1
+          VisibleButtons = [nbFirst, nbPrior, nbNext, nbLast, nbInsert, nbDelete, nbEdit, nbCancel]
+        end
+      end
+    end
+    object PairSplitterSide2: TPairSplitterSide
+      Cursor = crArrow
+      Left = 0
+      Height = 62
+      Top = 349
+      Width = 1387
+      ClientWidth = 1387
+      ClientHeight = 62
+      object Totales: TGroupBox
+        AnchorSideLeft.Control = PairSplitterSide2
+        AnchorSideTop.Control = PairSplitterSide2
+        AnchorSideRight.Control = PairSplitterSide2
+        AnchorSideRight.Side = asrBottom
+        AnchorSideBottom.Control = PairSplitterSide2
+        AnchorSideBottom.Side = asrBottom
+        Left = 0
+        Height = 165
+        Top = 0
+        Width = 1387
+        Anchors = [akTop, akLeft, akRight, akBottom]
+        Caption = 'Totales'
+        ChildSizing.ControlsPerLine = 3
+        ClientHeight = 147
+        ClientWidth = 1383
+        Constraints.MinHeight = 165
+        Constraints.MinWidth = 788
+        TabOrder = 0
+        object DBEdit6: TDBEdit
+          Left = 8
+          Height = 23
+          Top = 19
+          Width = 136
+          DataField = 'TOTAL'
+          DataSource = dsCabecera
+          CharCase = ecNormal
+          MaxLength = 0
+          TabOrder = 0
+        end
+        object Grantotal: TLabel
+          AnchorSideLeft.Control = DBEdit6
+          AnchorSideBottom.Control = DBEdit6
+          Left = 8
+          Height = 15
+          Top = 4
+          Width = 69
+          Anchors = [akLeft, akBottom]
+          Caption = 'Total a pagar'
+          ParentColor = False
+        end
+      end
+    end
+  end
+  object Cabecera: TGroupBox[2]
+    Left = 6
+    Height = 192
+    Top = 0
+    Width = 1387
+    Anchors = [akTop, akLeft, akRight]
+    Caption = 'Cabecera'
+    ClientHeight = 174
+    ClientWidth = 1383
+    TabOrder = 2
+    object DBEdit1: TDBEdit
+      Left = 8
+      Height = 23
+      Top = 144
+      Width = 504
+      DataField = 'DIRECCION'
+      DataSource = dsCabecera
+      CharCase = ecNormal
+      MaxLength = 0
+      TabOrder = 0
+    end
+    object Label1: TLabel
+      AnchorSideLeft.Control = DBEdit1
+      AnchorSideBottom.Control = DBEdit1
+      Left = 8
+      Height = 15
+      Top = 129
+      Width = 50
+      Anchors = [akLeft, akBottom]
+      Caption = 'Direccion'
+      ParentColor = False
+    end
+    object DBEdit3: TDBEdit
+      Left = 528
+      Height = 23
+      Top = 144
+      Width = 240
+      DataField = 'TELEFONO'
+      DataSource = dsCabecera
+      CharCase = ecNormal
+      MaxLength = 0
+      TabOrder = 1
+    end
+    object Label3: TLabel
+      AnchorSideLeft.Control = DBEdit3
+      AnchorSideBottom.Control = DBEdit3
+      Left = 528
+      Height = 15
+      Top = 129
+      Width = 47
+      Anchors = [akLeft, akBottom]
+      Caption = 'Telefono'
+      ParentColor = False
+    end
+    object DateEdit1: TDateEdit
+      Left = 8
+      Height = 23
+      Top = 56
+      Width = 80
+      CalendarDisplaySettings = [dsShowHeadings, dsShowDayNames]
+      OKCaption = 'OK'
+      CancelCaption = 'Cancel'
+      DateOrder = doNone
+      ButtonWidth = 23
+      CharCase = ecNormal
+      NumGlyphs = 1
+      MaxLength = 0
+      TabOrder = 2
+    end
+    object Label5: TLabel
+      AnchorSideLeft.Control = DateEdit1
+      AnchorSideBottom.Control = DateEdit1
+      Left = 8
+      Height = 15
+      Top = 41
+      Width = 92
+      Anchors = [akLeft, akBottom]
+      Caption = 'Fecha de emision'
+      ParentColor = False
+    end
+    object DBEdit12: TDBEdit
+      Left = 8
+      Height = 23
+      Top = 104
+      Width = 376
+      DataField = 'NOMBRE'
+      DataSource = dsCabecera
+      CharCase = ecNormal
+      MaxLength = 0
+      TabOrder = 3
+    end
+    object Label9: TLabel
+      AnchorSideLeft.Control = DBEdit12
+      AnchorSideBottom.Control = DBEdit12
+      Left = 8
+      Height = 15
+      Top = 89
+      Width = 44
+      Anchors = [akLeft, akBottom]
+      Caption = 'Nombre'
+      ParentColor = False
+    end
+    object ButtonLimpiar: TButton
+      Left = 8
+      Height = 25
+      Top = 8
+      Width = 75
+      Caption = 'Limpiar'
+      OnClick = ButtonLimpiarClick
+      TabOrder = 4
+    end
+    object Seleccionar: TButton
+      Left = 96
+      Height = 25
+      Top = 8
+      Width = 131
+      AutoSize = True
+      Caption = 'Seleccionar Persona'
+      OnClick = btSeleccionarClick
+      TabOrder = 5
+    end
+    object SeleccionarFactura: TButton
+      Left = 248
+      Height = 25
+      Top = 8
+      Width = 170
+      AutoSize = True
+      Caption = 'Seleccionar Factura Credito'
+      OnClick = SeleccionarFacturaClick
+      TabOrder = 6
+      Visible = False
+    end
+    object DBEdit2: TDBEdit
+      Left = 136
+      Height = 23
+      Top = 56
+      Width = 80
+      DataField = 'NUMERO'
+      DataSource = dsCabecera
+      CharCase = ecNormal
+      MaxLength = 0
+      TabOrder = 7
+    end
+    object DBEdit4: TDBEdit
+      Left = 248
+      Height = 23
+      Top = 56
+      Width = 120
+      DataField = 'TIMBRADO'
+      DataSource = dsCabecera
+      CharCase = ecNormal
+      MaxLength = 0
+      TabOrder = 8
+    end
+    object Numero: TLabel
+      AnchorSideLeft.Control = DBEdit2
+      AnchorSideBottom.Control = DBEdit2
+      Left = 136
+      Height = 13
+      Top = 43
+      Width = 44
+      Anchors = [akTop, akLeft, akBottom]
+      Caption = 'Numero'
+      ParentColor = False
+    end
+    object Timbrado: TLabel
+      AnchorSideLeft.Control = DBEdit4
+      AnchorSideBottom.Control = DBEdit4
+      Left = 248
+      Height = 15
+      Top = 41
+      Width = 52
+      Anchors = [akLeft, akBottom]
+      Caption = 'Timbrado'
+      ParentColor = False
+    end
+  end
+  inherited MainMenu1: TMainMenu[3]
+    inherited MenuAyuda: TMenuItem
+      inherited MenuItemAyuda: TMenuItem
+        OnClick = MenuItemAyudaClick
+      end
+    end
+  end
+  object XMLPropStorage1: TXMLPropStorage[4]
+    StoredValues = <    
+      item
+        Name = 'talonarioID'
+      end>
+    FileName = 'conf.xml'
+    OnSaveProperties = XMLPropStorage1SaveProperties
+    OnRestoreProperties = XMLPropStorage1RestoreProperties
+    left = 440
+    top = 96
+  end
+  object dsPersona: TDatasource[5]
+    DataSet = qryPersona
+    left = 456
+    top = 32
+  end
+  object qryPersona: TSQLQuery[6]
+    FieldDefs = <    
+      item
+        Name = 'ID'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'NOMBRE'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'APELLIDO'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'CEDULA'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'FECHANAC'
+        DataType = ftDate
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'SEXO'
+        DataType = ftString
+        Precision = -1
+        Size = 1
+      end    
+      item
+        Name = 'ESVEEDOR'
+        DataType = ftSmallint
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'ESINTERVENTOR'
+        DataType = ftSmallint
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'ESENCARGADO'
+        DataType = ftSmallint
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'NOMBRE_COMPLETO'
+        DataType = ftString
+        Precision = -1
+        Size = 511
+      end>
+    Database = SGCDDataModule.dbConn
+    Transaction = SGCDDataModule.sqlTran
+    SQL.Strings = (
+      'select * from V_PERSONAS_EXTERNAS'
+    )
+    Params = <>
+    left = 392
+    top = 28
+    object qryPersonaID: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qryPersonaNOMBRE: TStringField
+      DisplayWidth = 255
+      FieldKind = fkData
+      FieldName = 'NOMBRE'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 255
+    end
+    object qryPersonaAPELLIDO: TStringField
+      DisplayWidth = 255
+      FieldKind = fkData
+      FieldName = 'APELLIDO'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 255
+    end
+    object qryPersonaCEDULA: TStringField
+      DisplayWidth = 255
+      FieldKind = fkData
+      FieldName = 'CEDULA'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 255
+    end
+    object qryPersonaFECHANAC: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FECHANAC'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qryPersonaSEXO: TStringField
+      DisplayWidth = 1
+      FieldKind = fkData
+      FieldName = 'SEXO'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1
+    end
+    object qryPersonaESVEEDOR: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'ESVEEDOR'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qryPersonaESINTERVENTOR: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'ESINTERVENTOR'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qryPersonaESENCARGADO: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'ESENCARGADO'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qryPersonaNOMBRE_COMPLETO: TStringField
+      DisplayWidth = 511
+      FieldKind = fkData
+      FieldName = 'NOMBRE_COMPLETO'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 511
+    end
+  end
+  object qryFac: TSQLQuery[7]
+    FieldDefs = <    
+      item
+        Name = 'ID'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'TALONARIOID'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'NUMERO'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'FECHA_EMISION'
+        DataType = ftDate
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'CONTADO'
+        DataType = ftSmallint
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'VENCIMIENTO'
+        DataType = ftDate
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'PERSONAID'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'RUC'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'NOMBRE'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'DIRECCION'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'NOTA_REMISION'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'TELEFONO'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'SUBTOTAL_EXENTAS'
+        DataType = ftFloat
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'SUBTOTAL_IVA5'
+        DataType = ftFloat
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'SUBTOTAL_IVA10'
+        DataType = ftFloat
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'TOTAL'
+        DataType = ftFloat
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'IVA5'
+        DataType = ftFloat
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'IVA10'
+        DataType = ftFloat
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'IVA_TOTAL'
+        DataType = ftFloat
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'TIMBRADO'
+        DataType = ftString
+        Precision = -1
+        Size = 40
+      end>
+    Database = SGCDDataModule.dbConn
+    Transaction = SGCDDataModule.sqlTran
+    ReadOnly = True
+    SQL.Strings = (
+      'select * from facturacompra fac where fac.contado = 0'
+    )
+    Params = <>
+    left = 664
+    top = 28
+    object qryFacID: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object qryFacTALONARIOID: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'TALONARIOID'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qryFacNUMERO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NUMERO'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object qryFacFECHA_EMISION: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FECHA_EMISION'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object qryFacCONTADO: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'CONTADO'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object qryFacVENCIMIENTO: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'VENCIMIENTO'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qryFacPERSONAID: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'PERSONAID'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qryFacRUC: TStringField
+      DisplayWidth = 255
+      FieldKind = fkData
+      FieldName = 'RUC'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 255
+    end
+    object qryFacNOMBRE: TStringField
+      DisplayWidth = 255
+      FieldKind = fkData
+      FieldName = 'NOMBRE'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 255
+    end
+    object qryFacDIRECCION: TStringField
+      DisplayWidth = 255
+      FieldKind = fkData
+      FieldName = 'DIRECCION'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 255
+    end
+    object qryFacNOTA_REMISION: TStringField
+      DisplayWidth = 255
+      FieldKind = fkData
+      FieldName = 'NOTA_REMISION'
+      Index = 10
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 255
+    end
+    object qryFacTELEFONO: TStringField
+      DisplayWidth = 255
+      FieldKind = fkData
+      FieldName = 'TELEFONO'
+      Index = 11
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 255
+    end
+    object qryFacSUBTOTAL_EXENTAS: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'SUBTOTAL_EXENTAS'
+      Index = 12
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = -1
+    end
+    object qryFacSUBTOTAL_IVA5: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'SUBTOTAL_IVA5'
+      Index = 13
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = -1
+    end
+    object qryFacSUBTOTAL_IVA10: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'SUBTOTAL_IVA10'
+      Index = 14
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = -1
+    end
+    object qryFacTOTAL: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'TOTAL'
+      Index = 15
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = -1
+    end
+    object qryFacIVA5: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'IVA5'
+      Index = 16
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = -1
+    end
+    object qryFacIVA10: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'IVA10'
+      Index = 17
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = -1
+    end
+    object qryFacIVA_TOTAL: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'IVA_TOTAL'
+      Index = 18
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = -1
+    end
+    object qryFacTIMBRADO: TStringField
+      DisplayWidth = 40
+      FieldKind = fkData
+      FieldName = 'TIMBRADO'
+      Index = 19
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 40
+    end
+  end
+  object dsCabecera: TDatasource[8]
+    DataSet = qryCabecera
+    left = 641
+    top = 126
+  end
+  object dsDetalle: TDatasource[9]
+    DataSet = qryDetalle
+    left = 472
+    top = 288
+  end
+  object qryCabecera: TSQLQuery[10]
+    IndexName = 'DEFAULT_ORDER'
+    FieldDefs = <    
+      item
+        Name = 'ID'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'FACTURACOMPRAID'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'NUMERO'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'FECHA_EMISION'
+        DataType = ftDate
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'PERSONAID'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'NOMBRE'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'DIRECCION'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'TELEFONO'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'TOTAL'
+        DataType = ftFloat
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'TIMBRADO'
+        DataType = ftString
+        Precision = -1
+        Size = 40
+      end>
+    Database = SGCDDataModule.dbConn
+    Transaction = SGCDDataModule.sqlTran
+    SQL.Strings = (
+      'select * from RECIBO_COMPRA'
+    )
+    Params = <>
+    left = 583
+    top = 120
+    object qryCabeceraID: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      ReadOnly = False
+      Required = True
+    end
+    object qryCabeceraFACTURACOMPRAID: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FACTURACOMPRAID'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qryCabeceraNUMERO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NUMERO'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object qryCabeceraFECHA_EMISION: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FECHA_EMISION'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object qryCabeceraPERSONAID: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'PERSONAID'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qryCabeceraNOMBRE: TStringField
+      DisplayWidth = 255
+      FieldKind = fkData
+      FieldName = 'NOMBRE'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 255
+    end
+    object qryCabeceraDIRECCION: TStringField
+      DisplayWidth = 255
+      FieldKind = fkData
+      FieldName = 'DIRECCION'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 255
+    end
+    object qryCabeceraTELEFONO: TStringField
+      DisplayWidth = 255
+      FieldKind = fkData
+      FieldName = 'TELEFONO'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 255
+    end
+    object qryCabeceraTOTAL: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'TOTAL'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = -1
+    end
+    object qryCabeceraTIMBRADO: TStringField
+      DisplayWidth = 40
+      FieldKind = fkData
+      FieldName = 'TIMBRADO'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 40
+    end
+  end
+  object qryDetalle: TSQLQuery[11]
+    FieldDefs = <    
+      item
+        Name = 'ID'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'RECIBOCOMPID'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'FACTURACOMPID'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'CANTIDAD'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'DETALLE'
+        DataType = ftString
+        Precision = -1
+        Size = 1024
+      end    
+      item
+        Name = 'PRECIO_UNITARIO'
+        DataType = ftFloat
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'TOTAL'
+        DataType = ftFloat
+        Precision = -1
+        Size = 0
+      end>
+    Filtered = True
+    OnFilterRecord = qryDetalleFilterRecord
+    OnNewRecord = qryDetalleNewRecord
+    Database = SGCDDataModule.dbConn
+    Transaction = SGCDDataModule.sqlTran
+    SQL.Strings = (
+      'select * from recibo_comp_detalle'
+    )
+    Params = <>
+    left = 392
+    top = 288
+    object qryDetalleID: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object qryDetalleRECIBOCOMPID: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'RECIBOCOMPID'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object qryDetalleFACTURACOMPID: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FACTURACOMPID'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qryDetalleCANTIDAD: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'CANTIDAD'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object qryDetalleDETALLE: TStringField
+      DisplayWidth = 1024
+      FieldKind = fkData
+      FieldName = 'DETALLE'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 1024
+    end
+    object qryDetallePRECIO_UNITARIO: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'PRECIO_UNITARIO'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = -1
+    end
+    object qryDetalleTOTAL: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'TOTAL'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+      Precision = -1
+    end
+  end
+  object dsDeuda: TDatasource[12]
+    DataSet = qryDeuda
+    left = 624
+    top = 248
+  end
+  object qryDeuda: TSQLQuery[13]
+    FieldDefs = <    
+      item
+        Name = 'PERSONAID'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'DEUDAID'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'CANT'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'DETALLE'
+        DataType = ftString
+        Precision = -1
+        Size = 1024
+      end    
+      item
+        Name = 'PRECIO_UNITARIO'
+        DataType = ftFloat
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'EXENTA'
+        DataType = ftFloat
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'IVA5'
+        DataType = ftFloat
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'IVA10'
+        DataType = ftFloat
+        Precision = -1
+        Size = 0
+      end>
+    OnFilterRecord = qryDeudaFilterRecord
+    Database = SGCDDataModule.dbConn
+    Transaction = SGCDDataModule.sqlTran
+    ReadOnly = True
+    SQL.Strings = (
+      'select * from v_factura_x_alumno'
+      'where exenta is not null'
+    )
+    Params = <>
+    left = 560
+    top = 240
+    object qryDeudaPERSONAID: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'PERSONAID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qryDeudaDEUDAID: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'DEUDAID'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qryDeudaCANT: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'CANT'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qryDeudaDETALLE: TStringField
+      DisplayWidth = 1024
+      FieldKind = fkData
+      FieldName = 'DETALLE'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1024
+    end
+    object qryDeudaPRECIO_UNITARIO: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'PRECIO_UNITARIO'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+      Precision = -1
+    end
+    object qryDeudaEXENTA: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'EXENTA'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+      Precision = -1
+    end
+    object qryDeudaIVA5: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'IVA5'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+      Precision = -1
+    end
+    object qryDeudaIVA10: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'IVA10'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+      Precision = -1
+    end
+  end
+  object qryNumero: TSQLQuery[14]
+    FieldDefs = <    
+      item
+        Name = 'NUM'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end>
+    Database = SGCDDataModule.dbConn
+    Transaction = SGCDDataModule.sqlTran
+    ReadOnly = True
+    SQL.Strings = (
+      'select * from GET_NUMERO_RECIBO(:TALONARIOID)'
+    )
+    Params = <    
+      item
+        DataType = ftLargeint
+        Name = 'TALONARIOID'
+        ParamType = ptInput
+      end>
+    left = 520
+    top = 16
+    object qryNumeroNUM: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NUM'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+end

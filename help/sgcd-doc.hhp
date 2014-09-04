@@ -1,0 +1,20 @@
+[OPTIONS]
+Compatibility=1.1 or later
+Compiled file=sgcd-doc.chm
+Contents file=PhpstormProjects\DocuSGCD\Table of Contents.hhc
+Default topic=C:\Users\Home\PhpstormProjects\DocuSGCD\abm.html
+Display compile progress=No
+Index file=PhpstormProjects\DocuSGCD\html-help\Index.hhk
+Language=0x3c0a Español (Paraguay)
+
+
+[FILES]
+PhpstormProjects\DocuSGCD\abm.html
+PhpstormProjects\DocuSGCD\alumno.html
+PhpstormProjects\DocuSGCD\index.html
+PhpstormProjects\DocuSGCD\pers-externas.html
+PhpstormProjects\DocuSGCD\personal.html
+PhpstormProjects\DocuSGCD\pers-todas.html
+
+[INFOTYPES]
+

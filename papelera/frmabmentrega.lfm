@@ -1,0 +1,13 @@
+inherited AbmEntrega: TAbmEntrega
+  ClientHeight = 461
+  inherited PanelEliminar: TPanel
+    inherited DBNavigatorEliminar: TDBNavigator
+      Hints.Strings = (      )
+    end
+  end
+  inherited PanelModificar: TPanel
+    inherited DBNavigatorModificar: TDBNavigator
+      Hints.Strings = (      )
+    end
+  end
+end

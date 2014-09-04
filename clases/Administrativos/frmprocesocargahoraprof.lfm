@@ -1,0 +1,587 @@
+inherited procesoCargaHoraProf: TprocesoCargaHoraProf
+  Left = 330
+  Height = 493
+  Top = 109
+  Width = 867
+  Caption = 'Registro de Asistencia'
+  ClientHeight = 473
+  ClientWidth = 867
+  OnClose = FormClose
+  OnCreate = FormCreate
+  OnShow = FormShow
+  inherited ButtonPanel1: TButtonPanel
+    Top = 433
+    Width = 855
+  end
+  object GroupBox1: TGroupBox[1]
+    Left = 6
+    Height = 381
+    Top = 3
+    Width = 847
+    Caption = 'Detalles de asistencia'
+    ClientHeight = 363
+    ClientWidth = 843
+    TabOrder = 1
+    object DBGrid1: TDBGrid
+      Left = 8
+      Height = 328
+      Top = 5
+      Width = 832
+      Color = clWindow
+      Columns = <      
+        item
+          Title.Caption = 'Número'
+          FieldName = 'NUMERO'
+        end      
+        item
+          Title.Caption = 'E/S'
+          FieldName = 'IN_OUT'
+        end      
+        item
+          PickList.Strings = (
+            'pacosta'
+            'msantander'
+            'abenitez'
+            'lmora'
+            'nramos'
+            'vgaleano'
+            'lpeña'
+            'lpaniagua'
+            'rrolon'
+            'jmiltos'
+            'aacosta'
+            'laguilera'
+            'halvarez'
+            'ndarosa'
+            'ecords'
+            'skronas'
+            'mmartinez'
+            'mmartinezca'
+            'moviedo'
+            'lramirez'
+            'rsamudio'
+            'dsilvero'
+            'cvega'
+            'vcabrera'
+            'mcañete'
+            'mdure'
+            'agray'
+            'imartinez'
+            'amendoza'
+            'mmendoza'
+            'fparedes'
+            'krojas'
+            'gsosa'
+            'esoto'
+            'ctorres'
+            'jtorres'
+            'mperez'
+            'amendieta'
+            'aoliver'
+            'rsanchez'
+            'nvargas'
+            'fvirgilli'
+            'poviedo'
+            'ajacosta'
+            'ibeauvais'
+            'jledesma'
+            '4284486'
+            'saquino'
+            '910640'
+            '621816'
+            '1'
+            '121313'
+          )
+          Title.Caption = 'Cédula'
+          Width = 120
+          FieldName = 'CEDULA'
+        end      
+        item
+          PickList.Strings = (
+            'Pedro Acosta'
+            'Mario Santander'
+            'Angelica Benitez'
+            'Liz Mora'
+            'Natalia Ramos'
+            'Viviana Galeano'
+            'Liz Peña'
+            'Lizzie Paniagua'
+            'Rocio Rolón'
+            'Julian Miltos'
+            'Ana Maria Acosta Ortellado'
+            'Laura Esmilce Aguilera Montiel'
+            'Hannah Giselle Alvarez Agüero'
+            'Nadia Patricia Da Rosa Baez'
+            'Eliana Gisell Cords'
+            'Sandra Maria Patricia Kronas Oviedo'
+            'Marians Martinez Montenegro'
+            'Maria Luisa Martinez Caballero'
+            'Maria Paola Oviedo Caceres'
+            'Lorena Estefany Ramirez Delgado'
+            'Ruth Karina Samudia Benitez'
+            'Dora Margarita Silvero Chamorro'
+            'Cecilia Paola Vega Chavez'
+            'Veronica Alejandra Cabrera Aquino'
+            'Maria del Carmen Cañete Torres'
+            'Maria Alejandra Elizabeth Duré Aranda'
+            'Alejandra Linda Gray Murray'
+            'Ivonne Montserrat Martinez Maqueda'
+            'Ana Lucia Mendoza Ruiz Diaz'
+            'María Victoria Mendoza Ruiz Díaz'
+            'Fabiana Ismelda Paredes Ramírez'
+            'Karen KAtiana Rojas Roa'
+            'Génesis Esther Sosa Fernández'
+            'Evelyn Libanes Soto González'
+            'Claudia Beatriz Torres Rivas'
+            'Jessica Basilia Torres Martínez'
+            'Manuel Pérez Vargas'
+            'Ana Carolina Mendieta Castillo'
+            'Alma María Judith Oliver Benítez'
+            'Rebeca Sánchez Giménez'
+            'Norma Beatriz Vargas Zeballos'
+            'Fiorella Virgilli Labella'
+            'Pedro Pablo Oviedo'
+            'Alcides Javier Acosta'
+            'Ives Maurice  Beauvais'
+            'Juan Antonio Ledesma Jorgge'
+            'Rafael Alejandro Aquino Silva'
+            'Santiago Javier Aquino Silva'
+            'MARIA IRENE SILVA DE AQUINO'
+            'Mario Luis Aquino Trinidad'
+            'Juana Pabla  Carrillo de Lopez'
+            'Luis Perez Pucho'
+          )
+          Title.Caption = 'Nombre y Apellido'
+          Width = 300
+          FieldName = 'NOMBRECOMPLETO'
+        end      
+        item
+          Title.Caption = 'Fecha y Hora'
+          FieldName = 'DATETIME'
+        end>
+      DataSource = dsCabecera
+      TabOrder = 0
+    end
+    object DBNavigator1: TDBNavigator
+      AnchorSideBottom.Side = asrBottom
+      Left = 8
+      Height = 25
+      Top = 335
+      Width = 241
+      Anchors = [akLeft, akBottom]
+      BevelOuter = bvNone
+      BorderSpacing.Around = 8
+      ChildSizing.EnlargeHorizontal = crsScaleChilds
+      ChildSizing.EnlargeVertical = crsScaleChilds
+      ChildSizing.ShrinkHorizontal = crsScaleChilds
+      ChildSizing.ShrinkVertical = crsScaleChilds
+      ChildSizing.Layout = cclLeftToRightThenTopToBottom
+      ChildSizing.ControlsPerLine = 100
+      ClientHeight = 25
+      ClientWidth = 241
+      ConfirmDelete = False
+      DataSource = dsCabecera
+      Options = []
+      TabOrder = 1
+      VisibleButtons = [nbFirst, nbPrior, nbNext, nbLast, nbInsert, nbDelete, nbEdit, nbPost, nbCancel]
+    end
+  end
+  object Button2: TButton[2]
+    Left = 16
+    Height = 25
+    Top = 400
+    Width = 136
+    Caption = 'Seleccionar Archivo'
+    OnClick = Button2Click
+    TabOrder = 2
+  end
+  object Button1: TButton[3]
+    Left = 159
+    Height = 25
+    Top = 400
+    Width = 200
+    Caption = 'Cargar desde Archivo Seleccionado'
+    Enabled = False
+    OnClick = Button1Click
+    TabOrder = 3
+  end
+  object lblArchivoSeleccionado: TLabel[4]
+    Left = 384
+    Height = 15
+    Top = 404
+    Width = 47
+    Caption = 'Archivo: '
+    ParentColor = False
+  end
+  object lblNombreArchivoSeleccionado: TLabel[5]
+    Left = 440
+    Height = 1
+    Top = 404
+    Width = 1
+    ParentColor = False
+  end
+  object btnReporte: TButton[6]
+    Left = 712
+    Height = 25
+    Top = 400
+    Width = 99
+    Caption = 'Reporte'
+    OnClick = btnReporteClick
+    TabOrder = 4
+  end
+  inherited MainMenu1: TMainMenu[7]
+    inherited MenuAyuda: TMenuItem
+      inherited MenuItemAyuda: TMenuItem
+        OnClick = MenuItemAyudaClick
+      end
+    end
+  end
+  object qryCabecera: TSQLQuery[8]
+    FieldDefs = <    
+      item
+        Name = 'ID'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'NUMERO'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'TMNO'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'ENMO'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'PERSONAID'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'GMNO'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'MODE'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'IN_OUT'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'ANTIPASS'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'DATETIME'
+        DataType = ftDateTime
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'FECHA'
+        DataType = ftDate
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'HORA'
+        DataType = ftTime
+        Precision = -1
+        Size = 0
+      end>
+    Database = SGCDDataModule.dbConn
+    Transaction = SGCDDataModule.sqlTran
+    SQL.Strings = (
+      'select * from ASISTENCIA2;'
+    )
+    Params = <>
+    left = 216
+    top = 104
+    object qryCabeceraID: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      ReadOnly = False
+      Required = True
+    end
+    object qryCabeceraNUMERO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NUMERO'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qryCabeceraTMNO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'TMNO'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qryCabeceraENMO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'ENMO'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qryCabeceraPERSONAID: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'PERSONAID'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qryCabeceraGMNO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'GMNO'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qryCabeceraMODE: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'MODE'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qryCabeceraIN_OUT: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'IN_OUT'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qryCabeceraANTIPASS: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'ANTIPASS'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qryCabeceraDATETIME: TDateTimeField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'DATETIME'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object StringField1: TStringField
+      DisplayWidth = 511
+      FieldKind = fkLookup
+      FieldName = 'NOMBRECOMPLETO'
+      Index = 10
+      KeyFields = 'PERSONAID'
+      LookupCache = False
+      LookupDataSet = qryPersona
+      LookupKeyFields = 'ID'
+      LookupResultField = 'NOMBRECOMPLETO'
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 511
+    end
+    object StringField2: TStringField
+      DisplayWidth = 255
+      FieldKind = fkLookup
+      FieldName = 'CEDULA'
+      Index = 11
+      KeyFields = 'PERSONAID'
+      LookupCache = False
+      LookupDataSet = qryPersona
+      LookupKeyFields = 'ID'
+      LookupResultField = 'CEDULA'
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 255
+    end
+    object qryCabeceraFECHA: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FECHA'
+      Index = 12
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qryCabeceraHORA: TTimeField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'HORA'
+      Index = 13
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object dsCabecera: TDatasource[9]
+    DataSet = qryCabecera
+    OnDataChange = dsCabeceraDataChange
+    left = 144
+    top = 72
+  end
+  object OpenDialog1: TOpenDialog[10]
+    left = 680
+    top = 248
+  end
+  object qryPersona: TSQLQuery[11]
+    FieldDefs = <    
+      item
+        Name = 'ID'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'NOMBRE'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'APELLIDO'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'CEDULA'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'FECHANAC'
+        DataType = ftDate
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'SEXO'
+        DataType = ftString
+        Precision = -1
+        Size = 1
+      end    
+      item
+        Name = 'NOMBRECOMPLETO'
+        DataType = ftString
+        Precision = -1
+        Size = 511
+      end>
+    Database = SGCDDataModule.dbConn
+    Transaction = SGCDDataModule.sqlTran
+    SQL.Strings = (
+      'select * from persona'
+    )
+    Params = <>
+    left = 424
+    top = 256
+    object qryPersonaID: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object qryPersonaCEDULA: TStringField
+      DisplayWidth = 255
+      FieldKind = fkData
+      FieldName = 'CEDULA'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 255
+    end
+    object qryPersonaNOMBRECOMPLETO: TStringField
+      DisplayWidth = 511
+      FieldKind = fkData
+      FieldName = 'NOMBRECOMPLETO'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 511
+    end
+  end
+  object dsPersona: TDatasource[12]
+    DataSet = qryPersona
+    OnDataChange = dsCabeceraDataChange
+    left = 352
+    top = 224
+  end
+  object frDBDataSet1: TfrDBDataSet[13]
+    DataSet = qryCabecera
+    left = 496
+    top = 200
+  end
+  object frReport1: TfrReport[14]
+    DefaultCopies = 0
+    InitialZoom = pzDefault
+    Options = []
+    PreviewButtons = [pbZoom, pbLoad, pbSave, pbPrint, pbFind, pbHelp, pbExit]
+    DataType = dtDataSet
+    left = 517
+    top = 381
+  end
+end

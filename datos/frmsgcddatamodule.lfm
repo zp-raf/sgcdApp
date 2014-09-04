@@ -1,0 +1,42 @@
+object SGCDDataModule: TSGCDDataModule
+  OldCreateOrder = False
+  Height = 223
+  HorizontalOffset = 725
+  VerticalOffset = 405
+  Width = 347
+  object dbConn: TIBConnection
+    Connected = True
+    LoginPrompt = False
+    AfterConnect = dbConnAfterConnect
+    BeforeConnect = dbConnBeforeConnect
+    DatabaseName = 'SGCD.FDB'
+    KeepConnection = False
+    Password = 'masterkey'
+    Transaction = sqlTran
+    UserName = 'SYSDBA'
+    HostName = 'localhost'
+    LogEvents = []
+    left = 96
+    top = 64
+  end
+  object sqlTran: TSQLTransaction
+    Active = False
+    Action = caNone
+    Database = dbConn
+    left = 40
+    top = 64
+  end
+  object dsAux: TDatasource
+    left = 24
+    top = 16
+  end
+  object qryAux: TSQLQuery
+    FieldDefs = <>
+    Database = dbConn
+    Transaction = sqlTran
+    Params = <>
+    DataSource = dsAux
+    left = 94
+    top = 26
+  end
+end

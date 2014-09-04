@@ -1,0 +1,722 @@
+inherited AbmPersonas: TAbmPersonas
+  Left = 558
+  Height = 613
+  Top = 232
+  Width = 800
+  ClientHeight = 593
+  ClientWidth = 800
+  Constraints.MinHeight = 600
+  Constraints.MinWidth = 800
+  OnCreate = FormCreate
+  inherited ButtonPanel1: TButtonPanel
+    Top = 553
+    Width = 788
+  end
+  inherited PanelNuevo: TPanel
+    Height = 547
+    Width = 800
+    ClientHeight = 547
+    ClientWidth = 800
+    object GroupBoxBasica: TGroupBox[0]
+      Left = 8
+      Height = 176
+      Top = 0
+      Width = 784
+      Anchors = [akTop, akLeft, akRight]
+      Caption = 'Informacion Basica'
+      ClientHeight = 158
+      ClientWidth = 780
+      TabOrder = 0
+      object ButtonInfoContacto: TButton
+        Left = 626
+        Height = 25
+        Hint = 'Una vez que rellene la información básica de contacto puede agregar la información de contacto'
+        Top = 118
+        Width = 144
+        AutoSize = True
+        Caption = 'Agregar Info Contacto'
+        OnClick = ButtonInfoContactoClick
+        ParentShowHint = False
+        ShowHint = True
+        TabOrder = 5
+      end
+      object RadioGroupSexo: TRadioGroup
+        Left = 410
+        Height = 65
+        Top = 8
+        Width = 88
+        AutoFill = True
+        Caption = 'Sexo'
+        ChildSizing.LeftRightSpacing = 6
+        ChildSizing.TopBottomSpacing = 6
+        ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
+        ChildSizing.EnlargeVertical = crsHomogenousChildResize
+        ChildSizing.ShrinkHorizontal = crsScaleChilds
+        ChildSizing.ShrinkVertical = crsScaleChilds
+        ChildSizing.Layout = cclLeftToRightThenTopToBottom
+        ChildSizing.ControlsPerLine = 1
+        ClientHeight = 47
+        ClientWidth = 84
+        TabOrder = 1
+        object RadioButtonM: TRadioButton
+          Left = 6
+          Height = 17
+          Top = 6
+          Width = 72
+          Caption = '&Masculino'
+          TabOrder = 0
+        end
+        object RadioButtonF: TRadioButton
+          Left = 6
+          Height = 18
+          Top = 23
+          Width = 72
+          Caption = '&Femenino'
+          Checked = True
+          TabOrder = 1
+          TabStop = True
+        end
+      end
+      object LabelNuevoFechaNac: TLabel
+        Left = 258
+        Height = 15
+        Top = 104
+        Width = 124
+        Caption = 'Nacimiento (requerido)'
+        ParentColor = False
+      end
+      object DateEditFechaNac: TDateEdit
+        Left = 258
+        Height = 23
+        Top = 120
+        Width = 64
+        CalendarDisplaySettings = [dsShowHeadings, dsShowDayNames]
+        OKCaption = 'OK'
+        CancelCaption = 'Cancel'
+        DateOrder = doDMY
+        ButtonWidth = 23
+        CharCase = ecNormal
+        NumGlyphs = 1
+        MaxLength = 10
+        TabOrder = 4
+      end
+      object LabeledEditNuevoCedula: TLabeledEdit
+        Left = 18
+        Height = 23
+        Top = 120
+        Width = 227
+        EditLabel.AnchorSideLeft.Control = LabeledEditNuevoCedula
+        EditLabel.AnchorSideRight.Control = LabeledEditNuevoCedula
+        EditLabel.AnchorSideRight.Side = asrBottom
+        EditLabel.AnchorSideBottom.Control = LabeledEditNuevoCedula
+        EditLabel.Left = 18
+        EditLabel.Height = 15
+        EditLabel.Top = 102
+        EditLabel.Width = 227
+        EditLabel.Caption = 'Cedula (requerido)'
+        EditLabel.ParentColor = False
+        TabOrder = 3
+      end
+      object LabeledEditNuevoApellidos: TLabeledEdit
+        Left = 18
+        Height = 23
+        Top = 72
+        Width = 364
+        EditLabel.AnchorSideLeft.Control = LabeledEditNuevoApellidos
+        EditLabel.AnchorSideRight.Control = LabeledEditNuevoApellidos
+        EditLabel.AnchorSideRight.Side = asrBottom
+        EditLabel.AnchorSideBottom.Control = LabeledEditNuevoApellidos
+        EditLabel.Left = 18
+        EditLabel.Height = 15
+        EditLabel.Top = 54
+        EditLabel.Width = 364
+        EditLabel.Caption = 'Apellidos (requerido)'
+        EditLabel.ParentColor = False
+        TabOrder = 2
+      end
+      object LabeledEditNuevoNombres: TLabeledEdit
+        Left = 18
+        Height = 23
+        Top = 24
+        Width = 364
+        EditLabel.AnchorSideLeft.Control = LabeledEditNuevoNombres
+        EditLabel.AnchorSideRight.Control = LabeledEditNuevoNombres
+        EditLabel.AnchorSideRight.Side = asrBottom
+        EditLabel.AnchorSideBottom.Control = LabeledEditNuevoNombres
+        EditLabel.Left = 18
+        EditLabel.Height = 15
+        EditLabel.Top = 6
+        EditLabel.Width = 364
+        EditLabel.Caption = 'Nombres (requerido)'
+        EditLabel.ParentColor = False
+        TabOrder = 0
+      end
+    end
+    object GroupBoxContacto: TGroupBox[1]
+      Left = 8
+      Height = 376
+      Top = 176
+      Width = 784
+      Anchors = [akTop, akLeft, akRight, akBottom]
+      Caption = 'Informacion de Contacto'
+      ClientHeight = 358
+      ClientWidth = 780
+      TabOrder = 1
+      object DBGridDir: TDBGrid
+        Left = 10
+        Height = 129
+        Hint = 'Aqui puede editar la informacion de contacto, previamente rellenando los datos solicitados'
+        Top = 24
+        Width = 754
+        Anchors = [akTop, akLeft, akRight]
+        Color = clWindow
+        Columns = <>
+        DataSource = DatasourceDir
+        Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgAutoSizeColumns]
+        Scrollbars = ssAutoBoth
+        ShowHint = True
+        TabOrder = 0
+      end
+      object LabelDirecciones: TLabel
+        AnchorSideLeft.Control = DBGridDir
+        AnchorSideBottom.Control = DBGridDir
+        Left = 10
+        Height = 15
+        Top = 9
+        Width = 61
+        Anchors = [akLeft, akBottom]
+        Caption = 'Direcciones'
+        ParentColor = False
+      end
+      object DBGridTel: TDBGrid
+        Left = 10
+        Height = 128
+        Hint = 'Aqui puede editar la informacion de contacto, previamente rellenando los datos solicitados'
+        Top = 200
+        Width = 754
+        Anchors = [akTop, akLeft, akRight]
+        Color = clWindow
+        Columns = <>
+        DataSource = DatasourceTel
+        Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgAutoSizeColumns]
+        Scrollbars = ssAutoBoth
+        ShowHint = True
+        TabOrder = 1
+      end
+      object LabelTelefonos: TLabel
+        AnchorSideLeft.Control = DBGridTel
+        AnchorSideBottom.Control = DBGridTel
+        Left = 10
+        Height = 15
+        Top = 185
+        Width = 52
+        Anchors = [akLeft, akBottom]
+        Caption = 'Telefonos'
+        ParentColor = False
+      end
+      object DBNavigatorDir: TDBNavigator
+        AnchorSideTop.Control = DBGridDir
+        AnchorSideTop.Side = asrBottom
+        AnchorSideRight.Control = DBGridDir
+        AnchorSideRight.Side = asrBottom
+        Left = 523
+        Height = 25
+        Top = 153
+        Width = 241
+        Anchors = [akTop, akRight]
+        BevelOuter = bvNone
+        ChildSizing.EnlargeHorizontal = crsScaleChilds
+        ChildSizing.EnlargeVertical = crsScaleChilds
+        ChildSizing.ShrinkHorizontal = crsScaleChilds
+        ChildSizing.ShrinkVertical = crsScaleChilds
+        ChildSizing.Layout = cclLeftToRightThenTopToBottom
+        ChildSizing.ControlsPerLine = 100
+        ClientHeight = 25
+        ClientWidth = 241
+        DataSource = DatasourceDir
+        Options = []
+        TabOrder = 2
+        VisibleButtons = [nbFirst, nbPrior, nbNext, nbLast, nbInsert, nbDelete, nbEdit, nbPost, nbCancel]
+      end
+      object DBNavigatorTel: TDBNavigator
+        AnchorSideTop.Control = DBGridTel
+        AnchorSideTop.Side = asrBottom
+        AnchorSideRight.Control = DBGridTel
+        AnchorSideRight.Side = asrBottom
+        Left = 523
+        Height = 27
+        Top = 328
+        Width = 241
+        Anchors = [akTop, akRight]
+        BevelOuter = bvNone
+        ChildSizing.EnlargeHorizontal = crsScaleChilds
+        ChildSizing.EnlargeVertical = crsScaleChilds
+        ChildSizing.ShrinkHorizontal = crsScaleChilds
+        ChildSizing.ShrinkVertical = crsScaleChilds
+        ChildSizing.Layout = cclLeftToRightThenTopToBottom
+        ChildSizing.ControlsPerLine = 100
+        ClientHeight = 27
+        ClientWidth = 241
+        DataSource = DatasourceTel
+        Options = []
+        TabOrder = 3
+        VisibleButtons = [nbFirst, nbPrior, nbNext, nbLast, nbInsert, nbDelete, nbEdit, nbPost, nbCancel]
+      end
+    end
+  end
+  inherited PanelEliminar: TPanel
+    Height = 547
+    Width = 800
+    ClientHeight = 547
+    ClientWidth = 800
+    inherited DBGrid1: TDBGrid
+      Height = 403
+      Width = 738
+      Columns = <      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'NOMBRE'
+          FieldName = 'NOMBRE'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'APELLIDO'
+          Width = 68
+          FieldName = 'APELLIDO'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'CEDULA'
+          Width = 59
+          FieldName = 'CEDULA'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'FECHANAC'
+          Width = 77
+          FieldName = 'FECHANAC'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'SEXO'
+          Width = 43
+          FieldName = 'SEXO'
+        end>
+    end
+    inherited DBNavigatorEliminar: TDBNavigator
+      Top = 475
+      Hints.Strings = (      )
+    end
+  end
+  inherited PanelModificar: TPanel
+    Height = 547
+    Width = 800
+    ClientHeight = 547
+    ClientWidth = 800
+    inherited DBGrid2: TDBGrid
+      Height = 403
+      Width = 738
+      Columns = <      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'NOMBRE'
+          FieldName = 'NOMBRE'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'APELLIDO'
+          Width = 68
+          FieldName = 'APELLIDO'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'CEDULA'
+          Width = 59
+          FieldName = 'CEDULA'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'FECHANAC'
+          Width = 77
+          FieldName = 'FECHANAC'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'SEXO'
+          Width = 43
+          FieldName = 'SEXO'
+        end>
+    end
+    inherited DBNavigatorModificar: TDBNavigator
+      Top = 475
+      Hints.Strings = (      )
+    end
+  end
+  inherited MainMenu1: TMainMenu
+    left = 744
+    inherited MenuItemAcciones: TMenuItem
+      inherited MenuItemModificar: TMenuItem
+        OnClick = MenuItemModificarClick
+      end
+    end
+    inherited MenuAyuda: TMenuItem
+      inherited MenuItemAyuda: TMenuItem
+        OnClick = MenuItemAyudaClick
+      end
+    end
+  end
+  inherited Datasource1: TDatasource
+    left = 352
+    top = 16
+  end
+  inherited SQLQuery1: TSQLQuery
+    FieldDefs = <    
+      item
+        Name = 'ID'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'NOMBRE'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'APELLIDO'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'CEDULA'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'FECHANAC'
+        DataType = ftDate
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'SEXO'
+        DataType = ftString
+        Precision = -1
+        Size = 1
+      end>
+    SQL.Strings = (
+      'SELECT * FROM PERSONA'
+    )
+    left = 352
+    top = 56
+    object SQLQuery1ID: TLongintField[0]
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      ReadOnly = False
+      Required = True
+    end
+    object SQLQuery1NOMBRE: TStringField[1]
+      DisplayWidth = 255
+      FieldKind = fkData
+      FieldName = 'NOMBRE'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 255
+    end
+    object SQLQuery1APELLIDO: TStringField[2]
+      DisplayWidth = 255
+      FieldKind = fkData
+      FieldName = 'APELLIDO'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 255
+    end
+    object SQLQuery1CEDULA: TStringField[3]
+      DisplayWidth = 255
+      FieldKind = fkData
+      FieldName = 'CEDULA'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 255
+    end
+    object SQLQuery1FECHANAC: TDateField[4]
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FECHANAC'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object SQLQuery1SEXO: TStringField[5]
+      DisplayWidth = 1
+      FieldKind = fkData
+      FieldName = 'SEXO'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 1
+    end
+  end
+  object SQLQueryDir: TSQLQuery[8]
+    FieldDefs = <    
+      item
+        Name = 'ID'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'IDPERSONA'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'DIRECCION'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'CIUDAD'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'BARRIO'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'DEPARTAMENTO'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'DESCRIPCION'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end>
+    AfterInsert = SQLQueryDirAfterInsert
+    OnFilterRecord = SQLQueryDirFilterRecord
+    Database = SGCDDataModule.dbConn
+    Transaction = SGCDDataModule.sqlTran
+    SQL.Strings = (
+      'SELECT * FROM DIRECCION'
+    )
+    Params = <>
+    left = 136
+    top = 248
+    object SQLQueryDirID: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      ReadOnly = False
+      Required = False
+    end
+    object SQLQueryDirIDPERSONA: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'IDPERSONA'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      ReadOnly = False
+      Required = True
+    end
+    object SQLQueryDirDIRECCION: TStringField
+      DisplayWidth = 255
+      FieldKind = fkData
+      FieldName = 'DIRECCION'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 255
+    end
+    object SQLQueryDirCIUDAD: TStringField
+      DisplayWidth = 255
+      FieldKind = fkData
+      FieldName = 'CIUDAD'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 255
+    end
+    object SQLQueryDirBARRIO: TStringField
+      DisplayWidth = 255
+      FieldKind = fkData
+      FieldName = 'BARRIO'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 255
+    end
+    object SQLQueryDirDEPARTAMENTO: TStringField
+      DisplayWidth = 255
+      FieldKind = fkData
+      FieldName = 'DEPARTAMENTO'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 255
+    end
+    object SQLQueryDirDESCRIPCION: TStringField
+      DisplayWidth = 255
+      FieldKind = fkData
+      FieldName = 'DESCRIPCION'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 255
+    end
+  end
+  object SQLQueryTel: TSQLQuery[9]
+    FieldDefs = <    
+      item
+        Name = 'ID'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'IDPERSONA'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'PREFIJO'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'NUMERO'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'DESCRIPCION'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end>
+    AfterInsert = SQLQueryTelAfterInsert
+    OnFilterRecord = SQLQueryTelFilterRecord
+    Database = SGCDDataModule.dbConn
+    Transaction = SGCDDataModule.sqlTran
+    SQL.Strings = (
+      'SELECT * FROM TELEFONO'
+    )
+    Params = <>
+    left = 288
+    top = 392
+    object SQLQueryTelID: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      ReadOnly = False
+      Required = False
+    end
+    object SQLQueryTelIDPERSONA: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'IDPERSONA'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      ReadOnly = False
+      Required = True
+    end
+    object SQLQueryTelPREFIJO: TStringField
+      DisplayWidth = 255
+      FieldKind = fkData
+      FieldName = 'PREFIJO'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 255
+    end
+    object SQLQueryTelNUMERO: TStringField
+      DisplayWidth = 255
+      FieldKind = fkData
+      FieldName = 'NUMERO'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 255
+    end
+    object SQLQueryTelDESCRIPCION: TStringField
+      DisplayWidth = 255
+      FieldKind = fkData
+      FieldName = 'DESCRIPCION'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 255
+    end
+  end
+  object DatasourceDir: TDatasource[10]
+    DataSet = SQLQueryDir
+    left = 216
+    top = 248
+  end
+  object DatasourceTel: TDatasource[11]
+    DataSet = SQLQueryTel
+    left = 352
+    top = 392
+  end
+  object qryDetalle: TSQLQuery[12]
+    FieldDefs = <>
+    Params = <>
+    left = 573
+    top = 18
+  end
+end

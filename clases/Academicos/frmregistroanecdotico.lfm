@@ -1,0 +1,485 @@
+inherited AbmRegistroAnecdotico: TAbmRegistroAnecdotico
+  Left = 593
+  Top = 214
+  Caption = 'Registro Anecdótico'
+  ClientHeight = 461
+  OnCreate = FormCreate
+  inherited PanelNuevo: TPanel
+    object DBGrid3: TDBGrid[0]
+      Left = 8
+      Height = 96
+      Top = 56
+      Width = 622
+      Anchors = [akTop, akLeft, akRight, akBottom]
+      Color = clWindow
+      Columns = <      
+        item
+          Title.Caption = 'NOMBRECOMPLETO'
+          Width = 127
+          FieldName = 'NOMBRECOMPLETO'
+        end      
+        item
+          Title.Caption = 'CEDULA'
+          Width = 59
+          FieldName = 'CEDULA'
+        end>
+      DataSource = dsal
+      Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgAutoSizeColumns]
+      ReadOnly = True
+      TabOrder = 0
+    end
+    object DateEdit1: TDateEdit[1]
+      Left = 8
+      Height = 23
+      Top = 184
+      Width = 80
+      CalendarDisplaySettings = [dsShowHeadings, dsShowDayNames]
+      OKCaption = 'OK'
+      CancelCaption = 'Cancel'
+      DateOrder = doDMY
+      ButtonWidth = 23
+      Anchors = [akLeft, akBottom]
+      CharCase = ecNormal
+      NumGlyphs = 1
+      MaxLength = 10
+      TabOrder = 1
+    end
+    object DBMemo1: TDBMemo[2]
+      Left = 8
+      Height = 72
+      Top = 232
+      Width = 622
+      Anchors = [akLeft, akRight, akBottom]
+      DataField = 'CONTEXTO'
+      DataSource = Datasource1
+      TabOrder = 2
+    end
+    object DBMemo2: TDBMemo[3]
+      Left = 8
+      Height = 72
+      Top = 328
+      Width = 622
+      Anchors = [akLeft, akRight, akBottom]
+      DataField = 'EVENTO'
+      DataSource = Datasource1
+      TabOrder = 3
+    end
+    object Fecha: TLabel[4]
+      AnchorSideLeft.Control = DateEdit1
+      AnchorSideBottom.Control = DateEdit1
+      Left = 8
+      Height = 15
+      Top = 169
+      Width = 93
+      Anchors = [akLeft, akBottom]
+      Caption = 'Fecha (requerido)'
+      ParentColor = False
+    end
+    object Contexto: TLabel[5]
+      AnchorSideLeft.Control = DBMemo1
+      AnchorSideBottom.Control = DBMemo1
+      Left = 8
+      Height = 15
+      Top = 217
+      Width = 48
+      Anchors = [akLeft, akBottom]
+      Caption = 'Contexto'
+      ParentColor = False
+    end
+    object Evento: TLabel[6]
+      AnchorSideLeft.Control = DBMemo2
+      AnchorSideBottom.Control = DBMemo2
+      Left = 8
+      Height = 15
+      Top = 313
+      Width = 98
+      Anchors = [akLeft, akBottom]
+      Caption = 'Evento (requerido)'
+      ParentColor = False
+    end
+    object LabeledEdit1: TLabeledEdit[7]
+      AnchorSideLeft.Control = DBGrid3
+      AnchorSideBottom.Control = DBGrid3
+      Left = 8
+      Height = 23
+      Top = 29
+      Width = 336
+      Anchors = [akLeft, akBottom]
+      BorderSpacing.Bottom = 4
+      EditLabel.AnchorSideLeft.Control = LabeledEdit1
+      EditLabel.AnchorSideRight.Control = LabeledEdit1
+      EditLabel.AnchorSideRight.Side = asrBottom
+      EditLabel.AnchorSideBottom.Control = LabeledEdit1
+      EditLabel.Left = 8
+      EditLabel.Height = 15
+      EditLabel.Top = 11
+      EditLabel.Width = 336
+      EditLabel.Caption = 'Escriba una palabra para filtrar los resultados'
+      EditLabel.ParentColor = False
+      TabOrder = 4
+      OnChange = LabeledEdit1Change
+    end
+  end
+  inherited PanelEliminar: TPanel
+    inherited DBGrid1: TDBGrid
+      Columns = <      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'NOMBRECOMPLETO'
+          Width = 127
+          FieldName = 'NOMBRECOMPLETO'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'CEDULA'
+          Width = 59
+          FieldName = 'CEDULA'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'FECHA'
+          Width = 52
+          FieldName = 'FECHA'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'CONTEXTO'
+          Width = 77
+          FieldName = 'CONTEXTO'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'EVENTO'
+          Width = 59
+          FieldName = 'EVENTO'
+        end>
+    end
+    inherited DBNavigatorEliminar: TDBNavigator
+      Hints.Strings = (      )
+    end
+    inherited ButtonEliminarFiltrar: TButton
+      OnClick = ButtonEliminarFiltrarClick
+    end
+  end
+  inherited PanelModificar: TPanel
+    inherited DBGrid2: TDBGrid
+      Columns = <      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'NOMBRECOMPLETO'
+          Width = 127
+          FieldName = 'NOMBRECOMPLETO'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'CEDULA'
+          Width = 59
+          FieldName = 'CEDULA'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'FECHA'
+          Width = 52
+          FieldName = 'FECHA'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'CONTEXTO'
+          Width = 77
+          FieldName = 'CONTEXTO'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'EVENTO'
+          Width = 59
+          FieldName = 'EVENTO'
+        end>
+    end
+    inherited DBNavigatorModificar: TDBNavigator
+      Hints.Strings = (      )
+    end
+    inherited ButtonModificarFiltrar: TButton
+      OnClick = ButtonModificarFiltrarClick
+    end
+  end
+  inherited MainMenu1: TMainMenu
+    left = 328
+  end
+  inherited Datasource1: TDatasource
+    left = 488
+    top = 8
+  end
+  inherited SQLQuery1: TSQLQuery
+    FieldDefs = <    
+      item
+        Name = 'ID'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'ALUMNOPERSONAID'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'FECHA'
+        DataType = ftDate
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'CONTEXTO'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'EVENTO'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end>
+    OnFilterRecord = SQLQuery1FilterRecord
+    SQL.Strings = (
+      'select * from registroanecdotico'
+    )
+    left = 392
+    top = 0
+    object SQLQuery1ID: TLongintField[0]
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      ReadOnly = False
+      Required = False
+    end
+    object SQLQuery1ALUMNOPERSONAID: TLongintField[1]
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'ALUMNOPERSONAID'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object SQLQuery1FECHA: TDateField[2]
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FECHA'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object SQLQuery1CONTEXTO: TStringField[3]
+      DisplayWidth = 255
+      FieldKind = fkData
+      FieldName = 'CONTEXTO'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 255
+    end
+    object SQLQuery1EVENTO: TStringField[4]
+      DisplayWidth = 255
+      FieldKind = fkData
+      FieldName = 'EVENTO'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 255
+    end
+    object StringField1: TStringField[5]
+      DisplayWidth = 511
+      FieldKind = fkLookup
+      FieldName = 'NOMBRECOMPLETO'
+      Index = 5
+      KeyFields = 'ALUMNOPERSONAID'
+      LookupCache = False
+      LookupDataSet = qryal
+      LookupKeyFields = 'ID'
+      LookupResultField = 'NOMBRECOMPLETO'
+      ProviderFlags = []
+      ReadOnly = False
+      Required = False
+      Size = 511
+    end
+    object StringField2: TStringField[6]
+      DisplayWidth = 255
+      FieldKind = fkLookup
+      FieldName = 'CEDULA'
+      Index = 6
+      KeyFields = 'ALUMNOPERSONAID'
+      LookupCache = False
+      LookupDataSet = qryal
+      LookupKeyFields = 'ID'
+      LookupResultField = 'CEDULA'
+      ProviderFlags = []
+      ReadOnly = False
+      Required = False
+      Size = 255
+    end
+  end
+  object qryal: TSQLQuery[8]
+    FieldDefs = <    
+      item
+        Name = 'ID'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'NOMBRE'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'APELLIDO'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'CEDULA'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'FECHANAC'
+        DataType = ftDate
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'SEXO'
+        DataType = ftString
+        Precision = -1
+        Size = 1
+      end    
+      item
+        Name = 'CONFIRMADO'
+        DataType = ftSmallint
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'NOMBRECOMPLETO'
+        DataType = ftString
+        Precision = -1
+        Size = 511
+      end>
+    Filtered = True
+    OnFilterRecord = qryalFilterRecord
+    Database = SGCDDataModule.dbConn
+    Transaction = SGCDDataModule.sqlTran
+    ReadOnly = True
+    SQL.Strings = (
+      'select * from v_alumnos_activos'
+    )
+    Params = <>
+    left = 216
+    top = 77
+    object qryalID: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qryalNOMBRE: TStringField
+      DisplayWidth = 255
+      FieldKind = fkData
+      FieldName = 'NOMBRE'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 255
+    end
+    object qryalAPELLIDO: TStringField
+      DisplayWidth = 255
+      FieldKind = fkData
+      FieldName = 'APELLIDO'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 255
+    end
+    object qryalCEDULA: TStringField
+      DisplayWidth = 255
+      FieldKind = fkData
+      FieldName = 'CEDULA'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 255
+    end
+    object qryalFECHANAC: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FECHANAC'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qryalSEXO: TStringField
+      DisplayWidth = 1
+      FieldKind = fkData
+      FieldName = 'SEXO'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1
+    end
+    object qryalCONFIRMADO: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'CONFIRMADO'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qryalNOMBRECOMPLETO: TStringField
+      DisplayWidth = 511
+      FieldKind = fkData
+      FieldName = 'NOMBRECOMPLETO'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 511
+    end
+  end
+  object dsal: TDatasource[9]
+    DataSet = qryal
+    left = 274
+    top = 84
+  end
+end

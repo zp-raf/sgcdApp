@@ -1,0 +1,925 @@
+inherited AbmTalonarios: TAbmTalonarios
+  Left = 538
+  Top = 219
+  BorderStyle = bsSizeable
+  Caption = 'ABM Talonarios'
+  OnCreate = FormCreate
+  inherited PanelNuevo: TPanel
+    object DBEdit1: TDBEdit[0]
+      Left = 16
+      Height = 23
+      Top = 88
+      Width = 608
+      DataField = 'NOMBRE'
+      DataSource = Datasource1
+      Anchors = [akTop, akLeft, akRight]
+      CharCase = ecNormal
+      MaxLength = 0
+      TabOrder = 1
+    end
+    object DBEdit2: TDBEdit[1]
+      Left = 16
+      Height = 23
+      Top = 144
+      Width = 448
+      DataField = 'RUBRO'
+      DataSource = Datasource1
+      Anchors = [akTop, akLeft, akRight]
+      CharCase = ecNormal
+      MaxLength = 0
+      TabOrder = 2
+    end
+    object DBEdit3: TDBEdit[2]
+      AnchorSideLeft.Control = DBEdit2
+      AnchorSideLeft.Side = asrBottom
+      AnchorSideTop.Control = DBEdit2
+      AnchorSideTop.Side = asrCenter
+      Left = 480
+      Height = 23
+      Top = 144
+      Width = 144
+      DataField = 'RUC'
+      DataSource = Datasource1
+      BorderSpacing.Left = 16
+      CharCase = ecNormal
+      MaxLength = 0
+      TabOrder = 3
+    end
+    object DBEdit4: TDBEdit[3]
+      Left = 16
+      Height = 23
+      Top = 200
+      Width = 608
+      DataField = 'DIRECCION'
+      DataSource = Datasource1
+      Anchors = [akTop, akLeft, akRight]
+      CharCase = ecNormal
+      MaxLength = 0
+      TabOrder = 4
+    end
+    object DBEdit5: TDBEdit[4]
+      Left = 16
+      Height = 23
+      Top = 256
+      Width = 608
+      DataField = 'TELEFONO'
+      DataSource = Datasource1
+      Anchors = [akTop, akLeft, akRight]
+      CharCase = ecNormal
+      MaxLength = 0
+      TabOrder = 5
+    end
+    object DBEdit6: TDBEdit[5]
+      Left = 256
+      Height = 23
+      Top = 320
+      Width = 112
+      DataField = 'TIMBRADO'
+      DataSource = Datasource1
+      CharCase = ecNormal
+      MaxLength = 0
+      TabOrder = 8
+    end
+    object DBEdit7: TDBEdit[6]
+      Left = 392
+      Height = 23
+      Top = 320
+      Width = 80
+      DataField = 'NUMERO_INI'
+      DataSource = Datasource1
+      CharCase = ecNormal
+      MaxLength = 0
+      TabOrder = 9
+    end
+    object DBEdit8: TDBEdit[7]
+      Left = 496
+      Height = 23
+      Top = 320
+      Width = 80
+      DataField = 'NUMERO_FIN'
+      DataSource = Datasource1
+      CharCase = ecNormal
+      MaxLength = 0
+      TabOrder = 10
+    end
+    object DBEdit9: TDBEdit[8]
+      Left = 136
+      Height = 23
+      Top = 384
+      Width = 80
+      DataField = 'SUCURSAL'
+      DataSource = Datasource1
+      CharCase = ecNormal
+      MaxLength = 0
+      TabOrder = 12
+    end
+    object DBEdit10: TDBEdit[9]
+      Left = 16
+      Height = 23
+      Top = 384
+      Width = 80
+      DataField = 'CAJA'
+      DataSource = Datasource1
+      CharCase = ecNormal
+      MaxLength = 0
+      TabOrder = 11
+    end
+    object DBEdit11: TDBEdit[10]
+      Left = 256
+      Height = 23
+      Top = 384
+      Width = 80
+      DataField = 'COPIAS'
+      DataSource = Datasource1
+      CharCase = ecNormal
+      MaxLength = 0
+      TabOrder = 13
+    end
+    object DateEdit1: TDateEdit[11]
+      Left = 16
+      Height = 23
+      Top = 320
+      Width = 80
+      CalendarDisplaySettings = [dsShowHeadings, dsShowDayNames]
+      OKCaption = 'OK'
+      CancelCaption = 'Cancel'
+      DateOrder = doNone
+      ButtonWidth = 23
+      CharCase = ecNormal
+      NumGlyphs = 1
+      MaxLength = 0
+      TabOrder = 6
+    end
+    object DateEdit2: TDateEdit[12]
+      Left = 136
+      Height = 23
+      Top = 320
+      Width = 80
+      CalendarDisplaySettings = [dsShowHeadings, dsShowDayNames]
+      OKCaption = 'OK'
+      CancelCaption = 'Cancel'
+      DateOrder = doNone
+      ButtonWidth = 23
+      CharCase = ecNormal
+      NumGlyphs = 1
+      MaxLength = 0
+      TabOrder = 7
+    end
+    object DBLookupComboBox1: TDBLookupComboBox[13]
+      Left = 16
+      Height = 23
+      Top = 32
+      Width = 144
+      AutoComplete = True
+      AutoDropDown = True
+      DataField = 'TIPO'
+      DataSource = Datasource1
+      KeyField = 'VALOR'
+      ListField = 'SIGNIFICADO'
+      ListFieldIndex = 0
+      ListSource = dsDet
+      LookupCache = False
+      TabOrder = 0
+    end
+    object DBCheckBox1: TDBCheckBox[14]
+      Left = 392
+      Height = 23
+      Top = 384
+      Width = 90
+      Caption = 'Activo'
+      DataField = 'ACTIVO'
+      DataSource = Datasource1
+      TabOrder = 14
+      ValueChecked = '1'
+      ValueUnchecked = '0'
+    end
+    object Label1: TLabel[15]
+      AnchorSideLeft.Control = DBLookupComboBox1
+      AnchorSideBottom.Control = DBLookupComboBox1
+      Left = 16
+      Height = 15
+      Top = 17
+      Width = 90
+      Anchors = [akLeft, akBottom]
+      Caption = 'Tipo de talonario'
+      ParentColor = False
+    end
+    object Label2: TLabel[16]
+      AnchorSideLeft.Control = DBEdit1
+      AnchorSideBottom.Control = DBEdit1
+      Left = 16
+      Height = 15
+      Top = 73
+      Width = 121
+      Anchors = [akLeft, akBottom]
+      Caption = 'Nombre - Razón Social'
+      ParentColor = False
+    end
+    object Label3: TLabel[17]
+      AnchorSideLeft.Control = DBEdit2
+      AnchorSideBottom.Control = DBEdit2
+      Left = 16
+      Height = 15
+      Top = 129
+      Width = 32
+      Anchors = [akLeft, akBottom]
+      Caption = 'Rubro'
+      ParentColor = False
+    end
+    object Label4: TLabel[18]
+      AnchorSideLeft.Control = DBEdit4
+      AnchorSideBottom.Control = DBEdit4
+      Left = 16
+      Height = 15
+      Top = 185
+      Width = 50
+      Anchors = [akLeft, akBottom]
+      Caption = 'Dirección'
+      ParentColor = False
+    end
+    object Label5: TLabel[19]
+      AnchorSideLeft.Control = DBEdit3
+      AnchorSideBottom.Control = DBEdit3
+      Left = 480
+      Height = 15
+      Top = 129
+      Width = 23
+      Anchors = [akLeft, akBottom]
+      Caption = 'RUC'
+      ParentColor = False
+    end
+    object Label6: TLabel[20]
+      AnchorSideLeft.Control = DBEdit5
+      AnchorSideBottom.Control = DBEdit5
+      Left = 16
+      Height = 15
+      Top = 241
+      Width = 47
+      Anchors = [akLeft, akBottom]
+      Caption = 'Teléfono'
+      ParentColor = False
+    end
+    object Label7: TLabel[21]
+      AnchorSideLeft.Control = DateEdit1
+      AnchorSideBottom.Control = DateEdit1
+      Left = 16
+      Height = 15
+      Top = 305
+      Width = 67
+      Anchors = [akLeft, akBottom]
+      Caption = 'Válido desde'
+      ParentColor = False
+    end
+    object Label8: TLabel[22]
+      AnchorSideLeft.Control = DateEdit2
+      AnchorSideBottom.Control = DateEdit2
+      Left = 136
+      Height = 15
+      Top = 305
+      Width = 64
+      Anchors = [akLeft, akBottom]
+      Caption = 'Válido hasta'
+      ParentColor = False
+    end
+    object Label9: TLabel[23]
+      AnchorSideLeft.Control = DBEdit6
+      AnchorSideBottom.Control = DBEdit6
+      Left = 256
+      Height = 15
+      Top = 305
+      Width = 93
+      Anchors = [akLeft, akBottom]
+      Caption = 'Timbrado (único)'
+      ParentColor = False
+    end
+    object Label10: TLabel[24]
+      AnchorSideLeft.Control = DBEdit7
+      AnchorSideBottom.Control = DBEdit7
+      Left = 392
+      Height = 15
+      Top = 305
+      Width = 78
+      Anchors = [akLeft, akBottom]
+      Caption = 'Número inicial'
+      ParentColor = False
+    end
+    object Label11: TLabel[25]
+      AnchorSideLeft.Control = DBEdit8
+      AnchorSideBottom.Control = DBEdit8
+      Left = 496
+      Height = 15
+      Top = 305
+      Width = 70
+      Anchors = [akLeft, akBottom]
+      Caption = 'Número final'
+      ParentColor = False
+    end
+    object Label12: TLabel[26]
+      AnchorSideLeft.Control = DBEdit9
+      AnchorSideBottom.Control = DBEdit9
+      Left = 136
+      Height = 15
+      Top = 369
+      Width = 23
+      Anchors = [akLeft, akBottom]
+      Caption = 'Caja'
+      ParentColor = False
+    end
+    object Label13: TLabel[27]
+      AnchorSideLeft.Control = DBEdit10
+      AnchorSideBottom.Control = DBEdit10
+      Left = 16
+      Height = 15
+      Top = 369
+      Width = 44
+      Anchors = [akLeft, akBottom]
+      Caption = 'Sucursal'
+      ParentColor = False
+    end
+    object Label14: TLabel[28]
+      AnchorSideLeft.Control = DBEdit11
+      AnchorSideBottom.Control = DBEdit11
+      Left = 256
+      Height = 15
+      Top = 369
+      Width = 36
+      Anchors = [akLeft, akBottom]
+      Caption = 'Copias'
+      ParentColor = False
+    end
+    object Label15: TLabel[29]
+      Left = 200
+      Height = 30
+      Top = 17
+      Width = 206
+      Caption = 'Nota: todos los campos son requeridos'#13#10'a menos que se indique lo contrario'
+      ParentColor = False
+    end
+  end
+  inherited PanelEliminar: TPanel
+    inherited DBGrid1: TDBGrid
+      Columns = <      
+        item
+          PickList.Strings = (
+            'FACTURA'
+            'RECIBO'
+            'NOTA_CREDITO'
+          )
+          Title.Caption = 'TIPO'
+          Width = 41
+          FieldName = 'SIGNIFICADO'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'NOMBRE'
+          FieldName = 'NOMBRE'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'RUBRO'
+          Width = 53
+          FieldName = 'RUBRO'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'RUC'
+          Width = 38
+          FieldName = 'RUC'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'DIRECCION'
+          Width = 76
+          FieldName = 'DIRECCION'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'TELEFONO'
+          Width = 73
+          FieldName = 'TELEFONO'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'VALIDO_DESDE'
+          Width = 95
+          FieldName = 'VALIDO_DESDE'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'VALIDO_HASTA'
+          Width = 99
+          FieldName = 'VALIDO_HASTA'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'TIMBRADO'
+          Width = 75
+          FieldName = 'TIMBRADO'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'NUMERO_INI'
+          Width = 85
+          FieldName = 'NUMERO_INI'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'NUMERO_FIN'
+          Width = 88
+          FieldName = 'NUMERO_FIN'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'SUCURSAL'
+          Width = 72
+          FieldName = 'SUCURSAL'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'CAJA'
+          Width = 43
+          FieldName = 'CAJA'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'COPIAS'
+          Width = 56
+          FieldName = 'COPIAS'
+        end      
+        item
+          ButtonStyle = cbsCheckboxColumn
+          PickList.Strings = (          )
+          Title.Caption = 'ACTIVO'
+          Width = 57
+          FieldName = 'ACTIVO'
+        end>
+    end
+    inherited DBNavigatorEliminar: TDBNavigator
+      Hints.Strings = (      )
+    end
+  end
+  inherited PanelModificar: TPanel
+    inherited DBGrid2: TDBGrid
+      Columns = <      
+        item
+          PickList.Strings = (
+            'FACTURA'
+            'RECIBO'
+            'NOTA_CREDITO'
+          )
+          Title.Caption = 'TIPO'
+          Width = 41
+          FieldName = 'SIGNIFICADO'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'NOMBRE'
+          FieldName = 'NOMBRE'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'RUBRO'
+          Width = 53
+          FieldName = 'RUBRO'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'RUC'
+          Width = 38
+          FieldName = 'RUC'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'DIRECCION'
+          Width = 76
+          FieldName = 'DIRECCION'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'TELEFONO'
+          Width = 73
+          FieldName = 'TELEFONO'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'VALIDO_DESDE'
+          Width = 95
+          FieldName = 'VALIDO_DESDE'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'VALIDO_HASTA'
+          Width = 99
+          FieldName = 'VALIDO_HASTA'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'TIMBRADO'
+          Width = 75
+          FieldName = 'TIMBRADO'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'NUMERO_INI'
+          Width = 85
+          FieldName = 'NUMERO_INI'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'NUMERO_FIN'
+          Width = 88
+          FieldName = 'NUMERO_FIN'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'SUCURSAL'
+          Width = 72
+          FieldName = 'SUCURSAL'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'CAJA'
+          Width = 43
+          FieldName = 'CAJA'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'COPIAS'
+          Width = 56
+          FieldName = 'COPIAS'
+        end      
+        item
+          ButtonStyle = cbsCheckboxColumn
+          PickList.Strings = (          )
+          Title.Caption = 'ACTIVO'
+          Width = 57
+          FieldName = 'ACTIVO'
+        end>
+    end
+    inherited DBNavigatorModificar: TDBNavigator
+      Hints.Strings = (      )
+    end
+  end
+  inherited MainMenu1: TMainMenu
+    left = 464
+    top = 8
+  end
+  inherited Datasource1: TDatasource
+    left = 416
+    top = 8
+  end
+  inherited SQLQuery1: TSQLQuery
+    FieldDefs = <    
+      item
+        Name = 'ID'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'TIPO'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'NOMBRE'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'RUBRO'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'DIRECCION'
+        DataType = ftString
+        Precision = -1
+        Size = 512
+      end    
+      item
+        Name = 'TELEFONO'
+        DataType = ftString
+        Precision = -1
+        Size = 512
+      end    
+      item
+        Name = 'TIMBRADO'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'VALIDO_DESDE'
+        DataType = ftDate
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'VALIDO_HASTA'
+        DataType = ftDate
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'RUC'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'SUCURSAL'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'CAJA'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'NUMERO_INI'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'NUMERO_FIN'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'COPIAS'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'ACTIVO'
+        DataType = ftSmallint
+        Precision = -1
+        Size = 0
+      end>
+    SQL.Strings = (
+      'SELECT * FROM TALONARIO'
+    )
+    left = 368
+    top = 8
+    object SQLQuery1ID: TLongintField[0]
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      ReadOnly = False
+      Required = False
+    end
+    object SQLQuery1TIPO: TLongintField[1]
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'TIPO'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      OnChange = SQLQuery1TIPOChange
+    end
+    object SQLQuery1NOMBRE: TStringField[2]
+      DisplayWidth = 255
+      FieldKind = fkData
+      FieldName = 'NOMBRE'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 255
+    end
+    object SQLQuery1RUBRO: TStringField[3]
+      DisplayWidth = 255
+      FieldKind = fkData
+      FieldName = 'RUBRO'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 255
+    end
+    object SQLQuery1DIRECCION: TStringField[4]
+      DisplayWidth = 512
+      FieldKind = fkData
+      FieldName = 'DIRECCION'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 512
+    end
+    object SQLQuery1TELEFONO: TStringField[5]
+      DisplayWidth = 512
+      FieldKind = fkData
+      FieldName = 'TELEFONO'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 512
+    end
+    object SQLQuery1TIMBRADO: TStringField[6]
+      DisplayWidth = 255
+      FieldKind = fkData
+      FieldName = 'TIMBRADO'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 255
+    end
+    object SQLQuery1VALIDO_DESDE: TDateField[7]
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'VALIDO_DESDE'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object SQLQuery1VALIDO_HASTA: TDateField[8]
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'VALIDO_HASTA'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object SQLQuery1RUC: TStringField[9]
+      DisplayWidth = 255
+      FieldKind = fkData
+      FieldName = 'RUC'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 255
+    end
+    object SQLQuery1SUCURSAL: TStringField[10]
+      DisplayWidth = 255
+      FieldKind = fkData
+      FieldName = 'SUCURSAL'
+      Index = 10
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 255
+    end
+    object SQLQuery1CAJA: TStringField[11]
+      DisplayWidth = 255
+      FieldKind = fkData
+      FieldName = 'CAJA'
+      Index = 11
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 255
+    end
+    object SQLQuery1NUMERO_INI: TLongintField[12]
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NUMERO_INI'
+      Index = 12
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object SQLQuery1NUMERO_FIN: TLongintField[13]
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NUMERO_FIN'
+      Index = 13
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object SQLQuery1COPIAS: TLongintField[14]
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'COPIAS'
+      Index = 14
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object SQLQuery1ACTIVO: TSmallintField[15]
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'ACTIVO'
+      Index = 15
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object StringField1: TStringField[16]
+      DisplayWidth = 255
+      FieldKind = fkLookup
+      FieldName = 'SIGNIFICADO'
+      Index = 16
+      KeyFields = 'TIPO'
+      LookupCache = False
+      LookupDataSet = det
+      LookupKeyFields = 'VALOR'
+      LookupResultField = 'SIGNIFICADO'
+      ProviderFlags = []
+      ReadOnly = False
+      Required = False
+      Size = 255
+    end
+  end
+  object det: TSQLQuery[8]
+    FieldDefs = <    
+      item
+        Name = 'OBJETO'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'VALOR'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'SIGNIFICADO'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end>
+    Database = SGCDDataModule.dbConn
+    Transaction = SGCDDataModule.sqlTran
+    SQL.Strings = (
+      'select * from codigos where objeto = ''TALONARIO.TIPO_TALONARIO'''
+    )
+    Params = <>
+    left = 576
+    top = 8
+    object detOBJETO: TStringField
+      DisplayWidth = 255
+      FieldKind = fkData
+      FieldName = 'OBJETO'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 255
+    end
+    object detVALOR: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'VALOR'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object detSIGNIFICADO: TStringField
+      DisplayWidth = 255
+      FieldKind = fkData
+      FieldName = 'SIGNIFICADO'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 255
+    end
+  end
+  object dsDet: TDatasource[9]
+    DataSet = det
+    left = 520
+    top = 8
+  end
+end

@@ -1,0 +1,17 @@
+inherited Popup: TPopup
+  Left = 761
+  Top = 296
+  Width = 453
+  HorzScrollBar.Page = 453
+  VertScrollBar.Page = 220
+  AutoSize = True
+  OnShow = FormShow
+  Position = poOwnerFormCenter
+  inherited MainMenu1: TMainMenu
+    inherited MenuAyuda: TMenuItem
+      inherited MenuItemAyuda: TMenuItem
+        OnClick = MenuItemAyudaClick
+      end
+    end
+  end
+end

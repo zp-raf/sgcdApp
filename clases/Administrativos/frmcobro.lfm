@@ -1,0 +1,1051 @@
+inherited ProcesoCobro: TProcesoCobro
+  Left = 881
+  Height = 680
+  Top = 255
+  Width = 966
+  ClientHeight = 660
+  ClientWidth = 966
+  Constraints.MinHeight = 680
+  Constraints.MinWidth = 800
+  OnCreate = FormCreate
+  OnShow = FormShow
+  inherited ButtonPanel1: TButtonPanel
+    Top = 620
+    Width = 954
+    OKButton.OnClick = OKButtonClick
+    CancelButton.OnClick = CancelButtonClick
+  end
+  object Totales: TGroupBox[1]
+    Left = 8
+    Height = 224
+    Top = 0
+    Width = 950
+    Anchors = [akTop, akLeft, akRight]
+    Caption = 'Totales'
+    ClientHeight = 206
+    ClientWidth = 946
+    TabOrder = 1
+    object Button1: TButton
+      Left = 6
+      Height = 25
+      Top = 1
+      Width = 166
+      AutoSize = True
+      Caption = 'Seleccionar factura crédito'
+      OnClick = Button1Click
+      TabOrder = 0
+      Visible = False
+    end
+    object Label3: TLabel
+      AnchorSideBottom.Side = asrCenter
+      Left = 36
+      Height = 15
+      Top = 67
+      Width = 42
+      BorderSpacing.Right = 8
+      Caption = 'Efectivo'
+      ParentColor = False
+    end
+    object Label4: TLabel
+      AnchorSideBottom.Side = asrCenter
+      Left = 8
+      Height = 15
+      Top = 38
+      Width = 69
+      BorderSpacing.Right = 8
+      Caption = 'Total a pagar'
+      ParentColor = False
+    end
+    object DBEdit2: TDBEdit
+      Left = 85
+      Height = 23
+      Top = 35
+      Width = 168
+      DataField = 'MONTO'
+      DataSource = dsCabecera
+      ReadOnly = True
+      CharCase = ecNormal
+      MaxLength = 0
+      TabOrder = 1
+    end
+    object Label5: TLabel
+      AnchorSideBottom.Side = asrCenter
+      Left = 32
+      Height = 15
+      Top = 94
+      Width = 46
+      BorderSpacing.Right = 8
+      Caption = 'Cheques'
+      ParentColor = False
+    end
+    object Label6: TLabel
+      AnchorSideBottom.Side = asrCenter
+      Left = 37
+      Height = 15
+      Top = 123
+      Width = 41
+      BorderSpacing.Right = 8
+      Caption = 'Tarjetas'
+      ParentColor = False
+    end
+    object Label7: TLabel
+      AnchorSideBottom.Side = asrCenter
+      Left = 8
+      Height = 15
+      Top = 150
+      Width = 70
+      BorderSpacing.Right = 8
+      Caption = 'Total pagado'
+      ParentColor = False
+    end
+    object Label8: TLabel
+      AnchorSideBottom.Side = asrCenter
+      Left = 44
+      Height = 15
+      Top = 179
+      Width = 34
+      BorderSpacing.Right = 8
+      Caption = 'Vuelto'
+      ParentColor = False
+    end
+    object DBEdit1: TDBEdit
+      AnchorSideLeft.Control = Label3
+      AnchorSideLeft.Side = asrBottom
+      AnchorSideTop.Control = Label3
+      AnchorSideTop.Side = asrCenter
+      Left = 86
+      Height = 23
+      Top = 63
+      Width = 168
+      DataField = 'EFECTIVO'
+      DataSource = dsCabecera
+      CharCase = ecNormal
+      MaxLength = 0
+      TabOrder = 2
+      OnEditingDone = DBEdit1EditingDone
+    end
+    object DBEdit3: TDBEdit
+      AnchorSideLeft.Control = Label5
+      AnchorSideLeft.Side = asrBottom
+      AnchorSideTop.Control = Label5
+      AnchorSideTop.Side = asrCenter
+      Left = 86
+      Height = 23
+      Top = 90
+      Width = 168
+      DataField = 'CHEQUES'
+      DataSource = dsCabecera
+      ReadOnly = True
+      CharCase = ecNormal
+      MaxLength = 0
+      TabOrder = 3
+    end
+    object DBEdit4: TDBEdit
+      AnchorSideLeft.Control = Label6
+      AnchorSideLeft.Side = asrBottom
+      AnchorSideTop.Control = Label6
+      AnchorSideTop.Side = asrCenter
+      Left = 86
+      Height = 23
+      Top = 119
+      Width = 168
+      DataField = 'TARJETAS'
+      DataSource = dsCabecera
+      ReadOnly = True
+      CharCase = ecNormal
+      MaxLength = 0
+      TabOrder = 4
+    end
+    object DBEdit5: TDBEdit
+      AnchorSideLeft.Control = Label7
+      AnchorSideLeft.Side = asrBottom
+      AnchorSideTop.Control = Label7
+      AnchorSideTop.Side = asrCenter
+      Left = 86
+      Height = 23
+      Top = 146
+      Width = 168
+      DataField = 'TOTALPAGADO'
+      DataSource = dsCabecera
+      ReadOnly = True
+      CharCase = ecNormal
+      MaxLength = 0
+      TabOrder = 5
+    end
+    object DBEdit6: TDBEdit
+      AnchorSideLeft.Control = Label8
+      AnchorSideLeft.Side = asrBottom
+      AnchorSideTop.Control = Label8
+      AnchorSideTop.Side = asrCenter
+      Left = 86
+      Height = 23
+      Top = 175
+      Width = 168
+      DataField = 'VUELTO'
+      DataSource = dsCabecera
+      ReadOnly = True
+      CharCase = ecNormal
+      MaxLength = 0
+      TabOrder = 6
+    end
+  end
+  object Detalles: TGroupBox[2]
+    AnchorSideLeft.Control = Totales
+    AnchorSideTop.Control = Totales
+    AnchorSideTop.Side = asrBottom
+    Left = 8
+    Height = 391
+    Top = 224
+    Width = 948
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    Caption = 'Detalles'
+    ClientHeight = 373
+    ClientWidth = 944
+    TabOrder = 2
+    object PairSplitter1: TPairSplitter
+      AnchorSideLeft.Control = Detalles
+      AnchorSideTop.Control = Detalles
+      AnchorSideRight.Control = Detalles
+      AnchorSideRight.Side = asrBottom
+      AnchorSideBottom.Control = Detalles
+      AnchorSideBottom.Side = asrBottom
+      Left = 0
+      Height = 373
+      Top = 0
+      Width = 944
+      Anchors = [akTop, akLeft, akRight, akBottom]
+      Position = 400
+      object PairSplitterSide1: TPairSplitterSide
+        Cursor = crArrow
+        Left = 0
+        Height = 373
+        Top = 0
+        Width = 400
+        ClientWidth = 400
+        ClientHeight = 373
+        object DBGrid1: TDBGrid
+          AnchorSideLeft.Control = PairSplitterSide1
+          AnchorSideTop.Control = Label1
+          AnchorSideTop.Side = asrBottom
+          AnchorSideRight.Control = PairSplitterSide1
+          AnchorSideRight.Side = asrBottom
+          AnchorSideBottom.Control = DBNavigator1
+          Left = 8
+          Height = 321
+          Top = 23
+          Width = 384
+          Anchors = [akTop, akLeft, akRight, akBottom]
+          BorderSpacing.Left = 8
+          BorderSpacing.Top = 8
+          BorderSpacing.Right = 8
+          BorderSpacing.Bottom = 4
+          Color = clWindow
+          Columns = <          
+            item
+              Title.Caption = 'NRO_CHEQUE'
+              Width = 91
+              FieldName = 'NRO_CHEQUE'
+            end          
+            item
+              Title.Caption = 'MONTO'
+              Width = 60
+              FieldName = 'MONTO'
+            end          
+            item
+              Title.Caption = 'EMISOR_CHEQUE'
+              Width = 108
+              FieldName = 'EMISOR_CHEQUE'
+            end>
+          DataSource = cdDetCh
+          Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgAlwaysShowSelection, dgCancelOnExit, dgAutoSizeColumns]
+          TabOrder = 0
+        end
+        object Label1: TLabel
+          AnchorSideLeft.Control = PairSplitterSide1
+          AnchorSideTop.Control = PairSplitterSide1
+          Left = 8
+          Height = 15
+          Top = 0
+          Width = 46
+          BorderSpacing.Left = 8
+          Caption = 'Cheques'
+          ParentColor = False
+        end
+        object DBNavigator1: TDBNavigator
+          AnchorSideLeft.Control = PairSplitterSide1
+          AnchorSideTop.Side = asrBottom
+          AnchorSideBottom.Control = PairSplitterSide1
+          AnchorSideBottom.Side = asrBottom
+          Left = 8
+          Height = 25
+          Top = 348
+          Width = 241
+          Anchors = [akLeft, akBottom]
+          BevelOuter = bvNone
+          BorderSpacing.Left = 8
+          ChildSizing.EnlargeHorizontal = crsScaleChilds
+          ChildSizing.EnlargeVertical = crsScaleChilds
+          ChildSizing.ShrinkHorizontal = crsScaleChilds
+          ChildSizing.ShrinkVertical = crsScaleChilds
+          ChildSizing.Layout = cclLeftToRightThenTopToBottom
+          ChildSizing.ControlsPerLine = 100
+          ClientHeight = 25
+          ClientWidth = 241
+          ConfirmDelete = False
+          DataSource = cdDetCh
+          Options = []
+          TabOrder = 1
+          VisibleButtons = [nbFirst, nbPrior, nbNext, nbLast, nbInsert, nbDelete, nbEdit, nbPost, nbCancel]
+        end
+      end
+      object PairSplitterSide2: TPairSplitterSide
+        Cursor = crArrow
+        Left = 405
+        Height = 373
+        Top = 0
+        Width = 539
+        ClientWidth = 539
+        ClientHeight = 373
+        object Label2: TLabel
+          AnchorSideLeft.Control = PairSplitterSide2
+          AnchorSideTop.Control = PairSplitterSide2
+          Left = 8
+          Height = 15
+          Top = 0
+          Width = 41
+          BorderSpacing.Left = 8
+          Caption = 'Tarjetas'
+          ParentColor = False
+        end
+        object DBGrid2: TDBGrid
+          AnchorSideLeft.Control = PairSplitterSide2
+          AnchorSideTop.Control = Label2
+          AnchorSideTop.Side = asrBottom
+          AnchorSideRight.Control = PairSplitterSide2
+          AnchorSideRight.Side = asrBottom
+          AnchorSideBottom.Control = DBNavigator2
+          Left = 8
+          Height = 321
+          Top = 23
+          Width = 523
+          Anchors = [akTop, akLeft, akRight, akBottom]
+          BorderSpacing.Left = 8
+          BorderSpacing.Top = 8
+          BorderSpacing.Right = 8
+          BorderSpacing.Bottom = 4
+          Color = clWindow
+          Columns = <          
+            item
+              Title.Caption = 'TIPO'
+              Width = 41
+              FieldName = 'SIGNIFICADO'
+            end          
+            item
+              Title.Caption = 'NRO_TARJETA'
+              Width = 92
+              FieldName = 'NRO_TARJETA'
+            end          
+            item
+              Title.Caption = 'MONTO'
+              Width = 60
+              FieldName = 'MONTO'
+            end          
+            item
+              Title.Caption = 'EMISOR_TARJETA'
+              Width = 109
+              FieldName = 'EMISOR_TARJETA'
+            end          
+            item
+              Title.Caption = 'COMPROBANTE_TARJETA'
+              Width = 155
+              FieldName = 'COMPROBANTE_TARJETA'
+            end>
+          DataSource = dsDetTa
+          Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgAlwaysShowSelection, dgCancelOnExit, dgAutoSizeColumns]
+          TabOrder = 0
+        end
+        object DBNavigator2: TDBNavigator
+          AnchorSideLeft.Control = PairSplitterSide2
+          AnchorSideTop.Side = asrBottom
+          AnchorSideBottom.Control = PairSplitterSide2
+          AnchorSideBottom.Side = asrBottom
+          Left = 8
+          Height = 25
+          Top = 348
+          Width = 241
+          Anchors = [akLeft, akBottom]
+          BevelOuter = bvNone
+          BorderSpacing.Left = 8
+          BorderSpacing.Top = 4
+          ChildSizing.EnlargeHorizontal = crsScaleChilds
+          ChildSizing.EnlargeVertical = crsScaleChilds
+          ChildSizing.ShrinkHorizontal = crsScaleChilds
+          ChildSizing.ShrinkVertical = crsScaleChilds
+          ChildSizing.Layout = cclLeftToRightThenTopToBottom
+          ChildSizing.ControlsPerLine = 100
+          ClientHeight = 25
+          ClientWidth = 241
+          ConfirmDelete = False
+          DataSource = dsDetTa
+          Options = []
+          TabOrder = 1
+          VisibleButtons = [nbFirst, nbPrior, nbNext, nbLast, nbInsert, nbDelete, nbEdit, nbPost, nbCancel]
+        end
+      end
+    end
+  end
+  inherited MainMenu1: TMainMenu[3]
+    left = 736
+    top = 8
+  end
+  object qryCabecera: TSQLQuery[4]
+    FieldDefs = <    
+      item
+        Name = 'ID'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'FECHA'
+        DataType = ftDate
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'HORA'
+        DataType = ftTime
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'TIPO_MOVIMIENTO'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'FACTURAID'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'RECIBOID'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'NOTA_CREDITOID'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'MONTO'
+        DataType = ftFloat
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'DESCRIPCION'
+        DataType = ftString
+        Precision = -1
+        Size = 1024
+      end    
+      item
+        Name = 'VALIDO'
+        DataType = ftSmallint
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'EFECTIVO'
+        DataType = ftFloat
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'CHEQUES'
+        DataType = ftFloat
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'TARJETAS'
+        DataType = ftFloat
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'TOTALPAGADO'
+        DataType = ftFloat
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'VUELTO'
+        DataType = ftFloat
+        Precision = -1
+        Size = 0
+      end>
+    Filtered = True
+    OnNewRecord = qryCabeceraNewRecord
+    Database = SGCDDataModule.dbConn
+    Transaction = SGCDDataModule.sqlTran
+    SQL.Strings = (
+      'select * from pago'
+    )
+    Params = <>
+    left = 320
+    top = 104
+    object qryCabeceraID: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      ReadOnly = False
+      Required = True
+    end
+    object qryCabeceraMONTO: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'MONTO'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = -1
+    end
+    object qryCabeceraFECHA: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FECHA'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object qryCabeceraHORA: TTimeField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'HORA'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object qryCabeceraTIPO_MOVIMIENTO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'TIPO_MOVIMIENTO'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object qryCabeceraFACTURAID: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FACTURAID'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qryCabeceraRECIBOID: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'RECIBOID'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qryCabeceraNOTA_CREDITOID: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NOTA_CREDITOID'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qryCabeceraDESCRIPCION: TStringField
+      DisplayWidth = 1024
+      FieldKind = fkData
+      FieldName = 'DESCRIPCION'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 1024
+    end
+    object qryCabeceraVALIDO: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'VALIDO'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object qryCabeceraEFECTIVO: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'EFECTIVO'
+      Index = 10
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnChange = qryCabeceraEFECTIVOChange
+      MaxValue = 0
+      MinValue = 0
+      Precision = -1
+    end
+    object qryCabeceraCHEQUES: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'CHEQUES'
+      Index = 11
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+      Precision = -1
+    end
+    object qryCabeceraTARJETAS: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'TARJETAS'
+      Index = 12
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+      Precision = -1
+    end
+    object qryCabeceraTOTALPAGADO: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'TOTALPAGADO'
+      Index = 13
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnChange = qryCabeceraTOTALPAGADOChange
+      MaxValue = 0
+      MinValue = 0
+      Precision = -1
+    end
+    object qryCabeceraVUELTO: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'VUELTO'
+      Index = 14
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+      Precision = -1
+    end
+  end
+  object qryDetCh: TSQLQuery[5]
+    FieldDefs = <    
+      item
+        Name = 'ID'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'PAGOID'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'MONTO'
+        DataType = ftFloat
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'TIPO_PAGO'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'NRO_CHEQUE'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'EMISOR_CHEQUE'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'NRO_TARJETA'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'EMISOR_TARJETA'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'COMPROBANTE_TARJETA'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end>
+    Filtered = True
+    AfterDelete = qryDetChAfterDelete
+    AfterPost = qryDetChAfterPost
+    BeforePost = qryDetChBeforePost
+    OnFilterRecord = qryDetChFilterRecord
+    OnNewRecord = qryDetChNewRecord
+    Database = SGCDDataModule.dbConn
+    Transaction = SGCDDataModule.sqlTran
+    SQL.Strings = (
+      'select * from pago_detalle'
+    )
+    Params = <>
+    left = 316
+    top = 321
+    object qryDetChID: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      ReadOnly = False
+      Required = True
+    end
+    object qryDetChPAGOID: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'PAGOID'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object qryDetChMONTO: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'MONTO'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = -1
+    end
+    object qryDetChTIPO_PAGO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'TIPO_PAGO'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object qryDetChNRO_CHEQUE: TStringField
+      DisplayWidth = 255
+      FieldKind = fkData
+      FieldName = 'NRO_CHEQUE'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 255
+    end
+    object qryDetChEMISOR_CHEQUE: TStringField
+      DisplayWidth = 255
+      FieldKind = fkData
+      FieldName = 'EMISOR_CHEQUE'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 255
+    end
+  end
+  object qryDetTa: TSQLQuery[6]
+    FieldDefs = <    
+      item
+        Name = 'ID'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'PAGOID'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'MONTO'
+        DataType = ftFloat
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'TIPO_PAGO'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'NRO_CHEQUE'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'EMISOR_CHEQUE'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'NRO_TARJETA'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'EMISOR_TARJETA'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'COMPROBANTE_TARJETA'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end>
+    Filtered = True
+    AfterDelete = qryDetTaAfterDelete
+    AfterPost = qryDetTaAfterPost
+    BeforePost = qryDetTaBeforePost
+    OnFilterRecord = qryDetTaFilterRecord
+    OnNewRecord = qryDetTaNewRecord
+    Database = SGCDDataModule.dbConn
+    Transaction = SGCDDataModule.sqlTran
+    SQL.Strings = (
+      'select * from pago_detalle'
+    )
+    Params = <>
+    left = 644
+    top = 410
+    object qryDetTaID: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      ReadOnly = False
+      Required = True
+    end
+    object qryDetTaPAGOID: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'PAGOID'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object qryDetTaMONTO: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'MONTO'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = -1
+    end
+    object qryDetTaTIPO_PAGO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'TIPO_PAGO'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object qryDetTaNRO_TARJETA: TStringField
+      DisplayWidth = 255
+      FieldKind = fkData
+      FieldName = 'NRO_TARJETA'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 255
+    end
+    object qryDetTaEMISOR_TARJETA: TStringField
+      DisplayWidth = 255
+      FieldKind = fkData
+      FieldName = 'EMISOR_TARJETA'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 255
+    end
+    object qryDetTaCOMPROBANTE_TARJETA: TStringField
+      DisplayWidth = 255
+      FieldKind = fkData
+      FieldName = 'COMPROBANTE_TARJETA'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 255
+    end
+    object StringField1: TStringField
+      DisplayWidth = 255
+      FieldKind = fkLookup
+      FieldName = 'SIGNIFICADO'
+      Index = 7
+      KeyFields = 'TIPO_PAGO'
+      LookupCache = False
+      LookupDataSet = qryCod
+      LookupKeyFields = 'VALOR'
+      LookupResultField = 'SIGNIFICADO'
+      ProviderFlags = []
+      ReadOnly = False
+      Required = False
+      Size = 255
+    end
+  end
+  object cdDetCh: TDatasource[7]
+    DataSet = qryDetCh
+    left = 183
+    top = 361
+  end
+  object dsDetTa: TDatasource[8]
+    DataSet = qryDetTa
+    left = 592
+    top = 385
+  end
+  object dsCabecera: TDatasource[9]
+    DataSet = qryCabecera
+    left = 316
+    top = 48
+  end
+  object qryCod: TSQLQuery[10]
+    FieldDefs = <    
+      item
+        Name = 'VALOR'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'OBJETO'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'SIGNIFICADO'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end>
+    Database = SGCDDataModule.dbConn
+    Transaction = SGCDDataModule.sqlTran
+    ReadOnly = True
+    SQL.Strings = (
+      'select * from codigos where objeto = ''PAGO_DETALLE.TIPO_PAGO'''
+      'and significado in (''TARJETA_CREDITO'', ''TARJETA_DEBITO'')'
+    )
+    Params = <>
+    left = 824
+    top = 176
+    object qryCodOBJETO: TStringField
+      DisplayWidth = 255
+      FieldKind = fkData
+      FieldName = 'OBJETO'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 255
+    end
+    object qryCodVALOR: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'VALOR'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object qryCodSIGNIFICADO: TStringField
+      DisplayWidth = 255
+      FieldKind = fkData
+      FieldName = 'SIGNIFICADO'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 255
+    end
+  end
+end

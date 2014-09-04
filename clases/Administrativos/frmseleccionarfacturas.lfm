@@ -1,0 +1,230 @@
+inherited PopupSeleccionarFacturas: TPopupSeleccionarFacturas
+  Left = 650
+  Height = 480
+  Top = 312
+  Width = 640
+  ClientHeight = 460
+  ClientWidth = 640
+  Constraints.MinHeight = 480
+  Constraints.MinWidth = 640
+  OnClose = FormClose
+  OnShow = FormShow
+  object Aceptar: TButton[0]
+    AnchorSideRight.Control = Cancelar
+    AnchorSideBottom.Control = Cancelar
+    AnchorSideBottom.Side = asrBottom
+    Left = 476
+    Height = 25
+    Top = 428
+    Width = 75
+    Anchors = [akRight, akBottom]
+    BorderSpacing.Right = 8
+    Caption = 'Aceptar'
+    ModalResult = 1
+    TabOrder = 0
+  end
+  object Cancelar: TButton[1]
+    AnchorSideTop.Side = asrBottom
+    AnchorSideRight.Side = asrBottom
+    Left = 559
+    Height = 25
+    Top = 428
+    Width = 75
+    Anchors = [akTop, akRight]
+    BorderSpacing.Top = 4
+    Caption = 'Cancelar'
+    ModalResult = 2
+    TabOrder = 1
+  end
+  object DBGrid1: TDBGrid[2]
+    AnchorSideRight.Side = asrBottom
+    AnchorSideBottom.Side = asrBottom
+    Left = 8
+    Height = 344
+    Top = 72
+    Width = 624
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    Color = clWindow
+    Columns = <>
+    DataSource = ds
+    Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgAutoSizeColumns]
+    ReadOnly = True
+    TabOrder = 2
+  end
+  object LabeledEdit1: TLabeledEdit[3]
+    AnchorSideLeft.Control = DBGrid1
+    AnchorSideBottom.Control = DBGrid1
+    Left = 8
+    Height = 23
+    Top = 45
+    Width = 248
+    Anchors = [akLeft, akBottom]
+    BorderSpacing.Bottom = 4
+    EditLabel.AnchorSideLeft.Control = LabeledEdit1
+    EditLabel.AnchorSideRight.Control = LabeledEdit1
+    EditLabel.AnchorSideRight.Side = asrBottom
+    EditLabel.AnchorSideBottom.Control = LabeledEdit1
+    EditLabel.Left = 8
+    EditLabel.Height = 15
+    EditLabel.Top = 27
+    EditLabel.Width = 248
+    EditLabel.Caption = 'Escriba una palabra para filtrar los resultados'
+    EditLabel.ParentColor = False
+    TabOrder = 3
+    OnChange = LabeledEdit1Change
+  end
+  inherited MainMenu1: TMainMenu[4]
+    left = 592
+    top = 0
+  end
+  object qryFacturas: TSQLQuery[5]
+    IndexName = 'DEFAULT_ORDER'
+    FieldDefs = <    
+      item
+        Name = 'ID'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'PERSONAID'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'NUMERO'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'FECHA_EMISION'
+        DataType = ftDate
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'CONTADO'
+        DataType = ftSmallint
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'RUC'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'NOMBRE'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'TOTAL'
+        DataType = ftFloat
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'COBRADA'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end>
+    Filtered = True
+    OnFilterRecord = qryFacturasFilterRecord
+    Database = SGCDDataModule.dbConn
+    Transaction = SGCDDataModule.sqlTran
+    SQL.Strings = (
+      'select * from v_facturas_contado where not exists'
+      '(select 1 from notacredito_factura nf where nf.facturaid = id)'
+      ''
+    )
+    Params = <>
+    left = 456
+    top = 144
+    object qryFacturasID: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qryFacturasNUMERO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NUMERO'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qryFacturasFECHA_EMISION: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FECHA_EMISION'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qryFacturasCONTADO: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'CONTADO'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qryFacturasRUC: TStringField
+      DisplayWidth = 255
+      FieldKind = fkData
+      FieldName = 'RUC'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 255
+    end
+    object qryFacturasNOMBRE: TStringField
+      DisplayWidth = 255
+      FieldKind = fkData
+      FieldName = 'NOMBRE'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 255
+    end
+    object qryFacturasTOTAL: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'TOTAL'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+      Precision = -1
+    end
+  end
+  object ds: TDatasource[6]
+    DataSet = qryFacturas
+    left = 519
+    top = 94
+  end
+end

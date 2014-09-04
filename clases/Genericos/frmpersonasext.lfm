@@ -1,0 +1,586 @@
+inherited AbmPersonasExt: TAbmPersonasExt
+  Left = 694
+  Top = 248
+  Caption = 'ABM Personas Externas'
+  ClientHeight = 593
+  inherited ButtonPanel1: TButtonPanel
+    CloseButton.OnClick = CloseButtonClick
+  end
+  inherited PanelNuevo: TPanel
+    inherited GroupBoxBasica: TGroupBox
+      inherited ButtonInfoContacto: TButton
+        Left = 523
+        Top = 128
+      end
+      inherited RadioGroupSexo: TRadioGroup
+        Top = 0
+      end
+      object CheckGroupActivo: TCheckGroup[7]
+        Left = 410
+        Height = 49
+        Top = 92
+        Width = 88
+        AutoFill = True
+        ChildSizing.LeftRightSpacing = 6
+        ChildSizing.TopBottomSpacing = 6
+        ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
+        ChildSizing.EnlargeVertical = crsHomogenousChildResize
+        ChildSizing.ShrinkHorizontal = crsScaleChilds
+        ChildSizing.ShrinkVertical = crsScaleChilds
+        ChildSizing.Layout = cclLeftToRightThenTopToBottom
+        ChildSizing.ControlsPerLine = 1
+        ClientHeight = 31
+        ClientWidth = 84
+        TabOrder = 6
+        object CheckBoxActivo: TCheckBox
+          Left = 6
+          Height = 19
+          Top = 6
+          Width = 72
+          Caption = 'Activo'
+          Checked = True
+          State = cbChecked
+          TabOrder = 0
+        end
+      end
+      object CheckGroupRol: TCheckGroup[8]
+        Left = 522
+        Height = 124
+        Top = 0
+        Width = 110
+        AutoFill = True
+        AutoSize = True
+        Caption = 'Rol (requerido)'
+        ChildSizing.LeftRightSpacing = 6
+        ChildSizing.TopBottomSpacing = 6
+        ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
+        ChildSizing.EnlargeVertical = crsHomogenousChildResize
+        ChildSizing.ShrinkHorizontal = crsScaleChilds
+        ChildSizing.ShrinkVertical = crsScaleChilds
+        ChildSizing.Layout = cclLeftToRightThenTopToBottom
+        ChildSizing.ControlsPerLine = 1
+        ClientHeight = 106
+        ClientWidth = 106
+        TabOrder = 7
+        object CheckBoxEncargado: TCheckBox
+          Left = 6
+          Height = 19
+          Top = 6
+          Width = 94
+          Caption = 'Encargado'
+          TabOrder = 0
+        end
+        object RadioGroupExaminador: TRadioGroup
+          Left = 6
+          Height = 56
+          Top = 25
+          Width = 94
+          AutoFill = True
+          ChildSizing.LeftRightSpacing = 6
+          ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
+          ChildSizing.EnlargeVertical = crsHomogenousChildResize
+          ChildSizing.ShrinkHorizontal = crsScaleChilds
+          ChildSizing.ShrinkVertical = crsScaleChilds
+          ChildSizing.Layout = cclLeftToRightThenTopToBottom
+          ChildSizing.ControlsPerLine = 1
+          ClientHeight = 38
+          ClientWidth = 90
+          Items.Strings = (
+            'Veedor'
+            'Interventor'
+          )
+          TabOrder = 1
+        end
+        object Proveedor: TCheckBox
+          Left = 6
+          Height = 19
+          Top = 81
+          Width = 94
+          Caption = 'Proveedor'
+          TabOrder = 2
+        end
+      end
+    end
+    inherited GroupBoxContacto: TGroupBox
+      inherited DBNavigatorDir: TDBNavigator
+        Hints.Strings = (        )
+      end
+      inherited DBNavigatorTel: TDBNavigator
+        Hints.Strings = (        )
+      end
+    end
+  end
+  inherited PanelEliminar: TPanel
+    inherited DBGrid1: TDBGrid
+      Columns = <      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'NOMBRE'
+          FieldName = 'NOMBRE'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'APELLIDO'
+          Width = 81
+          FieldName = 'APELLIDO'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'CEDULA'
+          Width = 59
+          FieldName = 'CEDULA'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'FECHANAC'
+          Width = 77
+          FieldName = 'FECHANAC'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'SEXO'
+          Width = 43
+          FieldName = 'SEXO'
+        end      
+        item
+          ButtonStyle = cbsCheckboxColumn
+          PickList.Strings = (
+            '1'
+            '1'
+            '1'
+            '1'
+            '1'
+          )
+          Title.Caption = 'ACTIVO'
+          Width = 57
+          FieldName = 'ACTIVO'
+        end      
+        item
+          ButtonStyle = cbsCheckboxColumn
+          PickList.Strings = (
+            '0'
+            '0'
+            '0'
+            '0'
+            '0'
+          )
+          Title.Caption = 'ESENCARGADO'
+          Width = 98
+          FieldName = 'ESENCARGADO'
+        end      
+        item
+          ButtonStyle = cbsCheckboxColumn
+          PickList.Strings = (
+            '0'
+            '1'
+            '1'
+            '0'
+            '1'
+          )
+          Title.Caption = 'ESINTERVENTOR'
+          Width = 104
+          FieldName = 'ESINTERVENTOR'
+        end      
+        item
+          ButtonStyle = cbsCheckboxColumn
+          PickList.Strings = (
+            '1'
+            '0'
+            '0'
+            '1'
+            '0'
+          )
+          Title.Caption = 'ESVEEDOR'
+          Width = 70
+          FieldName = 'ESVEEDOR'
+        end      
+        item
+          ButtonStyle = cbsCheckboxColumn
+          PickList.Strings = (          )
+          Title.Caption = 'ESPROVEEDOR'
+          Width = 93
+          FieldName = 'ESPROVEEDOR'
+        end>
+    end
+    inherited DBNavigatorEliminar: TDBNavigator
+      Hints.Strings = (      )
+    end
+  end
+  inherited PanelModificar: TPanel
+    inherited DBGrid2: TDBGrid
+      Columns = <      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'NOMBRE'
+          FieldName = 'NOMBRE'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'APELLIDO'
+          Width = 81
+          FieldName = 'APELLIDO'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'CEDULA'
+          Width = 59
+          FieldName = 'CEDULA'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'FECHANAC'
+          Width = 77
+          FieldName = 'FECHANAC'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'SEXO'
+          Width = 43
+          FieldName = 'SEXO'
+        end      
+        item
+          ButtonStyle = cbsCheckboxColumn
+          PickList.Strings = (          )
+          Title.Caption = 'ACTIVO'
+          Width = 57
+          FieldName = 'ACTIVO'
+        end      
+        item
+          ButtonStyle = cbsCheckboxColumn
+          PickList.Strings = (          )
+          Title.Caption = 'ESENCARGADO'
+          Width = 98
+          FieldName = 'ESENCARGADO'
+        end      
+        item
+          ButtonStyle = cbsCheckboxColumn
+          PickList.Strings = (          )
+          Title.Caption = 'ESINTERVENTOR'
+          Width = 104
+          FieldName = 'ESINTERVENTOR'
+        end      
+        item
+          ButtonStyle = cbsCheckboxColumn
+          PickList.Strings = (          )
+          Title.Caption = 'ESVEEDOR'
+          Width = 70
+          FieldName = 'ESVEEDOR'
+        end      
+        item
+          ButtonStyle = cbsCheckboxColumn
+          PickList.Strings = (          )
+          Title.Caption = 'ESPROVEEDOR'
+          Width = 93
+          FieldName = 'ESPROVEEDOR'
+        end>
+    end
+    inherited DBNavigatorModificar: TDBNavigator
+      Hints.Strings = (      )
+    end
+  end
+  inherited MainMenu1: TMainMenu
+    inherited MenuAyuda: TMenuItem
+      inherited MenuItemAyuda: TMenuItem
+        OnClick = MenuItemAyudaClick
+      end
+    end
+  end
+  inherited SQLQuery1: TSQLQuery
+    SQL.Strings = (
+      'SELECT ID, NOMBRE, APELLIDO, CEDULA, FECHANAC, SEXO'
+      '    FROM PERSONA WHERE EXISTS (SELECT 1 FROM PERSONAEXTERNA WHERE PERSONAID = ID)'
+      ''
+    )
+    object SmallintField1: TSmallintField[6]
+      DisplayWidth = 10
+      FieldKind = fkLookup
+      FieldName = 'ESVEEDOR'
+      Index = 6
+      KeyFields = 'ID'
+      LookupCache = False
+      LookupDataSet = qryDetalle
+      LookupKeyFields = 'PERSONAID'
+      LookupResultField = 'ESVEEDOR'
+      ProviderFlags = []
+      ReadOnly = False
+      Required = False
+    end
+    object SmallintField2: TSmallintField[7]
+      DisplayWidth = 10
+      FieldKind = fkLookup
+      FieldName = 'ESINTERVENTOR'
+      Index = 7
+      KeyFields = 'ID'
+      LookupCache = False
+      LookupDataSet = qryDetalle
+      LookupKeyFields = 'PERSONAID'
+      LookupResultField = 'ESINTERVENTOR'
+      ProviderFlags = []
+      ReadOnly = False
+      Required = False
+    end
+    object SmallintField3: TSmallintField[8]
+      DisplayWidth = 10
+      FieldKind = fkLookup
+      FieldName = 'ESENCARGADO'
+      Index = 8
+      KeyFields = 'ID'
+      LookupCache = False
+      LookupDataSet = qryDetalle
+      LookupKeyFields = 'PERSONAID'
+      LookupResultField = 'ESENCARGADO'
+      ProviderFlags = []
+      ReadOnly = False
+      Required = False
+    end
+    object SQLQuery1ACTIVO: TSmallintField[9]
+      DisplayWidth = 10
+      FieldKind = fkLookup
+      FieldName = 'ACTIVO'
+      Index = 9
+      KeyFields = 'ID'
+      LookupCache = False
+      LookupDataSet = qryDetalle
+      LookupKeyFields = 'PERSONAID'
+      LookupResultField = 'ACTIVO'
+      ProviderFlags = []
+      ReadOnly = False
+      Required = False
+    end
+    object SmallintField4: TSmallintField[10]
+      DisplayWidth = 10
+      FieldKind = fkLookup
+      FieldName = 'ESPROVEEDOR'
+      Index = 10
+      KeyFields = 'ID'
+      LookupCache = False
+      LookupDataSet = qryDetalle
+      LookupKeyFields = 'PERSONAID'
+      LookupResultField = 'ESPROVEEDOR'
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  inherited qryDetalle: TSQLQuery
+    FieldDefs = <    
+      item
+        Name = 'PERSONAID'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'ESVEEDOR'
+        DataType = ftSmallint
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'ESINTERVENTOR'
+        DataType = ftSmallint
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'ESENCARGADO'
+        DataType = ftSmallint
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'ACTIVO'
+        DataType = ftSmallint
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'ESPROVEEDOR'
+        DataType = ftSmallint
+        Precision = -1
+        Size = 0
+      end>
+    Database = SGCDDataModule.dbConn
+    Transaction = SGCDDataModule.sqlTran
+    SQL.Strings = (
+      'select * from personaexterna'
+      ''
+    )
+    left = 688
+    top = 24
+    object qryDetallePERSONAID: TLongintField[0]
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'PERSONAID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      ReadOnly = False
+      Required = True
+    end
+    object qryDetalleESVEEDOR: TSmallintField[1]
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'ESVEEDOR'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object qryDetalleESINTERVENTOR: TSmallintField[2]
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'ESINTERVENTOR'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object qryDetalleESENCARGADO: TSmallintField[3]
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'ESENCARGADO'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object qryDetalleACTIVO: TSmallintField[4]
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'ACTIVO'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object qryDetalleESPROVEEDOR: TSmallintField[5]
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'ESPROVEEDOR'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+  end
+  object DatasourceExt: TDatasource[13]
+    DataSet = SQLQueryExt
+    left = 736
+    top = 72
+  end
+  object SQLQueryExt: TSQLQuery[14]
+    FieldDefs = <    
+      item
+        Name = 'PERSONAID'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'ESVEEDOR'
+        DataType = ftSmallint
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'ESINTERVENTOR'
+        DataType = ftSmallint
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'ESENCARGADO'
+        DataType = ftSmallint
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'ACTIVO'
+        DataType = ftSmallint
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'ESPROVEEDOR'
+        DataType = ftSmallint
+        Precision = -1
+        Size = 0
+      end>
+    Filtered = True
+    OnFilterRecord = SQLQueryExtFilterRecord
+    Database = SGCDDataModule.dbConn
+    Transaction = SGCDDataModule.sqlTran
+    SQL.Strings = (
+      'select * from personaexterna'
+    )
+    Params = <>
+    left = 736
+    top = 128
+    object SQLQueryExtPERSONAID: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'PERSONAID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      ReadOnly = False
+      Required = True
+    end
+    object SQLQueryExtESVEEDOR: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'ESVEEDOR'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object SQLQueryExtESINTERVENTOR: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'ESINTERVENTOR'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object SQLQueryExtESENCARGADO: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'ESENCARGADO'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object SQLQueryExtACTIVO: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'ACTIVO'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object SQLQueryExtESPROVEEDOR: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'ESPROVEEDOR'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+  end
+end

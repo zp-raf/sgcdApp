@@ -1,0 +1,553 @@
+inherited ProcesoCalcularNota: TProcesoCalcularNota
+  Left = 575
+  Top = 141
+  Width = 1081
+  Caption = 'Calcular nota'
+  ClientHeight = 620
+  ClientWidth = 1081
+  inherited ButtonPanel1: TButtonPanel
+    Top = 580
+    Width = 1069
+    OKButton.Caption = 'C&alcular'
+    OKButton.OnClick = OKButtonClick
+    CancelButton.OnClick = CancelButtonClick
+  end
+  inherited Alumnos: TGroupBox
+    Height = 498
+    Width = 1069
+    ClientHeight = 480
+    ClientWidth = 1065
+    inherited DBGrid1: TDBGrid
+      Height = 380
+      Width = 1057
+      Columns = <      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'NOMBRE'
+          Width = 116
+          FieldName = 'NOMBRE'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'APELLIDO'
+          Width = 95
+          FieldName = 'APELLIDO'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'CEDULA'
+          Width = 56
+          FieldName = 'CEDULA'
+        end      
+        item
+          ButtonStyle = cbsCheckboxColumn
+          PickList.Strings = (          )
+          ReadOnly = True
+          Title.Caption = 'CONFIRMADO'
+          Width = 84
+          FieldName = 'ALUMNO_CONFIRMADO'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'ID_MATRICULA'
+          Width = 90
+          FieldName = 'ID_MATRICULA'
+        end      
+        item
+          ButtonStyle = cbsCheckboxColumn
+          PickList.Strings = (          )
+          ReadOnly = True
+          Title.Caption = 'CONFIRMADA'
+          Width = 83
+          FieldName = 'MATRICULA_CONFIRMADA'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'MATERIA'
+          Width = 130
+          FieldName = 'NOMBRE_MATERIA_DET'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'SECCION'
+          Width = 60
+          FieldName = 'NOMBRE_SECCION'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'PERIODO'
+          Width = 61
+          FieldName = 'NOMBRE_PERIODO'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'PROFESOR'
+          Width = 94
+          FieldName = 'NOMBRE_PROFESOR'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'PUNTAJE'
+          FieldName = 'PUNTAJE'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'NOTA'
+          FieldName = 'NOTA'
+        end>
+      ReadOnly = True
+      OnTitleClick = TDBGridTitleClick
+    end
+    inherited DBLookupComboBox1: TDBLookupComboBox
+      Height = 23
+    end
+    inherited Materia: TLabel
+      Height = 15
+      Top = 50
+      Width = 40
+    end
+    inherited DBLookupComboBox2: TDBLookupComboBox
+      Height = 23
+    end
+    inherited Periodo: TLabel
+      Height = 15
+      Top = 50
+      Width = 41
+    end
+    inherited DBLookupComboBox3: TDBLookupComboBox
+      Height = 23
+    end
+    inherited Profesor: TLabel
+      Height = 15
+      Top = 3
+      Width = 44
+    end
+    inherited LabeledEdit1: TLabeledEdit
+      Height = 23
+      EditLabel.Height = 15
+      EditLabel.Top = -2
+    end
+    inherited CheckGroup1: TCheckGroup
+      Data = {
+        020000000303
+      }
+    end
+    inherited CheckGroup2: TCheckGroup
+      Data = {
+        020000000303
+      }
+    end
+    inherited Seleccionar: TGroupBox
+      inherited SeleccionarTodo: TButton
+        Height = 25
+        Width = 54
+      end
+      inherited SeleccionarNada: TButton
+        Height = 25
+        Width = 54
+      end
+    end
+    inherited CheckBox1: TCheckBox
+      Height = 19
+      Width = 119
+      Enabled = False
+    end
+  end
+  inherited MainMenu1: TMainMenu
+    inherited MenuAyuda: TMenuItem
+      inherited MenuItemAyuda: TMenuItem
+        OnClick = MenuItemAyudaClick
+      end
+    end
+  end
+  inherited qry: TSQLQuery
+    FieldDefs = <    
+      item
+        Name = 'ID'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'NOMBRE'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'APELLIDO'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'CEDULA'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'FECHANAC'
+        DataType = ftDate
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'SEXO'
+        DataType = ftString
+        Precision = -1
+        Size = 1
+      end    
+      item
+        Name = 'ALUMNO_CONFIRMADO'
+        DataType = ftSmallint
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'ID_MATRICULA'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'DESARROLLOMATERIAID'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'FECHA'
+        DataType = ftDate
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'MATRICULA_CONFIRMADA'
+        DataType = ftSmallint
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'OBSERVACIONES'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'DERECHOEXAMEN'
+        DataType = ftSmallint
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'MATERIAID'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'SECCIONID'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'PERIODOLECTIVOID'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'EMPLEADOPERSONAID'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'GRUPOID'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'MODULOID'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'NOMBRE_SECCION'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'NOMBRE_MATERIA'
+        DataType = ftString
+        Precision = -1
+        Size = 511
+      end    
+      item
+        Name = 'NOMBRE_MATERIA_DET'
+        DataType = ftString
+        Precision = -1
+        Size = 767
+      end    
+      item
+        Name = 'NOMBRE_PERIODO'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'NOMBRE_GRUPO'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'NOMBRE_MOD'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'NOMBRE_PROFESOR'
+        DataType = ftString
+        Precision = -1
+        Size = 511
+      end    
+      item
+        Name = 'ID_1'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'MATRICULAID'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'FECHA_NOTA'
+        DataType = ftDate
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'NOTA'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'OBSERVACIONES_1'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'PUNTAJE'
+        DataType = ftFloat
+        Precision = -1
+        Size = 0
+      end>
+    SQL.Strings = (
+      'select * from V_ALUMNOS_ACTIVOS_Y_MATR aam'
+      'left outer join nota n on n.matriculaid = aam.id_matricula'
+      'where aam.id_matricula is not null'
+    )
+    object qryNOTA: TLongintField[26]
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NOTA'
+      Index = 26
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qryPUNTAJE: TFloatField[27]
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'PUNTAJE'
+      Index = 27
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+      Precision = -1
+    end
+  end
+  object nota: TSQLQuery[12]
+    FieldDefs = <    
+      item
+        Name = 'V_NOTA'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'PUNTAJE_FINAL'
+        DataType = ftFloat
+        Precision = -1
+        Size = 0
+      end>
+    Database = SGCDDataModule.dbConn
+    Transaction = SGCDDataModule.sqlTran
+    SQL.Strings = (
+      'execute procedure calcular_nota(:MATRICULAID, :ALUMNOID);'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'MATRICULAID'
+        ParamType = ptInput
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'ALUMNOID'
+        ParamType = ptInput
+      end>
+    left = 775
+    top = 441
+    object notaV_NOTA: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'V_NOTA'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object notaPUNTAJE_FINAL: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'PUNTAJE_FINAL'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+      Precision = -1
+    end
+  end
+  object qrynotas: TSQLQuery[13]
+    FieldDefs = <    
+      item
+        Name = 'ID'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'MATRICULAID'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'FECHA_NOTA'
+        DataType = ftDate
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'NOTA'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'OBSERVACIONES'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'PUNTAJE'
+        DataType = ftFloat
+        Precision = -1
+        Size = 0
+      end>
+    Database = SGCDDataModule.dbConn
+    Transaction = SGCDDataModule.sqlTran
+    SQL.Strings = (
+      'select * from nota'
+    )
+    Params = <>
+    left = 545
+    top = 315
+    object qrynotasID: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      ReadOnly = False
+      Required = True
+    end
+    object qrynotasMATRICULAID: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'MATRICULAID'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object qrynotasFECHA_NOTA: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FECHA_NOTA'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object qrynotasNOTA: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NOTA'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object qrynotasOBSERVACIONES: TStringField
+      DisplayWidth = 255
+      FieldKind = fkData
+      FieldName = 'OBSERVACIONES'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 255
+    end
+    object qrynotasPUNTAJE: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'PUNTAJE'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = -1
+    end
+  end
+end

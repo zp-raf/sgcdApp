@@ -1,0 +1,61 @@
+inherited PopupSeleccionarModulo: TPopupSeleccionarModulo
+  Left = 517
+  Height = 330
+  Top = 336
+  Width = 574
+  HorzScrollBar.Page = 574
+  HorzScrollBar.Range = 552
+  VertScrollBar.Page = 310
+  VertScrollBar.Range = 288
+  AutoScroll = False
+  Caption = 'Seleccionar'
+  ClientHeight = 310
+  ClientWidth = 574
+  FormStyle = fsSystemStayOnTop
+  object DBGrid1: TDBGrid[0]
+    Left = 16
+    Height = 272
+    Top = 16
+    Width = 536
+    Color = clWindow
+    Columns = <>
+    DataSource = DatasourceAux
+    Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgAutoSizeColumns]
+    Scrollbars = ssAutoBoth
+    TabOrder = 0
+  end
+  inherited MainMenu1: TMainMenu[1]
+    left = 0
+    top = 0
+  end
+  object DatasourceAux: TDatasource[2]
+    DataSet = SQLQueryAux
+    left = 6
+    top = 101
+  end
+  object SQLQueryAux: TSQLQuery[3]
+    IndexName = 'DEFAULT_ORDER'
+    FieldDefs = <    
+      item
+        Name = 'NOMBRE'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'DESCRIPCION'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end>
+    Active = True
+    Database = SGCDDataModule.dbConn
+    Transaction = SGCDDataModule.sqlTran
+    SQL.Strings = (
+      'select nombre, descripcion from modulo'
+    )
+    Params = <>
+    left = 6
+    top = 152
+  end
+end

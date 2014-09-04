@@ -1,0 +1,1129 @@
+inherited AbmDesarrolloMateria: TAbmDesarrolloMateria
+  Left = 468
+  Top = 288
+  BorderStyle = bsSizeable
+  Caption = 'ABM Asignación de profesores'
+  OnCreate = FormCreate
+  OnShow = FormShow
+  inherited ButtonPanel1: TButtonPanel
+    OKButton.DefaultCaption = True
+  end
+  inherited PanelNuevo: TPanel
+    object cbNombreMateria: TDBLookupComboBox[0]
+      Left = 152
+      Height = 23
+      Top = 139
+      Width = 272
+      AutoComplete = True
+      AutoDropDown = True
+      DataField = 'NombreMateria'
+      DataSource = Datasource1
+      ListField = 'NOMBRE'
+      ListFieldIndex = 0
+      LookupCache = False
+      TabOrder = 1
+    end
+    object cbNombreSeccion: TDBLookupComboBox[1]
+      Left = 152
+      Height = 23
+      Top = 174
+      Width = 272
+      AutoComplete = True
+      AutoDropDown = True
+      DataField = 'NombreSeccion'
+      DataSource = Datasource1
+      ListFieldIndex = 0
+      LookupCache = False
+      TabOrder = 2
+    end
+    object cbNombrePeriodoLectivo: TDBLookupComboBox[2]
+      Left = 152
+      Height = 23
+      Top = 209
+      Width = 272
+      AutoComplete = True
+      AutoDropDown = True
+      DataField = 'NombrePeriodoLectivo'
+      DataSource = Datasource1
+      ListFieldIndex = 0
+      LookupCache = False
+      TabOrder = 3
+    end
+    object Label1: TLabel[3]
+      Left = 61
+      Height = 15
+      Top = 139
+      Width = 40
+      Caption = 'Materia'
+      ParentColor = False
+    end
+    object Label4: TLabel[4]
+      Left = 61
+      Height = 15
+      Top = 174
+      Width = 41
+      Caption = 'Sección'
+      ParentColor = False
+    end
+    object Label5: TLabel[5]
+      Left = 64
+      Height = 15
+      Top = 209
+      Width = 22
+      Caption = 'Año'
+      ParentColor = False
+    end
+    object Label7: TLabel[6]
+      Left = 64
+      Height = 15
+      Top = 244
+      Width = 44
+      Caption = 'Profesor'
+      ParentColor = False
+    end
+    object cbNombreEmpleado: TDBLookupComboBox[7]
+      Left = 152
+      Height = 23
+      Top = 244
+      Width = 272
+      AutoComplete = True
+      AutoDropDown = True
+      DataField = 'NombreCompleto'
+      DataSource = Datasource1
+      ListFieldIndex = 0
+      LookupCache = False
+      TabOrder = 4
+    end
+    object Label2: TLabel[8]
+      Left = 58
+      Height = 15
+      Top = 48
+      Width = 44
+      Caption = 'Numero'
+      ParentColor = False
+    end
+    object LabelIDDesarrolloMat: TLabel[9]
+      AnchorSideLeft.Control = Label2
+      AnchorSideLeft.Side = asrBottom
+      AnchorSideTop.Control = Label2
+      AnchorSideTop.Side = asrCenter
+      Left = 149
+      Height = 1
+      Top = 55
+      Width = 1
+      BorderSpacing.Left = 47
+      ParentColor = False
+    end
+    object Label3: TLabel[10]
+      Left = 61
+      Height = 15
+      Top = 104
+      Width = 33
+      Caption = 'Grupo'
+      ParentColor = False
+    end
+    object DBLookupComboBox1: TDBLookupComboBox[11]
+      Left = 152
+      Height = 23
+      Top = 104
+      Width = 272
+      AutoComplete = True
+      AutoDropDown = True
+      DataField = 'ID'
+      DataSource = dsDummy
+      KeyField = 'ID'
+      ListField = 'NOMBRE'
+      ListFieldIndex = 0
+      ListSource = dsGrupo
+      LookupCache = False
+      OnEditingDone = DBLookupComboBox1EditingDone
+      TabOrder = 0
+    end
+    object DBCheckBox1: TDBCheckBox[12]
+      Left = 152
+      Height = 23
+      Top = 280
+      Width = 90
+      Caption = 'Activo'
+      DataField = 'ACTIVO'
+      DataSource = Datasource1
+      TabOrder = 5
+      ValueChecked = '1'
+      ValueUnchecked = '0'
+    end
+    object Label6: TLabel[13]
+      Left = 152
+      Height = 15
+      Top = 76
+      Width = 182
+      Caption = '(todos los campos son requeridos)'
+      ParentColor = False
+    end
+  end
+  inherited PanelEliminar: TPanel
+    inherited DBGrid1: TDBGrid
+      Top = 96
+      Columns = <      
+        item
+          PickList.Strings = (
+            'A'
+            'B'
+            'C'
+          )
+          Title.Caption = 'NombreSeccion'
+          Width = 100
+          FieldName = 'NombreSeccion'
+        end      
+        item
+          PickList.Strings = (
+            'Atuendo'
+            'materia1'
+            'materia2'
+            'materia3'
+            'materia4'
+            'materia6'
+            'materia7'
+            'materia8'
+            'materia9'
+          )
+          Title.Caption = 'NombreMateria'
+          Width = 99
+          FieldName = 'NombreMateria'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'NOMBRE_GRUPO'
+          Width = 108
+          FieldName = 'NOMBRE_GRUPO'
+        end      
+        item
+          PickList.Strings = (
+            'Pedro Acosta'
+            'Mario Santander'
+            'Angelica Benitez'
+            'Liz Mora'
+            'Natalia Ramos'
+            'Viviana Galeano'
+            'Liz Peña'
+            'Lizzie Paniagua'
+            'Rocio Rolón'
+          )
+          Title.Caption = 'NombreProfesor'
+          Width = 103
+          FieldName = 'NombreCompleto'
+        end      
+        item
+          PickList.Strings = (
+            '2000'
+          )
+          Title.Caption = 'NombrePeriodoLectivo'
+          Width = 138
+          FieldName = 'NombrePeriodoLectivo'
+        end      
+        item
+          ButtonStyle = cbsCheckboxColumn
+          PickList.Strings = (          )
+          Title.Caption = 'ACTIVO'
+          Width = 57
+          FieldName = 'ACTIVO'
+        end>
+    end
+    inherited DBNavigatorEliminar: TDBNavigator
+      Top = 368
+      Hints.Strings = (      )
+    end
+    object CheckBoxAll1: TCheckBox[6]
+      Left = 24
+      Height = 19
+      Top = 72
+      Width = 201
+      Caption = 'Mostrar todos (activos e inactivos)'
+      Checked = True
+      OnChange = CheckBoxAllChange
+      State = cbChecked
+      TabOrder = 4
+    end
+  end
+  inherited PanelModificar: TPanel
+    inherited DBGrid2: TDBGrid
+      Top = 96
+      Columns = <      
+        item
+          PickList.Strings = (
+            'A'
+            'B'
+            'C'
+          )
+          Title.Caption = 'NombreSeccion'
+          Width = 100
+          FieldName = 'NombreSeccion'
+        end      
+        item
+          PickList.Strings = (
+            'Atuendo'
+            'materia1'
+            'materia2'
+            'materia3'
+            'materia4'
+            'materia6'
+            'materia7'
+            'materia8'
+            'materia9'
+          )
+          Title.Caption = 'NombreMateria'
+          Width = 99
+          FieldName = 'NombreMateria'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'NOMBRE_GRUPO'
+          Width = 108
+          FieldName = 'NOMBRE_GRUPO'
+        end      
+        item
+          PickList.Strings = (
+            'Pedro Acosta'
+            'Mario Santander'
+            'Angelica Benitez'
+            'Liz Mora'
+            'Natalia Ramos'
+            'Viviana Galeano'
+            'Liz Peña'
+            'Lizzie Paniagua'
+            'Rocio Rolón'
+          )
+          Title.Caption = 'NombreProfesor'
+          Width = 103
+          FieldName = 'NombreCompleto'
+        end      
+        item
+          PickList.Strings = (
+            '2000'
+          )
+          Title.Caption = 'NombrePeriodoLectivo'
+          Width = 138
+          FieldName = 'NombrePeriodoLectivo'
+        end      
+        item
+          ButtonStyle = cbsCheckboxColumn
+          PickList.Strings = (          )
+          Title.Caption = 'ACTIVO'
+          Width = 57
+          FieldName = 'ACTIVO'
+        end>
+    end
+    inherited DBNavigatorModificar: TDBNavigator
+      Top = 368
+      Hints.Strings = (      )
+    end
+    inherited ButtonModificarFiltrar: TButton
+      OnClick = ButtonModificarFiltrarClick
+    end
+    object CheckBoxAll: TCheckBox[6]
+      Left = 24
+      Height = 19
+      Top = 72
+      Width = 201
+      Caption = 'Mostrar todos (activos e inactivos)'
+      Checked = True
+      OnChange = CheckBoxAllChange
+      State = cbChecked
+      TabOrder = 4
+    end
+  end
+  inherited MainMenu1: TMainMenu
+    inherited MenuArchivo: TMenuItem
+      inherited MenuItemGuardar: TMenuItem
+        Caption = '&Aceptar'
+      end
+    end
+    inherited MenuItemAcciones: TMenuItem
+      inherited MenuItemNuevo: TMenuItem
+        Caption = '&Nuevo'
+        ShortCut = 16462
+      end
+      inherited MenuItemModificar: TMenuItem
+        Caption = '&Modificar'
+        OnClick = MenuItemModificarClick
+      end
+      inherited MenuItemEliminar: TMenuItem
+        Caption = '&Eliminar'
+        ShortCut = 16453
+      end
+    end
+  end
+  inherited Datasource1: TDatasource
+    left = 560
+    top = 56
+  end
+  inherited SQLQuery1: TSQLQuery
+    FieldDefs = <    
+      item
+        Name = 'ID'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'SECCIONID'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'MATERIAID'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'ACTIVO'
+        DataType = ftSmallint
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'PERIODOLECTIVOID'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'EMPLEADOPERSONAID'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end>
+    OnFilterRecord = SQLQuery1FilterRecord
+    SQL.Strings = (
+      'select * from desarrollomateria'
+    )
+    left = 560
+    top = 0
+    object SQLQuery1ID: TLongintField[0]
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      ReadOnly = False
+      Required = True
+    end
+    object SQLQuery1SECCIONID: TLongintField[1]
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'SECCIONID'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object SQLQuery1MATERIAID: TLongintField[2]
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'MATERIAID'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object SQLQuery1ACTIVO: TSmallintField[3]
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'ACTIVO'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object SQLQuery1PERIODOLECTIVOID: TLongintField[4]
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'PERIODOLECTIVOID'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object SQLQuery1EMPLEADOPERSONAID: TLongintField[5]
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'EMPLEADOPERSONAID'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object NombreSeccion: TStringField[6]
+      DisplayWidth = 255
+      FieldKind = fkLookup
+      FieldName = 'NombreSeccion'
+      Index = 6
+      KeyFields = 'SECCIONID'
+      LookupCache = False
+      LookupDataSet = qrySeccion
+      LookupKeyFields = 'ID'
+      LookupResultField = 'NOMBRE'
+      ProviderFlags = []
+      ReadOnly = False
+      Required = False
+      Size = 255
+    end
+    object NombrePeriodoLectivo: TStringField[7]
+      DisplayWidth = 255
+      FieldKind = fkLookup
+      FieldName = 'NombrePeriodoLectivo'
+      Index = 7
+      KeyFields = 'PERIODOLECTIVOID'
+      LookupCache = False
+      LookupDataSet = qryPeriodoLectivo
+      LookupKeyFields = 'ID'
+      LookupResultField = 'NOMBRE'
+      ProviderFlags = []
+      ReadOnly = False
+      Required = False
+      Size = 255
+    end
+    object NombreCompleto: TStringField[8]
+      DisplayLabel = 'NombreProfesor'
+      DisplayWidth = 511
+      FieldKind = fkLookup
+      FieldName = 'NombreCompleto'
+      Index = 8
+      KeyFields = 'EMPLEADOPERSONAID'
+      LookupCache = False
+      LookupDataSet = qryEmpleado
+      LookupKeyFields = 'ID'
+      LookupResultField = 'NOMBRECOMPLETO'
+      ProviderFlags = []
+      ReadOnly = False
+      Required = False
+      Size = 511
+    end
+    object NombreMateria: TStringField[9]
+      DisplayWidth = 767
+      FieldKind = fkLookup
+      FieldName = 'NombreMateria'
+      Index = 9
+      KeyFields = 'MATERIAID'
+      LookupCache = False
+      LookupDataSet = qryMateria
+      LookupKeyFields = 'ID'
+      LookupResultField = 'NOMBRE'
+      ProviderFlags = []
+      ReadOnly = False
+      Required = False
+      Size = 767
+    end
+    object StringField1: TStringField[10]
+      DisplayWidth = 255
+      FieldKind = fkLookup
+      FieldName = 'NOMBRE_GRUPO'
+      Index = 10
+      KeyFields = 'MATERIAID'
+      LookupCache = False
+      LookupDataSet = qryMateria
+      LookupKeyFields = 'ID'
+      LookupResultField = 'NOMBRE_GRUPO'
+      ProviderFlags = []
+      ReadOnly = False
+      Required = False
+      Size = 255
+    end
+  end
+  object dsSeccion: TDatasource[8]
+    DataSet = qrySeccion
+    left = 440
+    top = 64
+  end
+  object qrySeccion: TSQLQuery[9]
+    FieldDefs = <    
+      item
+        Name = 'ID'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'NOMBRE'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'DESCRIPCION'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end>
+    Database = SGCDDataModule.dbConn
+    Transaction = SGCDDataModule.sqlTran
+    ReadOnly = True
+    SQL.Strings = (
+      'select * from seccion;'
+    )
+    Params = <>
+    left = 440
+    top = 8
+  end
+  object qryMateria: TSQLQuery[10]
+    FieldDefs = <    
+      item
+        Name = 'ID'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'GRUPOID'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'NOMBRE'
+        DataType = ftString
+        Precision = -1
+        Size = 511
+      end    
+      item
+        Name = 'NOMBRE_GRUPO'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end>
+    Filtered = True
+    OnFilterRecord = qryMateriaFilterRecord
+    Database = SGCDDataModule.dbConn
+    Transaction = SGCDDataModule.sqlTran
+    ReadOnly = True
+    SQL.Strings = (
+      'select id, grupoid, nombre||coalesce('' ''||nombre_modulo, '''') as NOMBRE, nombre_grupo'
+      'from v_materias_det'
+    )
+    Params = <>
+    left = 368
+    top = 320
+    object qryMateriaID: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object qryMateriaNOMBRE: TStringField
+      DisplayWidth = 255
+      FieldKind = fkData
+      FieldName = 'NOMBRE'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 255
+    end
+    object qryMateriaGRUPOID: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'GRUPOID'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qryMateriaNOMBRE_GRUPO: TStringField
+      DisplayWidth = 255
+      FieldKind = fkData
+      FieldName = 'NOMBRE_GRUPO'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 255
+    end
+  end
+  object dsMateria: TDatasource[11]
+    DataSet = qryMateria
+    left = 368
+    top = 376
+  end
+  object dsModulo: TDatasource[12]
+    DataSet = qryModulo
+    left = 456
+    top = 344
+  end
+  object qryModulo: TSQLQuery[13]
+    FieldDefs = <    
+      item
+        Name = 'ID'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'NOMBRE'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'DESCRIPCION'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'FUNDAMENTACION'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'OBJETIVOS'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'REQUISITOS'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'DURACION'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'PERFILEGRESADO'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'HABILITADO'
+        DataType = ftSmallint
+        Precision = -1
+        Size = 0
+      end>
+    Database = SGCDDataModule.dbConn
+    Transaction = SGCDDataModule.sqlTran
+    ReadOnly = True
+    SQL.Strings = (
+      'select * from modulo;'
+    )
+    Params = <>
+    left = 456
+    top = 288
+  end
+  object qryPeriodoLectivo: TSQLQuery[14]
+    FieldDefs = <    
+      item
+        Name = 'ID'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'NOMBRE'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'DESCRIPCION'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'FECHAINICIO'
+        DataType = ftDate
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'FECHAFIN'
+        DataType = ftDate
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'ACTIVO'
+        DataType = ftSmallint
+        Precision = -1
+        Size = 0
+      end>
+    Database = SGCDDataModule.dbConn
+    Transaction = SGCDDataModule.sqlTran
+    ReadOnly = True
+    SQL.Strings = (
+      'select * from periodolectivo;'
+    )
+    Params = <>
+    left = 568
+    top = 272
+  end
+  object dsPeriodoLectivo: TDatasource[15]
+    DataSet = qryPeriodoLectivo
+    left = 568
+    top = 328
+  end
+  object qryPersonas: TSQLQuery[16]
+    FieldDefs = <    
+      item
+        Name = 'ID'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'NOMBRE'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'APELLIDO'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'CEDULA'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'FECHANAC'
+        DataType = ftDate
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'SEXO'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'NOMBRECOMPLETO'
+        DataType = ftString
+        Precision = -1
+        Size = 511
+      end    
+      item
+        Name = 'ID_1'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'PERSONAID'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'ACTIVO'
+        DataType = ftSmallint
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'ESENCARGADO'
+        DataType = ftSmallint
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'ESCOORDINADOR'
+        DataType = ftSmallint
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'ESADMINISTRATIVO'
+        DataType = ftSmallint
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'ESPROFESOR'
+        DataType = ftSmallint
+        Precision = -1
+        Size = 0
+      end>
+    Database = SGCDDataModule.dbConn
+    Transaction = SGCDDataModule.sqlTran
+    ReadOnly = True
+    SQL.Strings = (
+      'select * from persona p'
+      'inner join empleado e'
+      'on e.personaid = p.id;'
+    )
+    Params = <>
+    left = 504
+    top = 144
+  end
+  object dsPersona: TDatasource[17]
+    DataSet = qryPersonas
+    left = 504
+    top = 192
+  end
+  object qryEmpleado: TSQLQuery[18]
+    FieldDefs = <    
+      item
+        Name = 'ID'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'NOMBRE'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'APELLIDO'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'CEDULA'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'FECHANAC'
+        DataType = ftDate
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'SEXO'
+        DataType = ftString
+        Precision = -1
+        Size = 1
+      end    
+      item
+        Name = 'NOMBRECOMPLETO'
+        DataType = ftString
+        Precision = -1
+        Size = 511
+      end    
+      item
+        Name = 'PERSONAID'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'ACTIVO'
+        DataType = ftSmallint
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'ESENCARGADO'
+        DataType = ftSmallint
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'ESCOORDINADOR'
+        DataType = ftSmallint
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'ESADMINISTRATIVO'
+        DataType = ftSmallint
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'ESPROFESOR'
+        DataType = ftSmallint
+        Precision = -1
+        Size = 0
+      end>
+    Database = SGCDDataModule.dbConn
+    Transaction = SGCDDataModule.sqlTran
+    ReadOnly = True
+    SQL.Strings = (
+      'select * from persona p inner join empleado e on e.personaid = p.id'
+      'where e.esprofesor = 1'
+    )
+    Params = <>
+    left = 584
+    top = 144
+    object qryEmpleadoID: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object qryEmpleadoNOMBRECOMPLETO: TStringField
+      DisplayWidth = 511
+      FieldKind = fkData
+      FieldName = 'NOMBRECOMPLETO'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 511
+    end
+  end
+  object dsEmpleado: TDatasource[19]
+    DataSet = qryEmpleado
+    left = 584
+    top = 192
+  end
+  object qryGrupo: TSQLQuery[20]
+    FieldDefs = <    
+      item
+        Name = 'ID'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'NOMBRE'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'HABILITADO'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'DESCRIPCION'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'ANTERIOR'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end>
+    Database = SGCDDataModule.dbConn
+    Transaction = SGCDDataModule.sqlTran
+    ReadOnly = True
+    SQL.Strings = (
+      'select * from v_grupos_habilitados'
+    )
+    Params = <>
+    left = 285
+    top = 342
+    object qryGrupoID: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qryGrupoNOMBRE: TStringField
+      DisplayWidth = 255
+      FieldKind = fkData
+      FieldName = 'NOMBRE'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 255
+    end
+  end
+  object dsGrupo: TDatasource[21]
+    DataSet = qryGrupo
+    left = 288
+    top = 392
+  end
+  object qryDummy: TSQLQuery[22]
+    FieldDefs = <    
+      item
+        Name = 'ID'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'NOMBRE'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'HABILITADO'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'DESCRIPCION'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'ANTERIOR'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end>
+    Database = SGCDDataModule.dbConn
+    Transaction = SGCDDataModule.sqlTran
+    SQL.Strings = (
+      'select * from v_grupos_habilitados'
+    )
+    Params = <>
+    left = 208
+    top = 344
+    object qryDummyID: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object dsDummy: TDatasource[23]
+    DataSet = qryDummy
+    left = 208
+    top = 400
+  end
+end

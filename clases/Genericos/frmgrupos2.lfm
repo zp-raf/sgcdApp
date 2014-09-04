@@ -1,0 +1,322 @@
+inherited ABMGrupos: TABMGrupos
+  Left = 594
+  Top = 247
+  Caption = 'ABM Grupos'
+  ClientHeight = 461
+  OnCreate = FormCreate
+  inherited PanelEliminar: TPanel[2]
+    TabOrder = 3
+    inherited DBGrid1: TDBGrid
+      Columns = <      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'NOMBRE'
+          FieldName = 'NOMBRE'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'DESCRIPCION'
+          Width = 89
+          FieldName = 'DESCRIPCION'
+        end      
+        item
+          ButtonStyle = cbsCheckboxColumn
+          PickList.Strings = (          )
+          Title.Caption = 'HABILITADO'
+          Width = 83
+          FieldName = 'HABILITADO'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'ANTERIOR'
+          Width = 71
+          FieldName = 'ANTERIOR'
+        end>
+      Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgAutoSizeColumns, dgDisableInsert, dgTruncCellHints, dgCellEllipsis]
+    end
+    inherited DBNavigatorEliminar: TDBNavigator
+      Hints.Strings = (      )
+    end
+  end
+  inherited PanelModificar: TPanel[3]
+    TabOrder = 1
+    inherited DBGrid2: TDBGrid
+      Hint = ''
+      Columns = <      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'NOMBRE'
+          FieldName = 'NOMBRE'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'DESCRIPCION'
+          Width = 89
+          FieldName = 'DESCRIPCION'
+        end      
+        item
+          ButtonStyle = cbsCheckboxColumn
+          PickList.Strings = (          )
+          Title.Caption = 'HABILITADO'
+          Width = 83
+          FieldName = 'HABILITADO'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'ANTERIOR'
+          Width = 71
+          FieldName = 'ANTERIOR'
+        end>
+    end
+    inherited DBNavigatorModificar: TDBNavigator
+      Hints.Strings = (      )
+    end
+  end
+  inherited PanelNuevo: TPanel[4]
+    TabOrder = 2
+    object LabeledEditNuevoNombre: TLabeledEdit[0]
+      Left = 24
+      Height = 23
+      Top = 24
+      Width = 360
+      EditLabel.AnchorSideLeft.Control = LabeledEditNuevoNombre
+      EditLabel.AnchorSideRight.Control = LabeledEditNuevoNombre
+      EditLabel.AnchorSideRight.Side = asrBottom
+      EditLabel.AnchorSideBottom.Control = LabeledEditNuevoNombre
+      EditLabel.Left = 24
+      EditLabel.Height = 15
+      EditLabel.Top = 6
+      EditLabel.Width = 360
+      EditLabel.Caption = 'Nombre (requerido)'
+      EditLabel.ParentColor = False
+      ParentFont = False
+      TabOrder = 0
+    end
+    object LabeledEditNuevoDescripcion: TLabeledEdit[1]
+      Left = 24
+      Height = 23
+      Top = 112
+      Width = 360
+      EditLabel.AnchorSideLeft.Control = LabeledEditNuevoDescripcion
+      EditLabel.AnchorSideRight.Control = LabeledEditNuevoDescripcion
+      EditLabel.AnchorSideRight.Side = asrBottom
+      EditLabel.AnchorSideBottom.Control = LabeledEditNuevoDescripcion
+      EditLabel.Left = 24
+      EditLabel.Height = 15
+      EditLabel.Top = 94
+      EditLabel.Width = 360
+      EditLabel.Caption = 'Descripcion'
+      EditLabel.ParentColor = False
+      TabOrder = 3
+    end
+    object CheckBoxNuevoActivo: TCheckBox[2]
+      Left = 400
+      Height = 19
+      Top = 28
+      Width = 54
+      Caption = 'Activo'
+      Checked = True
+      State = cbChecked
+      TabOrder = 1
+    end
+    object DBLookupComboBox1: TDBLookupComboBox[3]
+      Left = 24
+      Height = 23
+      Top = 64
+      Width = 192
+      AutoComplete = True
+      AutoDropDown = True
+      DataField = 'ANTERIOR'
+      DataSource = Datasource1
+      KeyField = 'ID'
+      ListField = 'NOMBRE'
+      ListFieldIndex = 0
+      ListSource = DatasourceAnterior
+      LookupCache = False
+      TabOrder = 2
+    end
+    object Label1: TLabel[4]
+      AnchorSideLeft.Control = DBLookupComboBox1
+      AnchorSideBottom.Control = DBLookupComboBox1
+      Left = 24
+      Height = 15
+      Top = 49
+      Width = 79
+      Anchors = [akLeft, akBottom]
+      Caption = 'Grupo Anterior'
+      ParentColor = False
+    end
+  end
+  inherited MainMenu1: TMainMenu
+    inherited MenuItemAcciones: TMenuItem
+      inherited MenuItemModificar: TMenuItem
+        OnClick = MenuItemModificarClick
+      end
+      inherited MenuItemEliminar: TMenuItem
+        OnClick = MenuItemEliminarClick
+      end
+    end
+  end
+  inherited Datasource1: TDatasource
+    top = 272
+  end
+  inherited SQLQuery1: TSQLQuery
+    FieldDefs = <    
+      item
+        Name = 'ID'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'NOMBRE'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'HABILITADO'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'DESCRIPCION'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'ANTERIOR'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end>
+    SQL.Strings = (
+      'select * from grupo'
+    )
+    top = 232
+    object SQLQuery1ID: TLongintField[0]
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      ReadOnly = False
+      Required = False
+    end
+    object SQLQuery1NOMBRE: TStringField[1]
+      DisplayWidth = 255
+      FieldKind = fkData
+      FieldName = 'NOMBRE'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 255
+    end
+    object SQLQuery1DESCRIPCION: TStringField[2]
+      DisplayWidth = 255
+      FieldKind = fkData
+      FieldName = 'DESCRIPCION'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 255
+    end
+    object SQLQuery1HABILITADO: TLongintField[3]
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'HABILITADO'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object SQLQuery1ANTERIOR: TLongintField[4]
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'ANTERIOR'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object SQLQueryAnterior: TSQLQuery[8]
+    FieldDefs = <    
+      item
+        Name = 'ID'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'NOMBRE'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'HABILITADO'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'DESCRIPCION'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'ANTERIOR'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end>
+    Filtered = True
+    OnFilterRecord = SQLQueryAnteriorFilterRecord
+    Database = SGCDDataModule.dbConn
+    Transaction = SGCDDataModule.sqlTran
+    ReadOnly = True
+    SQL.Strings = (
+      'select * from v_grupos_habilitados'
+    )
+    Params = <>
+    left = 456
+    top = 142
+    object SQLQueryAnteriorID: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object SQLQueryAnteriorNOMBRE: TStringField
+      DisplayWidth = 255
+      FieldKind = fkData
+      FieldName = 'NOMBRE'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 255
+    end
+  end
+  object DatasourceAnterior: TDatasource[9]
+    DataSet = SQLQueryAnterior
+    left = 557
+    top = 142
+  end
+end

@@ -1,0 +1,299 @@
+inherited AbmPeriodosLectivos: TAbmPeriodosLectivos
+  Left = 621
+  Top = 294
+  Caption = 'ABM Periodos Lectivos'
+  OnCreate = FormCreate
+  inherited PanelNuevo: TPanel
+    TabOrder = 2
+    object LabeledEditNuevoNombre: TLabeledEdit[0]
+      Left = 24
+      Height = 23
+      Top = 24
+      Width = 360
+      EditLabel.AnchorSideLeft.Control = LabeledEditNuevoNombre
+      EditLabel.AnchorSideRight.Control = LabeledEditNuevoNombre
+      EditLabel.AnchorSideRight.Side = asrBottom
+      EditLabel.AnchorSideBottom.Control = LabeledEditNuevoNombre
+      EditLabel.Left = 24
+      EditLabel.Height = 15
+      EditLabel.Top = 6
+      EditLabel.Width = 360
+      EditLabel.Caption = 'Nombre (requerido, unico)'
+      EditLabel.ParentColor = False
+      ParentFont = False
+      TabOrder = 0
+    end
+    object LabeledEditNuevoDescripcion: TLabeledEdit[1]
+      Left = 24
+      Height = 23
+      Top = 74
+      Width = 360
+      EditLabel.AnchorSideLeft.Control = LabeledEditNuevoDescripcion
+      EditLabel.AnchorSideRight.Control = LabeledEditNuevoDescripcion
+      EditLabel.AnchorSideRight.Side = asrBottom
+      EditLabel.AnchorSideBottom.Control = LabeledEditNuevoDescripcion
+      EditLabel.Left = 24
+      EditLabel.Height = 15
+      EditLabel.Top = 56
+      EditLabel.Width = 360
+      EditLabel.Caption = 'Descripcion'
+      EditLabel.ParentColor = False
+      TabOrder = 1
+    end
+    object LabelNuevoFechaIni: TLabel[2]
+      Left = 24
+      Height = 15
+      Top = 104
+      Width = 141
+      Caption = 'Fecha de Inicio (requerido)'
+      ParentColor = False
+    end
+    object LabelNuevoFechaFin: TLabel[3]
+      Left = 24
+      Height = 15
+      Top = 152
+      Width = 174
+      Caption = 'Fecha de Finalizacion (requerido)'
+      ParentColor = False
+    end
+    object CheckBoxNuevoActivo: TCheckBox[4]
+      Left = 24
+      Height = 19
+      Top = 200
+      Width = 54
+      Caption = 'Activo'
+      Checked = True
+      State = cbChecked
+      TabOrder = 4
+    end
+    object DateEditFechaIni: TDateEdit[5]
+      Left = 24
+      Height = 23
+      Top = 120
+      Width = 80
+      CalendarDisplaySettings = [dsShowHeadings, dsShowDayNames]
+      OKCaption = 'OK'
+      CancelCaption = 'Cancel'
+      DateOrder = doDMY
+      ButtonWidth = 23
+      CharCase = ecNormal
+      NumGlyphs = 1
+      MaxLength = 10
+      OnExit = DateEditFechaIniExit
+      TabOrder = 2
+    end
+    object DateEditFechaFin: TDateEdit[6]
+      Left = 24
+      Height = 23
+      Top = 168
+      Width = 80
+      CalendarDisplaySettings = [dsShowHeadings, dsShowDayNames]
+      OKCaption = 'OK'
+      CancelCaption = 'Cancel'
+      DateOrder = doDMY
+      ButtonWidth = 23
+      CharCase = ecNormal
+      NumGlyphs = 1
+      MaxLength = 10
+      TabOrder = 3
+    end
+  end
+  inherited PanelModificar: TPanel
+    TabOrder = 1
+    inherited DBGrid2: TDBGrid
+      Columns = <      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'NOMBRE'
+          FieldName = 'NOMBRE'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'DESCRIPCION'
+          Width = 89
+          FieldName = 'DESCRIPCION'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'FECHAINICIO'
+          Width = 87
+          FieldName = 'FECHAINICIO'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'FECHAFIN'
+          Width = 70
+          FieldName = 'FECHAFIN'
+        end      
+        item
+          ButtonStyle = cbsCheckboxColumn
+          PickList.Strings = (          )
+          Title.Caption = 'ACTIVO'
+          Width = 57
+          FieldName = 'ACTIVO'
+        end>
+    end
+    inherited DBNavigatorModificar: TDBNavigator
+      Hints.Strings = (      )
+    end
+    object ButtonActivar: TButton[6]
+      AnchorSideLeft.Control = DBNavigatorModificar
+      AnchorSideTop.Control = DBNavigatorModificar
+      AnchorSideTop.Side = asrBottom
+      Left = 24
+      Height = 25
+      Hint = 'Marca como activo el periodo lectivo seleccionado y desactiva todos los demas, cuando sea posible'
+      Top = 368
+      Width = 132
+      AutoSize = True
+      Caption = 'Marcar como activo'
+      OnClick = ButtonActivarClick
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 4
+    end
+  end
+  inherited PanelEliminar: TPanel
+    TabOrder = 3
+    inherited DBGrid1: TDBGrid
+      Columns = <      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'NOMBRE'
+          FieldName = 'NOMBRE'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'DESCRIPCION'
+          Width = 89
+          FieldName = 'DESCRIPCION'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'FECHAINICIO'
+          Width = 87
+          FieldName = 'FECHAINICIO'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'FECHAFIN'
+          Width = 70
+          FieldName = 'FECHAFIN'
+        end      
+        item
+          ButtonStyle = cbsCheckboxColumn
+          PickList.Strings = (          )
+          Title.Caption = 'ACTIVO'
+          Width = 57
+          FieldName = 'ACTIVO'
+        end>
+    end
+    inherited DBNavigatorEliminar: TDBNavigator
+      Hints.Strings = (      )
+    end
+  end
+  inherited SQLQuery1: TSQLQuery
+    FieldDefs = <    
+      item
+        Name = 'ID'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'NOMBRE'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'DESCRIPCION'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'FECHAINICIO'
+        DataType = ftDate
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'FECHAFIN'
+        DataType = ftDate
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'ACTIVO'
+        DataType = ftSmallint
+        Precision = -1
+        Size = 0
+      end>
+    SQL.Strings = (
+      ''
+    )
+    object SQLQuery1ID: TLongintField[0]
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      ReadOnly = False
+      Required = False
+    end
+    object SQLQuery1NOMBRE: TStringField[1]
+      DisplayWidth = 255
+      FieldKind = fkData
+      FieldName = 'NOMBRE'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 255
+    end
+    object SQLQuery1DESCRIPCION: TStringField[2]
+      DisplayWidth = 255
+      FieldKind = fkData
+      FieldName = 'DESCRIPCION'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 255
+    end
+    object SQLQuery1FECHAINICIO: TDateField[3]
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FECHAINICIO'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object SQLQuery1FECHAFIN: TDateField[4]
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FECHAFIN'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object SQLQuery1ACTIVO: TSmallintField[5]
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'ACTIVO'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+  end
+end

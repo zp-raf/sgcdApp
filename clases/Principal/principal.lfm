@@ -1,0 +1,248 @@
+object Principal1: TPrincipal1
+  Left = 641
+  Height = 100
+  Top = 227
+  Width = 348
+  Anchors = []
+  Caption = 'SGCD'
+  ClientHeight = 80
+  ClientWidth = 348
+  Constraints.MaxHeight = 100
+  Constraints.MinHeight = 100
+  Constraints.MinWidth = 310
+  Menu = MainMenu1
+  OnClose = FormClose
+  OnCreate = FormCreate
+  OnShow = FormShow
+  Position = poScreenCenter
+  LCLVersion = '1.2.0.3'
+  object StatusBar1: TStatusBar
+    Left = 0
+    Height = 23
+    Top = 57
+    Width = 348
+    Panels = <    
+      item
+        Text = 'User'
+        Width = 80
+      end    
+      item
+        Text = 'Host'
+        Width = 50
+      end>
+    SimplePanel = False
+  end
+  object MainMenu1: TMainMenu
+    object Academico: TMenuItem
+      Caption = 'A&cademico'
+      object matricular: TMenuItem
+        Caption = '&Matricular alumnos'
+        OnClick = matricularClick
+      end
+      object clases: TMenuItem
+        Caption = 'ABM &Clases'
+        OnClick = clasesClick
+      end
+      object registroAnecdotico1: TMenuItem
+        Caption = '&Registro Anecdótico'
+        OnClick = registroAnecdotico1Click
+      end
+      object examenes: TMenuItem
+        Caption = '&Exámenes'
+        object examenabm: TMenuItem
+          Caption = 'ABM &Exámenes'
+          OnClick = examenesClick
+        end
+        object calificar: TMenuItem
+          Caption = '&Calificar exámenes'
+          OnClick = calificarClick
+        end
+        object calcularnota: TMenuItem
+          Caption = 'C&alcular nota final'
+          OnClick = calcularnotaClick
+        end
+        object escala: TMenuItem
+          Caption = '&Escala'
+          OnClick = escalaClick
+        end
+      end
+      object trabajoPractico1: TMenuItem
+        Caption = '&Trabajos prácticos'
+        object trabajos: TMenuItem
+          Caption = '&ABM Trabajos'
+          OnClick = trabajosClick
+        end
+        object entregas: TMenuItem
+          Caption = '&Entrega de Trabajos'
+          OnClick = entregasClick
+        end
+      end
+      object gestionCurso: TMenuItem
+        Caption = '&Gestión del curso'
+        object academias: TMenuItem
+          Caption = 'ABM &Academias'
+          OnClick = academiasClick
+        end
+        object periodos: TMenuItem
+          Caption = 'ABM &Periodos Lectivos'
+          OnClick = periodosClick
+        end
+        object modulos: TMenuItem
+          Caption = 'ABM &Módulos'
+          OnClick = modulosClick
+        end
+        object grupos: TMenuItem
+          Caption = 'ABM &Grupos'
+          OnClick = gruposClick
+        end
+        object secciones: TMenuItem
+          Caption = 'ABM &Secciones'
+          OnClick = seccionesClick
+        end
+        object materias: TMenuItem
+          Caption = 'ABM Ma&terias'
+          OnClick = materiasClick
+        end
+        object desarrolloMaterias: TMenuItem
+          Caption = 'ABM A&signación de profesores'
+          OnClick = desarrolloMateriasClick
+        end
+      end
+    end
+    object Administrativo: TMenuItem
+      Caption = 'A&dministrativo'
+      object personasSub: TMenuItem
+        Caption = '&Personas'
+        object alumnos: TMenuItem
+          Caption = '&Alumnos'
+          OnClick = alumnosClick
+        end
+        object personal: TMenuItem
+          Caption = '&Personal'
+          OnClick = personalClick
+        end
+        object personasext: TMenuItem
+          Caption = 'P&ersonas Externas'
+          OnClick = personasextClick
+        end
+        object confirmar: TMenuItem
+          Caption = 'C&onfimar alumnos y matriculas'
+          OnClick = confirmarClick
+        end
+        object allpersonas: TMenuItem
+          Caption = '&Cambiar rol'
+          Visible = False
+          OnClick = allpersonasClick
+        end
+      end
+      object financiero: TMenuItem
+        Caption = '&Finanzas'
+        object aranceles: TMenuItem
+          Caption = 'ABM Ara&nceles'
+          OnClick = arancelesClick
+        end
+        object cuotaxarancel: TMenuItem
+          Caption = 'ABM C&uotas de aranceles'
+          OnClick = cuotaxarancelClick
+        end
+        object talonarios: TMenuItem
+          Caption = 'ABM &Talonarios'
+          OnClick = talonariosClick
+        end
+        object multas: TMenuItem
+          Caption = 'Actualizar &multas'
+          OnClick = multasClick
+        end
+        object facturas: TMenuItem
+          Caption = 'Emision de &facturas'
+          OnClick = facturasClick
+        end
+        object notaCredito: TMenuItem
+          Caption = 'Nota de &crédito'
+          OnClick = notaCreditoClick
+        end
+        object recibo: TMenuItem
+          Caption = 'Emisión de &recibos'
+          OnClick = reciboClick
+        end
+        object historico: TMenuItem
+          Caption = '&Historico de Movimientos'
+          OnClick = historicoClick
+        end
+        object generarDeuda: TMenuItem
+          Caption = 'Generar &deudas'
+          OnClick = generarDeudaClick
+        end
+        object cuentasCobrar: TMenuItem
+          Caption = 'Cuentas por c&obrar'
+          OnClick = cuentasCobrarClick
+        end
+        object cuentasPagar: TMenuItem
+          Caption = 'Cuentas por &pagar'
+          Visible = False
+          OnClick = cuentasPagarClick
+        end
+        object cargarRecibo: TMenuItem
+          Caption = 'Cargar r&ecibo de compra'
+          OnClick = cargarReciboClick
+        end
+        object cargarFactura: TMenuItem
+          Caption = 'Cargar f&actura de compra'
+          OnClick = cargarFacturaClick
+        end
+        object cargarNotaCredito: TMenuItem
+          Caption = 'Cargar n&ota de crédito'
+          Visible = False
+          OnClick = cargarNotaCreditoClick
+        end
+      end
+      object equipos: TMenuItem
+        Caption = 'ABM &Equipos'
+        OnClick = equiposClick
+      end
+      object reservaEquipo1: TMenuItem
+        Caption = 'Pré&stamo de Equipos'
+        OnClick = reservaEquipo1Click
+      end
+      object justificativos: TMenuItem
+        Caption = '&Justificativos'
+        OnClick = justificativosClick
+      end
+      object asistenciaProfesores: TMenuItem
+        Caption = '&Registro de asistencia'
+        OnClick = asistenciaProfesoresClick
+      end
+    end
+    object reporte1: TMenuItem
+      Caption = 'Reportes'
+      object certificadoEstudio: TMenuItem
+        Caption = 'Certificado de Estudios'
+        OnClick = certificadoEstudioClick
+      end
+      object reportRegAsistencia: TMenuItem
+        Caption = 'Registro de Asistencia'
+        OnClick = reportRegAsistenciaClick
+      end
+      object historicoMovimiento: TMenuItem
+        Caption = 'Histórico de movimientos'
+        OnClick = historicoMovimientoClick
+      end
+    end
+    object ayuda2: TMenuItem
+      Caption = 'A&yuda'
+      object ayuda1: TMenuItem
+        Caption = 'A&yuda'
+        ShortCut = 112
+        OnClick = ayuda1Click
+      end
+      object aboutUs1: TMenuItem
+        Caption = 'A&cerca de'
+        OnClick = aboutUs1Click
+      end
+    end
+    object Salir: TMenuItem
+      Caption = '&Salir'
+      OnClick = SalirClick
+    end
+  end
+end

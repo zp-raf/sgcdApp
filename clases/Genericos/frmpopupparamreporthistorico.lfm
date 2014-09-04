@@ -1,0 +1,689 @@
+inherited TPopUpParamReportHistorico: TTPopUpParamReportHistorico
+  Left = 378
+  Top = 183
+  Width = 500
+  AutoSize = False
+  Caption = 'Ingrese los parámetros del reporte'
+  ClientHeight = 220
+  ClientWidth = 500
+  OnClose = FormClose
+  OnCreate = FormCreate
+  object GroupBox1: TGroupBox[0]
+    Left = 8
+    Height = 288
+    Top = -8
+    Width = 491
+    ClientHeight = 270
+    ClientWidth = 487
+    TabOrder = 0
+    object DateEdit1: TDateEdit
+      Left = 89
+      Height = 23
+      Top = 72
+      Width = 80
+      CalendarDisplaySettings = [dsShowHeadings, dsShowDayNames]
+      OKCaption = 'OK'
+      CancelCaption = 'Cancel'
+      DefaultToday = True
+      DateOrder = doDMY
+      ButtonWidth = 23
+      CharCase = ecNormal
+      NumGlyphs = 1
+      MaxLength = 10
+      TabOrder = 0
+    end
+    object DateEdit2: TDateEdit
+      Left = 89
+      Height = 23
+      Top = 104
+      Width = 80
+      CalendarDisplaySettings = [dsShowHeadings, dsShowDayNames]
+      OKCaption = 'OK'
+      CancelCaption = 'Cancel'
+      DefaultToday = True
+      DateOrder = doDMY
+      ButtonWidth = 23
+      CharCase = ecNormal
+      NumGlyphs = 1
+      MaxLength = 10
+      TabOrder = 1
+    end
+    object Label1: TLabel
+      Left = 34
+      Height = 15
+      Top = 72
+      Width = 35
+      Caption = 'Desde:'
+      ParentColor = False
+    end
+    object Label2: TLabel
+      Left = 36
+      Height = 15
+      Top = 105
+      Width = 33
+      Caption = 'Hasta:'
+      ParentColor = False
+    end
+    object DBEdit12: TDBEdit
+      Left = 89
+      Height = 23
+      Top = 8
+      Width = 376
+      DataField = 'NOMBRE'
+      ReadOnly = True
+      CharCase = ecNormal
+      MaxLength = 0
+      TabOrder = 2
+    end
+    object btSeleccionar: TButton
+      AnchorSideLeft.Side = asrBottom
+      AnchorSideTop.Side = asrCenter
+      Left = 89
+      Height = 25
+      Top = 32
+      Width = 131
+      AutoSize = True
+      BorderSpacing.Left = 8
+      Caption = 'Seleccionar Persona'
+      OnClick = btSeleccionarClick
+      TabOrder = 3
+    end
+    object Label3: TLabel
+      Left = 23
+      Height = 15
+      Top = 8
+      Width = 46
+      Caption = 'Alumno:'
+      ParentColor = False
+    end
+    object Button1: TButton
+      Left = 127
+      Height = 25
+      Top = 144
+      Width = 75
+      Caption = 'Imprimir'
+      OnClick = Button1Click
+      TabOrder = 4
+    end
+    object Button2: TButton
+      Left = 247
+      Height = 25
+      Top = 144
+      Width = 75
+      Caption = 'Cancelar'
+      OnClick = Button2Click
+      TabOrder = 5
+    end
+  end
+  inherited MainMenu1: TMainMenu[1]
+  end
+  object dsPersona: TDatasource[2]
+    DataSet = qryPersona
+    left = 472
+    top = 112
+  end
+  object qryPersona: TSQLQuery[3]
+    FieldDefs = <    
+      item
+        Name = 'ID'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'NOMBRE'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'APELLIDO'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'CEDULA'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'FECHANAC'
+        DataType = ftDate
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'SEXO'
+        DataType = ftString
+        Precision = -1
+        Size = 1
+      end    
+      item
+        Name = 'NOMBRECOMPLETO'
+        DataType = ftString
+        Precision = -1
+        Size = 511
+      end>
+    Database = SGCDDataModule.dbConn
+    Transaction = SGCDDataModule.sqlTran
+    SQL.Strings = (
+      'select * from persona'
+    )
+    Params = <>
+    left = 412
+    top = 92
+    object qryPersonaID: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qryPersonaCEDULA: TStringField
+      DisplayWidth = 255
+      FieldKind = fkData
+      FieldName = 'CEDULA'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 255
+    end
+    object qryPersonaNOMBRECOMPLETO: TStringField
+      DisplayWidth = 511
+      FieldKind = fkData
+      FieldName = 'NOMBRECOMPLETO'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 511
+    end
+  end
+  object frReport1: TfrReport[4]
+    DefaultCopies = 0
+    InitialZoom = pzDefault
+    Options = []
+    PreviewButtons = [pbZoom, pbLoad, pbSave, pbPrint, pbFind, pbHelp, pbExit]
+    DataType = dtDataSet
+    left = 376
+    top = 168
+  end
+  object ds1: TDatasource[5]
+    DataSet = qry1
+    left = 320
+    top = 72
+  end
+  object qry1: TSQLQuery[6]
+    FieldDefs = <    
+      item
+        Name = 'NOMBRE_ALUMNO'
+        DataType = ftString
+        Precision = -1
+        Size = 511
+      end    
+      item
+        Name = 'ACUMULADO_DEBITO'
+        DataType = ftFloat
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'ACUMULADO_CREDITO'
+        DataType = ftFloat
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'SALDO_ACUMULADO'
+        DataType = ftFloat
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'DETALLE_ACUMULADO'
+        DataType = ftString
+        Precision = -1
+        Size = 40
+      end>
+    Database = SGCDDataModule.dbConn
+    Transaction = SGCDDataModule.sqlTran
+    SQL.Strings = (
+      'select NOMBRE_ALUMNO, ACUMULADO_DEBITO,'
+      'ACUMULADO_CREDITO, SALDO_ACUMULADO,'
+      'DETALLE_ACUMULADO'
+      'from rpt_saldo_anterior_alumno'
+      '(:alumnoid,:fecha_fin)'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'alumnoid'
+        ParamType = ptInput
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'fecha_fin'
+        ParamType = ptInput
+      end>
+    left = 344
+    top = 64
+    object qry1NOMBRE_ALUMNO: TStringField
+      DisplayWidth = 511
+      FieldKind = fkData
+      FieldName = 'NOMBRE_ALUMNO'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 511
+    end
+    object qry1ACUMULADO_DEBITO: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'ACUMULADO_DEBITO'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+      Precision = -1
+    end
+    object qry1ACUMULADO_CREDITO: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'ACUMULADO_CREDITO'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+      Precision = -1
+    end
+    object qry1SALDO_ACUMULADO: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'SALDO_ACUMULADO'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+      Precision = -1
+    end
+    object qry1DETALLE_ACUMULADO: TStringField
+      DisplayWidth = 40
+      FieldKind = fkData
+      FieldName = 'DETALLE_ACUMULADO'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 40
+    end
+  end
+  object frDBDataSet1: TfrDBDataSet[7]
+    DataSet = qry1
+    left = 400
+    top = 48
+  end
+  object frDBDataSet2: TfrDBDataSet[8]
+    DataSet = qry2
+    left = 360
+    top = 128
+  end
+  object qry2: TSQLQuery[9]
+    FieldDefs = <    
+      item
+        Name = 'NOMBRE_ALUMNO'
+        DataType = ftString
+        Precision = -1
+        Size = 511
+      end    
+      item
+        Name = 'ACUMULADO_DEBITO'
+        DataType = ftFloat
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'ACUMULADO_CREDITO'
+        DataType = ftFloat
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'SALDO_ACUMULADO'
+        DataType = ftFloat
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'DETALLE_ACUMULADO'
+        DataType = ftString
+        Precision = -1
+        Size = 40
+      end    
+      item
+        Name = 'MONTO'
+        DataType = ftFloat
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'FECHA'
+        DataType = ftDate
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'DESCRIPCION'
+        DataType = ftString
+        Precision = -1
+        Size = 1024
+      end    
+      item
+        Name = 'TIPO_MOV'
+        DataType = ftFixedChar
+        Precision = -1
+        Size = 10
+      end    
+      item
+        Name = 'MONTO_CREDITO'
+        DataType = ftFloat
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'MONTO_DEBITO'
+        DataType = ftFloat
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'SALDO_LINEA'
+        DataType = ftFloat
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'TOTAL_CREDITO'
+        DataType = ftFloat
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'TOTAL_DEBITO'
+        DataType = ftFloat
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'TOTAL_SALDO'
+        DataType = ftFloat
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'NRO_DOC'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'TIPO_DOC'
+        DataType = ftString
+        Precision = -1
+        Size = 20
+      end>
+    Database = SGCDDataModule.dbConn
+    Transaction = SGCDDataModule.sqlTran
+    SQL.Strings = (
+      'select * from rpt_pagos_alumno (:alumnoid, :fecha_ini, :fecha_fin)'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'alumnoid'
+        ParamType = ptInput
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'fecha_ini'
+        ParamType = ptInput
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'fecha_fin'
+        ParamType = ptInput
+      end>
+    left = 272
+    top = 96
+    object qry1NOMBRE_ALUMNO1: TStringField
+      DisplayWidth = 511
+      FieldKind = fkData
+      FieldName = 'NOMBRE_ALUMNO'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 511
+    end
+    object qry1ACUMULADO_DEBITO1: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'ACUMULADO_DEBITO'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+      Precision = -1
+    end
+    object qry1ACUMULADO_CREDITO1: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'ACUMULADO_CREDITO'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+      Precision = -1
+    end
+    object qry1SALDO_ACUMULADO1: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'SALDO_ACUMULADO'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+      Precision = -1
+    end
+    object qry1DETALLE_ACUMULADO1: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'DETALLE_ACUMULADO'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+      Precision = -1
+    end
+    object qry1MONTO1: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'MONTO'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+      Precision = -1
+    end
+    object qry1FECHA1: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FECHA'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qry1DESCRIPCION1: TStringField
+      DisplayWidth = 1024
+      FieldKind = fkData
+      FieldName = 'DESCRIPCION'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1024
+    end
+    object qry1TIPO_MOV1: TStringField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'TIPO_MOV'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 10
+    end
+    object qry1MONTO_CREDITO1: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'MONTO_CREDITO'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+      Precision = -1
+    end
+    object qry1MONTO_DEBITO1: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'MONTO_DEBITO'
+      Index = 10
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+      Precision = -1
+    end
+    object qry1SALDO_LINEA1: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'SALDO_LINEA'
+      Index = 11
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+      Precision = -1
+    end
+    object qry1TOTAL_CREDITO1: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'TOTAL_CREDITO'
+      Index = 12
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+      Precision = -1
+    end
+    object qry1TOTAL_DEBITO1: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'TOTAL_DEBITO'
+      Index = 13
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+      Precision = -1
+    end
+    object qry1TOTAL_SALDO1: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'TOTAL_SALDO'
+      Index = 14
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+      Precision = -1
+    end
+    object qry2NRO_DOC: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NRO_DOC'
+      Index = 15
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qry2TIPO_DOC: TStringField
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'TIPO_DOC'
+      Index = 16
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object ds2: TDatasource[10]
+    DataSet = qry2
+    left = 248
+    top = 100
+  end
+end

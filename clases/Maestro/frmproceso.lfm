@@ -1,0 +1,27 @@
+inherited Proceso: TProceso
+  Left = 932
+  Top = 444
+  OnCreate = FormCreate
+  object ButtonPanel1: TButtonPanel[0]
+    Left = 6
+    Height = 34
+    Top = 180
+    Width = 308
+    OKButton.Name = 'OKButton'
+    OKButton.DefaultCaption = True
+    OKButton.OnClick = OKButtonClick
+    HelpButton.Name = 'HelpButton'
+    HelpButton.DefaultCaption = True
+    HelpButton.OnClick = HelpButtonClick
+    CloseButton.Name = 'CloseButton'
+    CloseButton.DefaultCaption = True
+    CloseButton.OnClick = CloseButtonClick
+    CancelButton.Name = 'CancelButton'
+    CancelButton.DefaultCaption = True
+    CancelButton.OnClick = CancelButtonClick
+    TabOrder = 0
+    OnKeyDown = ButtonPanel1KeyDown
+  end
+  inherited MainMenu1: TMainMenu[1]
+  end
+end

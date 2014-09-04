@@ -1,0 +1,1365 @@
+inherited AbmAlumnos: TAbmAlumnos
+  Left = 515
+  Height = 792
+  Top = 133
+  Width = 801
+  Caption = 'ABM Alumnos'
+  ClientHeight = 772
+  ClientWidth = 801
+  Constraints.MinHeight = 792
+  Constraints.MinWidth = 801
+  OnClose = FormClose
+  OnCreate = FormCreate
+  OnResize = FormResize
+  inherited ButtonPanel1: TButtonPanel
+    Top = 732
+    Width = 789
+    CloseButton.OnClick = CloseButtonClick
+  end
+  inherited PanelNuevo: TPanel
+    Height = 726
+    Width = 801
+    ClientHeight = 726
+    ClientWidth = 801
+    inherited GroupBoxBasica: TGroupBox
+      Height = 144
+      Top = 8
+      Width = 785
+      ClientHeight = 126
+      ClientWidth = 781
+      inherited ButtonInfoContacto: TButton
+        Left = 492
+        Top = 94
+        Anchors = [akTop, akRight]
+        OnClick = ButtonInfoContactoClick
+        TabOrder = 6
+      end
+      inherited RadioGroupSexo: TRadioGroup
+        AnchorSideLeft.Control = LabeledEditNuevoNombres
+        Left = 399
+        Top = -2
+        Anchors = [akTop, akRight]
+      end
+      inherited LabelNuevoFechaNac: TLabel
+        AnchorSideLeft.Control = DateEditFechaNac
+        AnchorSideBottom.Control = DateEditFechaNac
+        Left = 242
+        Top = 81
+        Anchors = [akLeft, akBottom]
+      end
+      inherited DateEditFechaNac: TDateEdit
+        AnchorSideLeft.Control = LabeledEditNuevoCedula
+        AnchorSideLeft.Side = asrBottom
+        Left = 242
+        Top = 96
+        Width = 69
+        Anchors = [akTop, akLeft, akRight]
+        BorderSpacing.Left = 8
+      end
+      inherited LabeledEditNuevoCedula: TLabeledEdit
+        Top = 96
+        Width = 216
+        Anchors = [akTop, akLeft, akRight]
+        EditLabel.Top = 78
+        EditLabel.Width = 216
+      end
+      inherited LabeledEditNuevoApellidos: TLabeledEdit
+        Top = 56
+        Width = 353
+        Anchors = [akTop, akLeft, akRight]
+        EditLabel.Top = 38
+        EditLabel.Width = 353
+      end
+      inherited LabeledEditNuevoNombres: TLabeledEdit
+        Top = 16
+        Width = 353
+        Anchors = [akTop, akLeft, akRight]
+        EditLabel.Top = -2
+        EditLabel.Width = 353
+      end
+      object GroupBoxAlumno: TGroupBox[7]
+        AnchorSideLeft.Control = LabeledEditNuevoApellidos
+        Left = 503
+        Height = 66
+        Top = -2
+        Width = 96
+        Anchors = [akTop, akRight]
+        ClientHeight = 48
+        ClientWidth = 92
+        Enabled = False
+        TabOrder = 5
+        object CheckBoxActivo: TCheckBox
+          Left = 6
+          Height = 19
+          Top = 0
+          Width = 54
+          Caption = 'Activo'
+          Checked = True
+          State = cbChecked
+          TabOrder = 0
+        end
+        object CheckBoxConfirmado: TCheckBox
+          Left = 6
+          Height = 19
+          Top = 24
+          Width = 84
+          Caption = 'Confirmado'
+          TabOrder = 1
+        end
+      end
+    end
+    inherited GroupBoxContacto: TGroupBox
+      Height = 296
+      Top = 160
+      Width = 779
+      Anchors = [akTop, akLeft, akRight]
+      ClientHeight = 278
+      ClientWidth = 775
+      inherited DBGridDir: TDBGrid
+        Height = 100
+        Top = 16
+        Width = 749
+      end
+      inherited LabelDirecciones: TLabel
+        Top = 1
+      end
+      inherited DBGridTel: TDBGrid
+        Height = 100
+        Top = 152
+        Width = 749
+      end
+      inherited LabelTelefonos: TLabel
+        Top = 137
+      end
+      inherited DBNavigatorDir: TDBNavigator
+        Left = 518
+        Top = 116
+        Hints.Strings = (        )
+      end
+      inherited DBNavigatorTel: TDBNavigator
+        Left = 518
+        Top = 252
+        Hints.Strings = (        )
+      end
+    end
+    object GroupBoxAcademia: TGroupBox[2]
+      Left = 8
+      Height = 257
+      Top = 464
+      Width = 524
+      Anchors = [akTop, akLeft, akBottom]
+      Caption = 'Academias (Requerido)'
+      ClientHeight = 239
+      ClientWidth = 520
+      TabOrder = 2
+      object DBGridAcademiaAlumno: TDBGrid
+        Left = 10
+        Height = 209
+        Hint = 'Aqui se muestran las academias asignadas al alumno. '#13#10'Puede agregar o eliminar usando los botones de agregar (<)'#13#10'o eliminar (>)'
+        Top = 24
+        Width = 190
+        Anchors = [akTop, akLeft, akBottom]
+        Color = clWindow
+        Columns = <        
+          item
+            Title.Caption = 'NOMBRE'
+            FieldName = 'NOMBRE'
+          end>
+        DataSource = DatasourceAcad
+        Options = [dgEditing, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgAutoSizeColumns, dgCellEllipsis]
+        ReadOnly = True
+        ShowHint = True
+        TabOrder = 0
+      end
+      object DBGridAcademias: TDBGrid
+        AnchorSideLeft.Control = ButtonAgregarAcad
+        AnchorSideLeft.Side = asrBottom
+        AnchorSideRight.Control = GroupBoxAcademia
+        AnchorSideRight.Side = asrBottom
+        Left = 273
+        Height = 209
+        Hint = 'Aqui se muestran las academias registradas en el sistema.'#13#10'Puede asignar o desvincular las academias del alumno usando los botones de '#13#10'agregar (<) o eliminar (>)'
+        Top = 24
+        Width = 239
+        Anchors = [akTop, akLeft, akRight, akBottom]
+        BorderSpacing.Left = 8
+        BorderSpacing.Right = 8
+        Color = clWindow
+        Columns = <        
+          item
+            Title.Caption = 'NOMBRE'
+            FieldName = 'NOMBRE'
+          end>
+        DataSource = DatasourceAux
+        Options = [dgEditing, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgAutoSizeColumns, dgCellEllipsis]
+        ReadOnly = True
+        ShowHint = True
+        TabOrder = 1
+      end
+      object ButtonAgregarAcad: TButton
+        AnchorSideLeft.Control = DBGridAcademiaAlumno
+        AnchorSideLeft.Side = asrBottom
+        AnchorSideTop.Control = ButtonEliminarAcad
+        AnchorSideTop.Side = asrBottom
+        Left = 208
+        Height = 25
+        Hint = 'Pulse para asignar la academia seleccionada al alumno'
+        Top = 93
+        Width = 57
+        BorderSpacing.Left = 8
+        Caption = 'Agregar'
+        OnClick = ButtonAgregarAcadClick
+        ParentShowHint = False
+        ShowHint = True
+        TabOrder = 2
+      end
+      object ButtonEliminarAcad: TButton
+        AnchorSideLeft.Control = DBGridAcademiaAlumno
+        AnchorSideLeft.Side = asrBottom
+        AnchorSideTop.Side = asrCenter
+        Left = 208
+        Height = 25
+        Hint = 'Pulse para desvincular la academia seleccionada del alumno'
+        Top = 68
+        Width = 57
+        BorderSpacing.Left = 8
+        Caption = 'Quitar'
+        OnClick = ButtonEliminarAcadClick
+        ParentShowHint = False
+        ShowHint = True
+        TabOrder = 3
+      end
+      object Label1: TLabel
+        AnchorSideLeft.Control = DBGridAcademias
+        AnchorSideBottom.Control = DBGridAcademias
+        Left = 273
+        Height = 15
+        Top = 9
+        Width = 122
+        Anchors = [akLeft, akBottom]
+        Caption = 'Academias Disponibles'
+        ParentColor = False
+      end
+      object Label2: TLabel
+        AnchorSideLeft.Control = DBGridAcademiaAlumno
+        AnchorSideBottom.Control = DBGridAcademiaAlumno
+        Left = 10
+        Height = 15
+        Top = 9
+        Width = 121
+        Anchors = [akLeft, akBottom]
+        Caption = 'Academias del alumno'
+        ParentColor = False
+      end
+    end
+    object GroupBoxAreas: TGroupBox[3]
+      AnchorSideLeft.Control = GroupBoxAcademia
+      AnchorSideLeft.Side = asrBottom
+      Left = 540
+      Height = 256
+      Top = 464
+      Width = 247
+      Anchors = [akTop, akLeft, akRight, akBottom]
+      BorderSpacing.Left = 8
+      Caption = 'Areas (Requerido)'
+      ClientHeight = 238
+      ClientWidth = 243
+      TabOrder = 3
+      object DBGridArea: TDBGrid
+        AnchorSideRight.Control = GroupBoxAreas
+        AnchorSideRight.Side = asrBottom
+        Left = 13
+        Height = 80
+        Top = 24
+        Width = 222
+        Anchors = [akTop, akLeft, akRight]
+        BorderSpacing.Right = 8
+        Color = clWindow
+        Columns = <        
+          item
+            Title.Caption = 'NOMBRE'
+            FieldName = 'NOMBRE'
+          end>
+        Constraints.MinHeight = 68
+        DataSource = DatasourceArea
+        Options = [dgEditing, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgAutoSizeColumns]
+        ReadOnly = True
+        Scrollbars = ssVertical
+        TabOrder = 0
+      end
+      object DBGridCursa: TDBGrid
+        AnchorSideTop.Control = Label4
+        AnchorSideTop.Side = asrBottom
+        AnchorSideRight.Control = GroupBoxAreas
+        AnchorSideRight.Side = asrBottom
+        Left = 13
+        Height = 79
+        Top = 156
+        Width = 222
+        Anchors = [akTop, akLeft, akRight, akBottom]
+        BorderSpacing.Right = 8
+        Color = clWindow
+        Columns = <        
+          item
+            Title.Caption = 'NOMBRE'
+            FieldName = 'NOMBRE'
+          end>
+        Constraints.MinHeight = 68
+        DataSource = DatasourceCursa
+        Options = [dgEditing, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgAutoSizeColumns]
+        ReadOnly = True
+        Scrollbars = ssVertical
+        TabOrder = 1
+      end
+      object ButtonAgregarArea: TButton
+        AnchorSideLeft.Control = DBGridArea
+        AnchorSideTop.Control = DBGridArea
+        AnchorSideTop.Side = asrBottom
+        Left = 13
+        Height = 25
+        Top = 112
+        Width = 75
+        BorderSpacing.Top = 8
+        BorderSpacing.Right = 8
+        Caption = 'Añadir'
+        OnClick = ButtonAgregarAreaClick
+        TabOrder = 2
+      end
+      object ButtonEliminarArea: TButton
+        AnchorSideLeft.Control = ButtonAgregarArea
+        AnchorSideLeft.Side = asrBottom
+        AnchorSideTop.Control = DBGridArea
+        AnchorSideTop.Side = asrBottom
+        Left = 96
+        Height = 25
+        Top = 112
+        Width = 75
+        BorderSpacing.Around = 8
+        Caption = 'Quitar'
+        OnClick = ButtonEliminarAreaClick
+        TabOrder = 3
+      end
+      object Label3: TLabel
+        AnchorSideLeft.Control = DBGridArea
+        AnchorSideBottom.Control = DBGridArea
+        Left = 13
+        Height = 15
+        Top = 9
+        Width = 92
+        Anchors = [akLeft, akBottom]
+        Caption = 'Areas disponibles'
+        ParentColor = False
+      end
+      object Label4: TLabel
+        AnchorSideLeft.Control = DBGridCursa
+        AnchorSideTop.Control = ButtonAgregarArea
+        AnchorSideTop.Side = asrBottom
+        Left = 13
+        Height = 15
+        Top = 141
+        Width = 92
+        BorderSpacing.Top = 4
+        Caption = 'Areas del alumno'
+        ParentColor = False
+      end
+    end
+  end
+  inherited PanelEliminar: TPanel
+    Height = 726
+    Width = 801
+    ClientHeight = 726
+    ClientWidth = 801
+    inherited DBGrid1: TDBGrid
+      Height = 582
+      Width = 739
+      Columns = <      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'NOMBRE'
+          Width = 148
+          FieldName = 'NOMBRE'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'APELLIDO'
+          Width = 130
+          FieldName = 'APELLIDO'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'CEDULA'
+          Width = 84
+          FieldName = 'CEDULA'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'FECHANAC'
+          Width = 77
+          FieldName = 'FECHANAC'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'SEXO'
+          Width = 43
+          FieldName = 'SEXO'
+        end      
+        item
+          ButtonStyle = cbsCheckboxColumn
+          PickList.Strings = (
+            '1'
+            '1'
+            '1'
+            '1'
+            '1'
+            '1'
+            '1'
+            '1'
+            '1'
+            '1'
+            '1'
+            '1'
+            '1'
+            '1'
+            '1'
+            '1'
+            '1'
+            '1'
+            '1'
+            '1'
+            '1'
+            '1'
+            '1'
+            '1'
+            '1'
+            '1'
+            '1'
+            '1'
+            '1'
+            '1'
+            '1'
+            '1'
+            '1'
+            '1'
+            '1'
+          )
+          Title.Caption = 'ACTIVO'
+          Width = 57
+          FieldName = 'ACTIVO'
+        end      
+        item
+          ButtonStyle = cbsCheckboxColumn
+          PickList.Strings = (
+            '0'
+            '0'
+            '0'
+            '0'
+            '0'
+            '0'
+            '0'
+            '0'
+            '0'
+            '0'
+            '0'
+            '0'
+            '0'
+            '0'
+            '0'
+            '0'
+            '0'
+            '0'
+            '0'
+            '0'
+            '0'
+            '0'
+            '0'
+            '0'
+            '0'
+            '0'
+            '0'
+            '0'
+            '0'
+            '0'
+            '0'
+            '0'
+            '0'
+            '0'
+            '0'
+          )
+          Title.Caption = 'CONFIRMADO'
+          Width = 93
+          FieldName = 'CONFIRMADO'
+        end      
+        item
+          PickList.Strings = (
+            'Paraguayo'
+            'Paraguayo'
+            'Clasico'
+            'Paraguayo'
+            'Paraguayo'
+            'Paraguayo'
+            'Paraguayo'
+            'Clasico'
+            'Paraguayo,Clasico'
+            'Paraguayo,Clasico'
+            'Paraguayo'
+            'Paraguayo,Clasico'
+            'Español'
+            'Paraguayo'
+            'Clasico,Español'
+            'Paraguayo,Clasico'
+            'Paraguayo,Clasico,Español'
+            'Paraguayo'
+            'Paraguayo,Español'
+            'Paraguayo,Clasico,Español'
+            'Paraguayo'
+            'Paraguayo'
+            'Paraguayo,Clasico,Español'
+            'Paraguayo,Español'
+            'Español'
+            'Paraguayo,Clasico,Español'
+            'Clasico'
+            'Paraguayo'
+            'Paraguayo'
+            'Paraguayo,Español'
+            'Español'
+            'Paraguayo,Clasico'
+            'Clasico'
+            'Paraguayo'
+            'Clasico,Español'
+          )
+          Title.Caption = 'AREAS'
+          FieldName = 'AREAS'
+        end      
+        item
+          PickList.Strings = (
+            'IMA San Lorenzo'
+            'IMA San Lorenzo'
+            'IMA San Lorenzo'
+            'IMA San Lorenzo'
+            'IMA San Lorenzo'
+            'IMA San Lorenzo'
+            'IMA San Lorenzo'
+            'IMA San Lorenzo'
+            'IMA San Lorenzo'
+            'IMA San Lorenzo'
+            'IMA San Lorenzo'
+            'IMA San Lorenzo'
+            'IMA San Lorenzo'
+            'Academia Elizabeth Vinader'
+            'Academia Elizabeth Vinader'
+            'Academia Elizabeth Vinader'
+            'Academia Elizabeth Vinader'
+            'Academia Elizabeth Vinader'
+            'Academia Elizabeth Vinader'
+            'Academia Elizabeth Vinader'
+            'Academia Elizabeth Vinader'
+            'Academia Elizabeth Vinader'
+            'Academia Elizabeth Vinader'
+            'Academia Elizabeth Vinader'
+            'Academia Elizabeth Vinader'
+            'Academia Elizabeth Vinader'
+            'Academia Elizabeth Vinader'
+            'Academia Elizabeth Vinader'
+            'Academia Elizabeth Vinader'
+            'Academia Elizabeth Vinader'
+            'Academia Elizabeth Vinader'
+            'Academia Elizabeth Vinader'
+            'Instituto Superior de Bellas Artes'
+            'Nucleo de Arte y Danza'
+            'Instituto Superior de Bellas Artes'
+          )
+          Title.Caption = 'ACADEMIAS'
+          FieldName = 'ACADEMIAS'
+        end>
+    end
+    inherited DBNavigatorEliminar: TDBNavigator
+      Top = 654
+      Hints.Strings = (      )
+    end
+  end
+  inherited PanelModificar: TPanel
+    Height = 726
+    Width = 801
+    ClientHeight = 726
+    ClientWidth = 801
+    inherited DBGrid2: TDBGrid
+      Height = 582
+      Width = 739
+      Columns = <      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'NOMBRE'
+          Width = 148
+          FieldName = 'NOMBRE'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'APELLIDO'
+          Width = 130
+          FieldName = 'APELLIDO'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'CEDULA'
+          Width = 84
+          FieldName = 'CEDULA'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'FECHANAC'
+          Width = 77
+          FieldName = 'FECHANAC'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'SEXO'
+          Width = 43
+          FieldName = 'SEXO'
+        end      
+        item
+          ButtonStyle = cbsCheckboxColumn
+          PickList.Strings = (
+            '1'
+            '1'
+            '1'
+            '1'
+            '1'
+            '1'
+            '1'
+            '1'
+            '1'
+            '1'
+            '1'
+            '1'
+            '1'
+            '1'
+            '1'
+            '1'
+            '1'
+            '1'
+            '1'
+            '1'
+            '1'
+            '1'
+            '1'
+            '1'
+            '1'
+            '1'
+            '1'
+            '1'
+            '1'
+            '1'
+            '1'
+            '1'
+            '1'
+            '1'
+            '1'
+          )
+          Title.Caption = 'ACTIVO'
+          Width = 57
+          FieldName = 'ACTIVO'
+        end      
+        item
+          ButtonStyle = cbsCheckboxColumn
+          PickList.Strings = (
+            '0'
+            '0'
+            '0'
+            '0'
+            '0'
+            '0'
+            '0'
+            '0'
+            '0'
+            '0'
+            '0'
+            '0'
+            '0'
+            '0'
+            '0'
+            '0'
+            '0'
+            '0'
+            '0'
+            '0'
+            '0'
+            '0'
+            '0'
+            '0'
+            '0'
+            '0'
+            '0'
+            '0'
+            '0'
+            '0'
+            '0'
+            '0'
+            '0'
+            '0'
+            '0'
+          )
+          Title.Caption = 'CONFIRMADO'
+          Width = 93
+          FieldName = 'CONFIRMADO'
+        end      
+        item
+          PickList.Strings = (
+            'Paraguayo'
+            'Paraguayo'
+            'Clasico'
+            'Paraguayo'
+            'Paraguayo'
+            'Paraguayo'
+            'Paraguayo'
+            'Clasico'
+            'Paraguayo,Clasico'
+            'Paraguayo,Clasico'
+            'Paraguayo'
+            'Paraguayo,Clasico'
+            'Español'
+            'Paraguayo'
+            'Clasico,Español'
+            'Paraguayo,Clasico'
+            'Paraguayo,Clasico,Español'
+            'Paraguayo'
+            'Paraguayo,Español'
+            'Paraguayo,Clasico,Español'
+            'Paraguayo'
+            'Paraguayo'
+            'Paraguayo,Clasico,Español'
+            'Paraguayo,Español'
+            'Español'
+            'Paraguayo,Clasico,Español'
+            'Clasico'
+            'Paraguayo'
+            'Paraguayo'
+            'Paraguayo,Español'
+            'Español'
+            'Paraguayo,Clasico'
+            'Clasico'
+            'Paraguayo'
+            'Clasico,Español'
+          )
+          Title.Caption = 'AREAS'
+          Width = 156
+          FieldName = 'AREAS'
+        end      
+        item
+          PickList.Strings = (
+            'IMA San Lorenzo'
+            'IMA San Lorenzo'
+            'IMA San Lorenzo'
+            'IMA San Lorenzo'
+            'IMA San Lorenzo'
+            'IMA San Lorenzo'
+            'IMA San Lorenzo'
+            'IMA San Lorenzo'
+            'IMA San Lorenzo'
+            'IMA San Lorenzo'
+            'IMA San Lorenzo'
+            'IMA San Lorenzo'
+            'IMA San Lorenzo'
+            'Academia Elizabeth Vinader'
+            'Academia Elizabeth Vinader'
+            'Academia Elizabeth Vinader'
+            'Academia Elizabeth Vinader'
+            'Academia Elizabeth Vinader'
+            'Academia Elizabeth Vinader'
+            'Academia Elizabeth Vinader'
+            'Academia Elizabeth Vinader'
+            'Academia Elizabeth Vinader'
+            'Academia Elizabeth Vinader'
+            'Academia Elizabeth Vinader'
+            'Academia Elizabeth Vinader'
+            'Academia Elizabeth Vinader'
+            'Academia Elizabeth Vinader'
+            'Academia Elizabeth Vinader'
+            'Academia Elizabeth Vinader'
+            'Academia Elizabeth Vinader'
+            'Academia Elizabeth Vinader'
+            'Academia Elizabeth Vinader'
+            'Instituto Superior de Bellas Artes'
+            'Nucleo de Arte y Danza'
+            'Instituto Superior de Bellas Artes'
+          )
+          Title.Caption = 'ACADEMIAS'
+          Width = 161
+          FieldName = 'ACADEMIAS'
+        end>
+    end
+    inherited DBNavigatorModificar: TDBNavigator
+      Top = 654
+      Hints.Strings = (      )
+    end
+  end
+  inherited MainMenu1: TMainMenu
+    inherited MenuAyuda: TMenuItem
+      inherited MenuItemAyuda: TMenuItem
+        OnClick = MenuItemAyudaClick
+      end
+    end
+  end
+  inherited SQLQuery1: TSQLQuery
+    SQL.Strings = (
+      'SELECT P.ID, P.NOMBRE, P.APELLIDO, P.CEDULA, P.FECHANAC, P.SEXO FROM PERSONA P WHERE EXISTS (SELECT 1 FROM ALUMNO A WHERE A.PERSONAID = P.ID)'
+    )
+    object SmallintField1: TSmallintField[6]
+      DisplayWidth = 10
+      FieldKind = fkLookup
+      FieldName = 'ACTIVO'
+      Index = 6
+      KeyFields = 'ID'
+      LookupCache = False
+      LookupDataSet = qryDetalle
+      LookupKeyFields = 'PERSONAID'
+      LookupResultField = 'ACTIVO'
+      ProviderFlags = []
+      ReadOnly = False
+      Required = False
+    end
+    object SmallintField2: TSmallintField[7]
+      DisplayWidth = 10
+      FieldKind = fkLookup
+      FieldName = 'CONFIRMADO'
+      Index = 7
+      KeyFields = 'ID'
+      LookupCache = False
+      LookupDataSet = qryDetalle
+      LookupKeyFields = 'PERSONAID'
+      LookupResultField = 'CONFIRMADO'
+      ProviderFlags = []
+      ReadOnly = False
+      Required = False
+    end
+    object StringField3: TStringField[8]
+      DisplayWidth = 512
+      FieldKind = fkLookup
+      FieldName = 'AREAS'
+      Index = 8
+      KeyFields = 'ID'
+      LookupCache = False
+      LookupDataSet = det
+      LookupKeyFields = 'ID'
+      LookupResultField = 'AREAS'
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 512
+    end
+    object StringField4: TStringField[9]
+      DisplayWidth = 512
+      FieldKind = fkLookup
+      FieldName = 'ACADEMIAS'
+      Index = 9
+      KeyFields = 'ID'
+      LookupCache = False
+      LookupDataSet = det
+      LookupKeyFields = 'ID'
+      LookupResultField = 'ACADEMIAS'
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 512
+    end
+  end
+  inherited SQLQueryDir: TSQLQuery
+    left = 152
+    top = 184
+  end
+  inherited SQLQueryTel: TSQLQuery
+    left = 272
+    top = 352
+  end
+  inherited DatasourceDir: TDatasource
+    top = 192
+  end
+  inherited DatasourceTel: TDatasource
+    left = 312
+    top = 352
+  end
+  inherited qryDetalle: TSQLQuery
+    FieldDefs = <    
+      item
+        Name = 'PERSONAID'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'ACTIVO'
+        DataType = ftSmallint
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'CONFIRMADO'
+        DataType = ftSmallint
+        Precision = -1
+        Size = 0
+      end>
+    Database = SGCDDataModule.dbConn
+    Transaction = SGCDDataModule.sqlTran
+    SQL.Strings = (
+      'select * from alumno'
+    )
+    object qryDetallePERSONAID: TLongintField[0]
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'PERSONAID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      ReadOnly = False
+      Required = True
+    end
+    object qryDetalleACTIVO: TSmallintField[1]
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'ACTIVO'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object qryDetalleCONFIRMADO: TSmallintField[2]
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'CONFIRMADO'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+  end
+  object DatasourceAcad: TDatasource[13]
+    DataSet = SQLQueryAcad
+    left = 112
+    top = 504
+  end
+  object SQLQueryAcad: TSQLQuery[14]
+    FieldDefs = <    
+      item
+        Name = 'ACADEMIAID'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'ALUMNOPERSONAID'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end>
+    Filtered = True
+    OnFilterRecord = SQLQueryAcadFilterRecord
+    Database = SGCDDataModule.dbConn
+    Transaction = SGCDDataModule.sqlTran
+    SQL.Strings = (
+      'select * from academia_alumno'
+    )
+    Params = <>
+    left = 48
+    top = 536
+    object SQLQueryAcadACADEMIAID: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'ACADEMIAID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      ReadOnly = False
+      Required = True
+    end
+    object SQLQueryAcadALUMNOPERSONAID: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'ALUMNOPERSONAID'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      ReadOnly = False
+      Required = True
+    end
+    object StringField1: TStringField
+      DisplayWidth = 255
+      FieldKind = fkLookup
+      FieldName = 'NOMBRE'
+      Index = 2
+      KeyFields = 'ACADEMIAID'
+      LookupCache = False
+      LookupDataSet = SQLQueryAux
+      LookupKeyFields = 'ID'
+      LookupResultField = 'NOMBRE'
+      ProviderFlags = []
+      ReadOnly = False
+      Required = False
+      Size = 255
+    end
+  end
+  object SQLQueryAux: TSQLQuery[15]
+    FieldDefs = <    
+      item
+        Name = 'ID'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'NOMBRE'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end>
+    Database = SGCDDataModule.dbConn
+    Transaction = SGCDDataModule.sqlTran
+    ReadOnly = True
+    SQL.Strings = (
+      'select * from academia'
+    )
+    Params = <>
+    left = 336
+    top = 512
+    object SQLQueryAuxID: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      ReadOnly = False
+      Required = True
+    end
+    object SQLQueryAuxNOMBRE: TStringField
+      DisplayWidth = 255
+      FieldKind = fkData
+      FieldName = 'NOMBRE'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 255
+    end
+  end
+  object DatasourceAux: TDatasource[16]
+    DataSet = SQLQueryAux
+    left = 352
+    top = 576
+  end
+  object DatasourceAlumno: TDatasource[17]
+    DataSet = SQLQueryAlumno
+    left = 640
+    top = 64
+  end
+  object SQLQueryAlumno: TSQLQuery[18]
+    FieldDefs = <    
+      item
+        Name = 'PERSONAID'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'ACTIVO'
+        DataType = ftSmallint
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'CONFIRMADO'
+        DataType = ftSmallint
+        Precision = -1
+        Size = 0
+      end>
+    OnFilterRecord = SQLQueryAlumnoFilterRecord
+    Database = SGCDDataModule.dbConn
+    Transaction = SGCDDataModule.sqlTran
+    SQL.Strings = (
+      'SELECT * FROM ALUMNO'
+    )
+    Params = <>
+    left = 640
+    top = 16
+    object SQLQueryAlumnoPERSONAID: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'PERSONAID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      ReadOnly = False
+      Required = True
+    end
+    object SQLQueryAlumnoACTIVO: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'ACTIVO'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object SQLQueryAlumnoCONFIRMADO: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'CONFIRMADO'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+  end
+  object SQLQueryArea: TSQLQuery[19]
+    FieldDefs = <    
+      item
+        Name = 'ID'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'NOMBRE'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'DESCRIPCION'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'FUNDAMENTACION'
+        DataType = ftString
+        Precision = -1
+        Size = 4096
+      end    
+      item
+        Name = 'OBJETIVOS'
+        DataType = ftString
+        Precision = -1
+        Size = 4096
+      end    
+      item
+        Name = 'REQUISITOS'
+        DataType = ftString
+        Precision = -1
+        Size = 4096
+      end    
+      item
+        Name = 'DURACION'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'PERFILEGRESADO'
+        DataType = ftString
+        Precision = -1
+        Size = 4096
+      end    
+      item
+        Name = 'HABILITADO'
+        DataType = ftSmallint
+        Precision = -1
+        Size = 0
+      end>
+    Database = SGCDDataModule.dbConn
+    Transaction = SGCDDataModule.sqlTran
+    ReadOnly = True
+    SQL.Strings = (
+      'select * from modulo where habilitado = 1'
+    )
+    Params = <>
+    left = 600
+    top = 504
+    object SQLQueryAreaID: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      ReadOnly = False
+      Required = True
+    end
+    object SQLQueryAreaNOMBRE: TStringField
+      DisplayWidth = 255
+      FieldKind = fkData
+      FieldName = 'NOMBRE'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 255
+    end
+  end
+  object DatasourceArea: TDatasource[20]
+    DataSet = SQLQueryArea
+    left = 720
+    top = 488
+  end
+  object SQLQueryCursa: TSQLQuery[21]
+    FieldDefs = <    
+      item
+        Name = 'ALUMNOPERSONAID'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'MODULOID'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end>
+    Filtered = True
+    OnFilterRecord = SQLQueryCursaFilterRecord
+    Database = SGCDDataModule.dbConn
+    Transaction = SGCDDataModule.sqlTran
+    SQL.Strings = (
+      'select * from cursa'
+    )
+    Params = <>
+    left = 576
+    top = 672
+    object SQLQueryCursaALUMNOPERSONAID: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'ALUMNOPERSONAID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      ReadOnly = False
+      Required = True
+    end
+    object SQLQueryCursaMODULOID: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'MODULOID'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      ReadOnly = False
+      Required = True
+    end
+    object StringField2: TStringField
+      DisplayWidth = 255
+      FieldKind = fkLookup
+      FieldName = 'NOMBRE'
+      Index = 2
+      KeyFields = 'MODULOID'
+      LookupCache = False
+      LookupDataSet = SQLQueryArea
+      LookupKeyFields = 'ID'
+      LookupResultField = 'NOMBRE'
+      ProviderFlags = []
+      ReadOnly = False
+      Required = False
+      Size = 255
+    end
+  end
+  object DatasourceCursa: TDatasource[22]
+    DataSet = SQLQueryCursa
+    left = 704
+    top = 672
+  end
+  object det: TSQLQuery[23]
+    FieldDefs = <    
+      item
+        Name = 'ID'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'NOMBRE'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'APELLIDO'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'CEDULA'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'ACTIVO'
+        DataType = ftSmallint
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'CONFIRMADO'
+        DataType = ftSmallint
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'AREAS'
+        DataType = ftString
+        Precision = -1
+        Size = 512
+      end    
+      item
+        Name = 'ACADEMIAS'
+        DataType = ftString
+        Precision = -1
+        Size = 512
+      end>
+    Database = SGCDDataModule.dbConn
+    Transaction = SGCDDataModule.sqlTran
+    ReadOnly = True
+    SQL.Strings = (
+      'select * from v_alumnos_det'
+    )
+    Params = <>
+    left = 744
+    top = 64
+    object detID: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object detAREAS: TStringField
+      DisplayWidth = 512
+      FieldKind = fkData
+      FieldName = 'AREAS'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 512
+    end
+    object detACADEMIAS: TStringField
+      DisplayWidth = 512
+      FieldKind = fkData
+      FieldName = 'ACADEMIAS'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 512
+    end
+  end
+end

@@ -1,0 +1,277 @@
+inherited AbmEquipos: TAbmEquipos
+  Top = 155
+  Caption = 'ABM Equipos'
+  OnCreate = FormCreate
+  inherited PanelNuevo: TPanel
+    TabOrder = 2
+    object LabelNuevoNombre: TLabel[0]
+      Left = 24
+      Height = 15
+      Top = 8
+      Width = 109
+      Caption = 'Nombre (requerido):'
+      ParentColor = False
+    end
+    object EditNuevoNombre: TEdit[1]
+      Left = 24
+      Height = 23
+      Top = 24
+      Width = 256
+      TabOrder = 0
+    end
+    object LabelNuevoNroSerie: TLabel[2]
+      Left = 24
+      Height = 15
+      Top = 56
+      Width = 152
+      Caption = 'Numero de serie (requerido):'
+      ParentColor = False
+    end
+    object EditNuevoNroSerie: TEdit[3]
+      Left = 24
+      Height = 23
+      Top = 72
+      Width = 256
+      CharCase = ecUppercase
+      TabOrder = 1
+    end
+    object LabelNuevoDescripcion: TLabel[4]
+      Left = 24
+      Height = 15
+      Top = 104
+      Width = 62
+      Caption = 'Descripcion'
+      ParentColor = False
+    end
+    object EditNuevoDescripcion: TEdit[5]
+      Left = 24
+      Height = 23
+      Top = 120
+      Width = 256
+      TabOrder = 2
+    end
+    object LabelNuevoFechaIngreso: TLabel[6]
+      Left = 24
+      Height = 15
+      Top = 152
+      Width = 151
+      Caption = 'Fecha de ingreso (requerido)'
+      ParentColor = False
+    end
+    object CheckBoxNuevoActivo: TCheckBox[7]
+      Left = 24
+      Height = 19
+      Top = 200
+      Width = 54
+      Caption = 'Activo'
+      Checked = True
+      State = cbChecked
+      TabOrder = 3
+    end
+    object DateEditFechaIngreso: TDateEdit[8]
+      Left = 24
+      Height = 23
+      Top = 168
+      Width = 80
+      CalendarDisplaySettings = [dsShowHeadings, dsShowDayNames]
+      OKCaption = 'OK'
+      CancelCaption = 'Cancel'
+      DateOrder = doNone
+      ButtonWidth = 23
+      CharCase = ecNormal
+      NumGlyphs = 1
+      MaxLength = 0
+      TabOrder = 4
+    end
+  end
+  inherited PanelModificar: TPanel
+    TabOrder = 1
+    inherited DBGrid2: TDBGrid
+      Columns = <      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'NOMBRE'
+          FieldName = 'NOMBRE'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'NROSERIE'
+          Width = 68
+          FieldName = 'NROSERIE'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'FECHAINGRESO'
+          Width = 100
+          FieldName = 'FECHAINGRESO'
+        end      
+        item
+          ButtonStyle = cbsCheckboxColumn
+          PickList.Strings = (          )
+          Title.Caption = 'ACTIVO'
+          Width = 57
+          FieldName = 'ACTIVO'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'DESCRIPCION'
+          Width = 89
+          FieldName = 'DESCRIPCION'
+        end>
+    end
+    inherited DBNavigatorModificar: TDBNavigator
+      Hints.Strings = (      )
+    end
+  end
+  inherited PanelEliminar: TPanel
+    TabOrder = 3
+    inherited DBGrid1: TDBGrid
+      Columns = <      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'NOMBRE'
+          FieldName = 'NOMBRE'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'NROSERIE'
+          Width = 68
+          FieldName = 'NROSERIE'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'FECHAINGRESO'
+          Width = 100
+          FieldName = 'FECHAINGRESO'
+        end      
+        item
+          ButtonStyle = cbsCheckboxColumn
+          PickList.Strings = (          )
+          Title.Caption = 'ACTIVO'
+          Width = 57
+          FieldName = 'ACTIVO'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'DESCRIPCION'
+          Width = 89
+          FieldName = 'DESCRIPCION'
+        end>
+    end
+    inherited DBNavigatorEliminar: TDBNavigator
+      Hints.Strings = (      )
+    end
+  end
+  inherited MainMenu1: TMainMenu
+    top = 272
+  end
+  inherited Datasource1: TDatasource
+    top = 344
+  end
+  inherited SQLQuery1: TSQLQuery
+    FieldDefs = <    
+      item
+        Name = 'ID'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'NOMBRE'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'NROSERIE'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'DESCRIPCION'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'FECHAINGRESO'
+        DataType = ftDate
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'ACTIVO'
+        DataType = ftSmallint
+        Precision = -1
+        Size = 0
+      end>
+    SQL.Strings = (
+      ''
+    )
+    top = 312
+    object SQLQuery1ID: TLongintField[0]
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      ReadOnly = False
+      Required = False
+    end
+    object SQLQuery1NOMBRE: TStringField[1]
+      DisplayWidth = 255
+      FieldKind = fkData
+      FieldName = 'NOMBRE'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 255
+    end
+    object SQLQuery1NROSERIE: TStringField[2]
+      DisplayWidth = 255
+      FieldKind = fkData
+      FieldName = 'NROSERIE'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 255
+    end
+    object SQLQuery1DESCRIPCION: TStringField[3]
+      DisplayWidth = 255
+      FieldKind = fkData
+      FieldName = 'DESCRIPCION'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 255
+    end
+    object SQLQuery1FECHAINGRESO: TDateField[4]
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FECHAINGRESO'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object SQLQuery1ACTIVO: TSmallintField[5]
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'ACTIVO'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+  end
+end

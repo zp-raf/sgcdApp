@@ -1,0 +1,491 @@
+inherited CuotaArancel: TCuotaArancel
+  Left = 643
+  Top = 320
+  Caption = 'Cuotas por Aranceles'
+  ClientHeight = 461
+  OnClose = FormClose
+  OnCreate = FormCreate
+  OnShow = FormShow
+  inherited PanelEliminar: TPanel[2]
+    inherited DBGrid1: TDBGrid
+      Columns = <      
+        item
+          PickList.Strings = (
+            'Derecho a examen'
+            'Arancel Modulo'
+          )
+          Title.Caption = 'NOMBRE_ARANCEL'
+          Width = 121
+          FieldName = 'NOMBRE_ARANCEL'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'CANTIDADCUOTA'
+          Width = 114
+          FieldName = 'CANTIDADCUOTA'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'VENCIMIENTO_CANTIDAD'
+          Width = 157
+          FieldName = 'VENCIMIENTO_CANTIDAD'
+        end      
+        item
+          PickList.Strings = (
+            'DIAS'
+            'MESES'
+            'AÑOS'
+          )
+          Title.Caption = 'VENCIMIENTO_UNIDAD'
+          Width = 142
+          FieldName = 'VENCIMIENTO'
+        end>
+      OnMouseDown = DBGrid1MouseDown
+    end
+    inherited DBNavigatorEliminar: TDBNavigator
+      Hints.Strings = (      )
+    end
+    inherited EditEliminarFiltro: TEdit
+      OnKeyUp = nil
+    end
+    inherited ButtonEliminarFiltrar: TButton
+      OnClick = ButtonEliminarFiltrarClick
+    end
+  end
+  inherited PanelModificar: TPanel[3]
+    inherited DBGrid2: TDBGrid
+      Columns = <      
+        item
+          PickList.Strings = (
+            'Derecho a examen'
+            'Arancel Modulo'
+          )
+          Title.Caption = 'NOMBRE_ARANCEL'
+          Width = 121
+          FieldName = 'NOMBRE_ARANCEL'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'CANTIDADCUOTA'
+          Width = 114
+          FieldName = 'CANTIDADCUOTA'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'VENCIMIENTO_CANTIDAD'
+          Width = 157
+          FieldName = 'VENCIMIENTO_CANTIDAD'
+        end      
+        item
+          PickList.Strings = (
+            'DIAS'
+            'MESES'
+            'AÑOS'
+          )
+          Title.Caption = 'VENCIMIENTO'
+          Width = 93
+          FieldName = 'VENCIMIENTO'
+        end>
+      OnMouseDown = DBGrid2MouseDown
+    end
+    inherited DBNavigatorModificar: TDBNavigator
+      Hints.Strings = (      )
+    end
+    inherited EditModificarFiltro: TEdit
+      OnKeyUp = nil
+    end
+    inherited ButtonModificarFiltrar: TButton
+      OnClick = ButtonModificarFiltrarClick
+    end
+  end
+  inherited PanelNuevo: TPanel[4]
+    object Label1: TLabel[0]
+      AnchorSideLeft.Control = DBEdit1
+      AnchorSideTop.Side = asrCenter
+      AnchorSideBottom.Control = DBEdit1
+      Left = 16
+      Height = 15
+      Top = 57
+      Width = 104
+      Anchors = [akLeft, akBottom]
+      BorderSpacing.Right = 16
+      Caption = 'Cantidad de Cuotas'
+      ParentColor = False
+    end
+    object Label2: TLabel[1]
+      AnchorSideLeft.Control = DBLookupComboBox1
+      AnchorSideTop.Side = asrBottom
+      AnchorSideRight.Side = asrBottom
+      AnchorSideBottom.Control = DBLookupComboBox1
+      Left = 15
+      Height = 15
+      Top = 9
+      Width = 40
+      Anchors = [akLeft, akBottom]
+      BorderSpacing.Right = 16
+      Caption = 'Arancel'
+      ParentColor = False
+    end
+    object DBLookupComboBox1: TDBLookupComboBox[2]
+      Left = 15
+      Height = 23
+      Top = 24
+      Width = 248
+      AutoComplete = True
+      AutoDropDown = True
+      DataField = 'ARANCELID'
+      DataSource = Datasource1
+      KeyField = 'ID'
+      ListField = 'NOMBRE'
+      ListFieldIndex = 0
+      ListSource = dsArancel
+      LookupCache = False
+      TabOrder = 0
+    end
+    object DBEdit1: TDBEdit[3]
+      Left = 16
+      Height = 23
+      Top = 72
+      Width = 96
+      DataField = 'CANTIDADCUOTA'
+      DataSource = Datasource1
+      CharCase = ecNormal
+      MaxLength = 0
+      TabOrder = 1
+    end
+    object Vencimiento: TGroupBox[4]
+      Left = 15
+      Height = 120
+      Top = 112
+      Width = 161
+      Caption = 'Vencimiento de cada cuota'
+      ClientHeight = 102
+      ClientWidth = 157
+      TabOrder = 2
+      object DBEdit2: TDBEdit
+        Left = 7
+        Height = 23
+        Top = 72
+        Width = 100
+        DataField = 'VENCIMIENTO_CANTIDAD'
+        DataSource = Datasource1
+        CharCase = ecNormal
+        MaxLength = 0
+        TabOrder = 1
+      end
+      object Label4: TLabel
+        AnchorSideLeft.Control = DBEdit2
+        AnchorSideTop.Side = asrCenter
+        AnchorSideBottom.Control = DBEdit2
+        Left = 7
+        Height = 15
+        Top = 57
+        Width = 48
+        Anchors = [akLeft, akBottom]
+        BorderSpacing.Right = 16
+        Caption = 'Cantidad'
+        ParentColor = False
+      end
+      object Label3: TLabel
+        AnchorSideLeft.Control = DBLookupComboBox2
+        AnchorSideTop.Side = asrCenter
+        AnchorSideBottom.Control = DBLookupComboBox2
+        Left = 7
+        Height = 15
+        Top = 6
+        Width = 95
+        Anchors = [akLeft, akBottom]
+        BorderSpacing.Right = 16
+        Caption = 'Unidad de tiempo'
+        ParentColor = False
+      end
+      object DBLookupComboBox2: TDBLookupComboBox
+        Left = 7
+        Height = 23
+        Top = 21
+        Width = 100
+        AutoComplete = True
+        AutoDropDown = True
+        DataField = 'VENCIMIENTO_UNIDAD'
+        DataSource = Datasource1
+        KeyField = 'VALOR'
+        ListField = 'SIGNIFICADO'
+        ListFieldIndex = 0
+        ListSource = dsCod
+        LookupCache = False
+        TabOrder = 0
+      end
+    end
+  end
+  inherited MainMenu1: TMainMenu
+    left = 424
+  end
+  inherited Datasource1: TDatasource
+    left = 584
+    top = 0
+  end
+  inherited SQLQuery1: TSQLQuery
+    FieldDefs = <    
+      item
+        Name = 'ID'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'ARANCELID'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'CANTIDADCUOTA'
+        DataType = ftFloat
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'VENCIMIENTO_UNIDAD'
+        DataType = ftSmallint
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'VENCIMIENTO_CANTIDAD'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end>
+    OnFilterRecord = SQLQuery1FilterRecord
+    SQL.Strings = (
+      'select * from CUOTAXARANCEL;'
+    )
+    left = 520
+    top = 0
+    object SQLQuery1ID: TLongintField[0]
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      ReadOnly = False
+      Required = True
+    end
+    object SQLQuery1ARANCELID: TLongintField[1]
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'ARANCELID'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object SQLQuery1CANTIDADCUOTA: TFloatField[2]
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'CANTIDADCUOTA'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = -1
+    end
+    object SQLQuery1VENCIMIENTO_UNIDAD: TSmallintField[3]
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'VENCIMIENTO_UNIDAD'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object SQLQuery1VENCIMIENTO_CANTIDAD: TLongintField[4]
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'VENCIMIENTO_CANTIDAD'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object NombreArancel: TStringField[5]
+      DisplayWidth = 255
+      FieldKind = fkLookup
+      FieldName = 'NOMBRE_ARANCEL'
+      Index = 5
+      KeyFields = 'ARANCELID'
+      LookupCache = False
+      LookupDataSet = qryArancel
+      LookupKeyFields = 'ID'
+      LookupResultField = 'NOMBRE'
+      ProviderFlags = []
+      ReadOnly = False
+      Required = False
+      Size = 255
+    end
+    object VencimientoUnidad: TStringField[6]
+      DisplayWidth = 255
+      FieldKind = fkLookup
+      FieldName = 'VENCIMIENTO'
+      Index = 6
+      KeyFields = 'VENCIMIENTO_UNIDAD'
+      LookupCache = False
+      LookupDataSet = qryCod
+      LookupKeyFields = 'VALOR'
+      LookupResultField = 'SIGNIFICADO'
+      ProviderFlags = []
+      ReadOnly = False
+      Required = False
+      Size = 255
+    end
+  end
+  object qryArancel: TSQLQuery[8]
+    FieldDefs = <    
+      item
+        Name = 'ID'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'NOMBRE'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'MONTO'
+        DataType = ftFloat
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'DESCRIPCION'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end>
+    Database = SGCDDataModule.dbConn
+    Transaction = SGCDDataModule.sqlTran
+    ReadOnly = True
+    SQL.Strings = (
+      'select * from v_aranceles_activos'
+    )
+    Params = <>
+    left = 328
+    top = 336
+    object qryArancelID: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qryArancelNOMBRE: TStringField
+      DisplayWidth = 255
+      FieldKind = fkData
+      FieldName = 'NOMBRE'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 255
+    end
+    object qryArancelMONTO: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'MONTO'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+      Precision = -1
+    end
+  end
+  object dsArancel: TDatasource[9]
+    DataSet = qryArancel
+    left = 328
+    top = 384
+  end
+  object qryCod: TSQLQuery[10]
+    FieldDefs = <    
+      item
+        Name = 'VALOR'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'OBJETO'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'SIGNIFICADO'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end>
+    Database = SGCDDataModule.dbConn
+    Transaction = SGCDDataModule.sqlTran
+    ReadOnly = True
+    SQL.Strings = (
+      'select * from codigos where objeto = ''CUOTAXARANCEL.VENCIMIENTO_UNIDAD'''
+    )
+    Params = <>
+    left = 531
+    top = 114
+    object qryCodVALOR: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'VALOR'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object qryCodOBJETO: TStringField
+      DisplayWidth = 255
+      FieldKind = fkData
+      FieldName = 'OBJETO'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 255
+    end
+    object qryCodSIGNIFICADO: TStringField
+      DisplayWidth = 255
+      FieldKind = fkData
+      FieldName = 'SIGNIFICADO'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 255
+    end
+  end
+  object dsCod: TDatasource[11]
+    DataSet = qryCod
+    left = 550
+    top = 175
+  end
+end

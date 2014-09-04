@@ -1,0 +1,17 @@
+[OPTIONS]
+Compatibility=1.1 or later
+Compiled file=sgcd-help_v1.chm
+Contents file=c:\Users\Home\PhpstormProjects\DocuSGCD\contents.hhc
+Default topic=C:\Users\Home\PhpstormProjects\DocuSGCD\abm.html
+Display compile progress=No
+Language=0x3c0a Español (Paraguay)
+
+
+[FILES]
+C:\Users\Home\PhpstormProjects\DocuSGCD\abm.html
+C:\Users\Home\PhpstormProjects\DocuSGCD\alumno.html
+C:\Users\Home\PhpstormProjects\DocuSGCD\index.html
+C:\Users\Home\PhpstormProjects\DocuSGCD\persona.html
+
+[INFOTYPES]
+

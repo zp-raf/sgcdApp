@@ -1,0 +1,185 @@
+inherited ProcesoEscala: TProcesoEscala
+  Left = 617
+  Height = 437
+  Top = 258
+  Width = 455
+  Caption = 'Escala'
+  ClientHeight = 417
+  ClientWidth = 455
+  OnCreate = FormCreate
+  inherited ButtonPanel1: TButtonPanel
+    Top = 377
+    Width = 443
+    OKButton.OnClick = OKButtonClick
+    CancelButton.OnClick = CancelButtonClick
+  end
+  object DBGrid1: TDBGrid[1]
+    Left = 6
+    Height = 335
+    Top = 8
+    Width = 442
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    Color = clWindow
+    Columns = <    
+      item
+        Title.Caption = 'LIMITE INFERIOR'
+        Width = 104
+        FieldName = 'LIMITEINF'
+      end    
+      item
+        Title.Caption = 'LIMITE SUPERIOR'
+        Width = 107
+        FieldName = 'LIMITESUP'
+      end    
+      item
+        Title.Caption = 'NOTA'
+        Width = 48
+        FieldName = 'NOTA'
+      end    
+      item
+        ButtonStyle = cbsCheckboxColumn
+        Title.Caption = 'VALIDO'
+        Width = 56
+        FieldName = 'VALIDO'
+      end>
+    DataSource = ds
+    Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgAutoSizeColumns]
+    TabOrder = 1
+  end
+  object DBNavigator1: TDBNavigator[2]
+    AnchorSideLeft.Control = DBGrid1
+    AnchorSideTop.Control = DBGrid1
+    AnchorSideTop.Side = asrBottom
+    Left = 6
+    Height = 25
+    Top = 347
+    Width = 241
+    BevelOuter = bvNone
+    BorderSpacing.Top = 4
+    ChildSizing.EnlargeHorizontal = crsScaleChilds
+    ChildSizing.EnlargeVertical = crsScaleChilds
+    ChildSizing.ShrinkHorizontal = crsScaleChilds
+    ChildSizing.ShrinkVertical = crsScaleChilds
+    ChildSizing.Layout = cclLeftToRightThenTopToBottom
+    ChildSizing.ControlsPerLine = 100
+    ClientHeight = 25
+    ClientWidth = 241
+    DataSource = ds
+    Options = []
+    TabOrder = 2
+    VisibleButtons = [nbFirst, nbPrior, nbNext, nbLast, nbInsert, nbDelete, nbEdit, nbPost, nbCancel]
+  end
+  inherited MainMenu1: TMainMenu[3]
+    left = 416
+    top = 0
+    inherited MenuAyuda: TMenuItem
+      inherited MenuItemAyuda: TMenuItem
+        OnClick = MenuItemAyudaClick
+      end
+    end
+  end
+  object qry: TSQLQuery[4]
+    FieldDefs = <    
+      item
+        Name = 'ID'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'LIMITEINF'
+        DataType = ftFloat
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'LIMITESUP'
+        DataType = ftFloat
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'NOTA'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'VALIDO'
+        DataType = ftSmallint
+        Precision = -1
+        Size = 0
+      end>
+    OnNewRecord = qryNewRecord
+    OnPostError = qryPostError
+    Database = SGCDDataModule.dbConn
+    Transaction = SGCDDataModule.sqlTran
+    SQL.Strings = (
+      'select * from escala'
+    )
+    Params = <>
+    left = 256
+    top = 168
+    object qryID: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object qryLIMITEINF: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'LIMITEINF'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = -1
+    end
+    object qryLIMITESUP: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'LIMITESUP'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = -1
+    end
+    object qryNOTA: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NOTA'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qryVALIDO: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'VALIDO'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+  end
+  object ds: TDatasource[5]
+    DataSet = qry
+    left = 328
+    top = 176
+  end
+end

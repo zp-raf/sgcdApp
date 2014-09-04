@@ -1,0 +1,272 @@
+inherited Abm: TAbm
+  Left = 498
+  Height = 481
+  Top = 333
+  Width = 640
+  ClientHeight = 461
+  ClientWidth = 640
+  Constraints.MinHeight = 481
+  Constraints.MinWidth = 640
+  OnClose = FormClose
+  OnShow = FormShow
+  Position = poScreenCenter
+  object StaticTextEmpezar: TStaticText[0]
+    Left = 24
+    Height = 18
+    Top = 16
+    Width = 296
+    AutoSize = True
+    BorderStyle = sbsSunken
+    Caption = 'Para empezar seleccione una accion del menu Acciones'
+    TabOrder = 4
+  end
+  object ButtonPanel1: TButtonPanel[1]
+    Left = 6
+    Height = 34
+    Top = 421
+    Width = 628
+    OKButton.Name = 'OKButton'
+    OKButton.Caption = '&Guardar'
+    OKButton.DefaultCaption = False
+    OKButton.OnClick = OKButtonClick
+    HelpButton.Name = 'HelpButton'
+    HelpButton.DefaultCaption = True
+    CloseButton.Name = 'CloseButton'
+    CloseButton.DefaultCaption = True
+    CloseButton.OnClick = CloseButtonClick
+    CancelButton.Name = 'CancelButton'
+    CancelButton.DefaultCaption = True
+    CancelButton.Enabled = False
+    TabOrder = 0
+    OnKeyDown = ButtonPanel1KeyDown
+    ShowButtons = [pbOK, pbClose, pbHelp]
+  end
+  object PanelNuevo: TPanel[2]
+    Left = 0
+    Height = 415
+    Top = 0
+    Width = 640
+    Align = alClient
+    BevelOuter = bvNone
+    TabOrder = 3
+  end
+  object PanelEliminar: TPanel[3]
+    Left = 0
+    Height = 415
+    Top = 0
+    Width = 640
+    Align = alClient
+    BevelOuter = bvNone
+    ClientHeight = 415
+    ClientWidth = 640
+    TabOrder = 1
+    object DBGrid1: TDBGrid
+      Left = 24
+      Height = 271
+      Hint = 'Para seleccionar una fila, haga click izquierdo.'#13#10'Para ver el contenido de la fila, haga click derecho.'#13#10'Para eliminar la fila, presione la tecla suprimir o haga click en el boton de eliminar en el panel de navegación.'
+      Top = 72
+      Width = 578
+      Anchors = [akTop, akLeft, akRight, akBottom]
+      AutoAdvance = aaDown
+      Color = clWindow
+      Columns = <>
+      DataSource = Datasource1
+      Options = [dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgAlwaysShowSelection, dgCancelOnExit, dgAutoSizeColumns, dgDisableInsert, dgTruncCellHints, dgCellEllipsis]
+      ReadOnly = True
+      ShowHint = True
+      TabOrder = 0
+      OnKeyUp = DBGrid1KeyUp
+      OnMouseDown = DBGrid1MouseDown
+      OnTitleClick = DBGrid1TitleClick
+    end
+    object LabelEliminarGrid: TLabel
+      Left = 24
+      Height = 15
+      Top = 8
+      Width = 424
+      Caption = 'Seleccione el registro a dar de baja o seleccione otra acción en el menu Acciones'
+      ParentColor = False
+    end
+    object DBNavigatorEliminar: TDBNavigator
+      Left = 24
+      Height = 25
+      Hint = 'Panel de navegación'
+      Top = 343
+      Width = 241
+      Anchors = [akLeft, akBottom]
+      BeforeAction = DBNavigatorEliminarBeforeAction
+      BevelOuter = bvNone
+      ChildSizing.EnlargeHorizontal = crsScaleChilds
+      ChildSizing.EnlargeVertical = crsScaleChilds
+      ChildSizing.ShrinkHorizontal = crsScaleChilds
+      ChildSizing.ShrinkVertical = crsScaleChilds
+      ChildSizing.Layout = cclLeftToRightThenTopToBottom
+      ChildSizing.ControlsPerLine = 100
+      ClientHeight = 25
+      ClientWidth = 241
+      ConfirmDelete = False
+      DataSource = Datasource1
+      Options = []
+      TabOrder = 1
+      VisibleButtons = [nbFirst, nbPrior, nbNext, nbLast, nbDelete, nbCancel]
+    end
+    object EditEliminarFiltro: TEdit
+      Left = 264
+      Height = 23
+      Top = 40
+      Width = 288
+      OnKeyUp = EditEliminarFiltroKeyUp
+      TabOrder = 2
+    end
+    object LabelEliminarFiltro: TLabel
+      Left = 24
+      Height = 15
+      Top = 48
+      Width = 234
+      Caption = 'Escriba una palabra para filtrar los resultados'
+      ParentColor = False
+    end
+    object ButtonEliminarFiltrar: TButton
+      Left = 560
+      Height = 25
+      Top = 38
+      Width = 40
+      Caption = 'Filtrar'
+      OnClick = ButtonEliminarFiltrarClick
+      TabOrder = 3
+    end
+  end
+  object PanelModificar: TPanel[4]
+    Left = 0
+    Height = 415
+    Top = 0
+    Width = 640
+    Align = alClient
+    BevelOuter = bvNone
+    ClientHeight = 415
+    ClientWidth = 640
+    TabOrder = 2
+    object DBGrid2: TDBGrid
+      Left = 24
+      Height = 271
+      Hint = 'Para seleccionar una fila, haga click izquierdo.'#13#10'Para ver el contenido de la fila, haga click derecho. '#13#10'Para editar la fila, haga doble click o use el boton de edición del panel de navegación.'
+      Top = 72
+      Width = 578
+      Anchors = [akTop, akLeft, akRight, akBottom]
+      AutoAdvance = aaDown
+      Color = clWindow
+      Columns = <>
+      DataSource = Datasource1
+      Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgAutoSizeColumns, dgDisableDelete, dgDisableInsert, dgTruncCellHints, dgCellEllipsis]
+      ReadOnly = True
+      ShowHint = True
+      TabOrder = 0
+      OnDblClick = DBGrid2DblClick
+      OnMouseDown = DBGrid2MouseDown
+      OnTitleClick = DBGrid1TitleClick
+    end
+    object LabelModificarGrid: TLabel
+      Left = 24
+      Height = 15
+      Top = 8
+      Width = 417
+      Caption = 'Seleccione el registro a modificar o seleccione otra acción en el menu Acciones'
+      ParentColor = False
+    end
+    object DBNavigatorModificar: TDBNavigator
+      Left = 24
+      Height = 25
+      Hint = 'Panel de navegación'
+      Top = 343
+      Width = 241
+      Anchors = [akLeft, akBottom]
+      BevelOuter = bvNone
+      ChildSizing.EnlargeHorizontal = crsScaleChilds
+      ChildSizing.EnlargeVertical = crsScaleChilds
+      ChildSizing.ShrinkHorizontal = crsScaleChilds
+      ChildSizing.ShrinkVertical = crsScaleChilds
+      ChildSizing.Layout = cclLeftToRightThenTopToBottom
+      ChildSizing.ControlsPerLine = 100
+      ClientHeight = 25
+      ClientWidth = 241
+      DataSource = Datasource1
+      OnClick = DBNavigatorModificarClick
+      Options = []
+      TabOrder = 1
+      VisibleButtons = [nbFirst, nbPrior, nbNext, nbLast, nbEdit, nbPost, nbCancel]
+    end
+    object EditModificarFiltro: TEdit
+      Left = 264
+      Height = 23
+      Top = 40
+      Width = 288
+      OnKeyUp = EditModificarFiltroKeyUp
+      TabOrder = 2
+    end
+    object LabelModificarFiltro: TLabel
+      Left = 24
+      Height = 15
+      Top = 48
+      Width = 234
+      Caption = 'Escriba una palabra para filtrar los resultados'
+      ParentColor = False
+    end
+    object ButtonModificarFiltrar: TButton
+      Left = 560
+      Height = 25
+      Top = 38
+      Width = 40
+      Caption = 'Filtrar'
+      OnClick = ButtonModificarFiltrarClick
+      TabOrder = 3
+    end
+  end
+  inherited MainMenu1: TMainMenu[5]
+    left = 0
+    top = 0
+    inherited MenuArchivo: TMenuItem
+      object MenuItemGuardar: TMenuItem[0]
+        Caption = '&Guardar'
+        ShortCut = 16455
+        OnClick = MenuItemGuardarClick
+      end
+      inherited MenuItemSalir: TMenuItem[1]
+        OnClick = MenuItemSalirClick
+      end
+    end
+    object MenuItemAcciones: TMenuItem[1]
+      Caption = 'A&cciones'
+      object MenuItemNuevo: TMenuItem
+        Caption = '&Alta'
+        ShortCut = 16449
+        OnClick = MenuItemNuevoClick
+      end
+      object MenuItemModificar: TMenuItem
+        Caption = '&Modificación'
+        ShortCut = 16461
+        OnClick = MenuItemModificarClick
+      end
+      object MenuItemEliminar: TMenuItem
+        Caption = '&Baja'
+        ShortCut = 16450
+        OnClick = MenuItemEliminarClick
+      end
+    end
+    inherited MenuAyuda: TMenuItem[2]
+      inherited MenuItemAyuda: TMenuItem
+        OnClick = MenuItemAyudaClick
+      end
+    end
+  end
+  object Datasource1: TDatasource[6]
+    DataSet = SQLQuery1
+    top = 96
+  end
+  object SQLQuery1: TSQLQuery[7]
+    FieldDefs = <>
+    Database = SGCDDataModule.dbConn
+    Transaction = SGCDDataModule.sqlTran
+    Params = <>
+    top = 48
+  end
+end

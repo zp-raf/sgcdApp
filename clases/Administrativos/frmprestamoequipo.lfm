@@ -1,0 +1,617 @@
+inherited ProcesoPrestamo: TProcesoPrestamo
+  Left = 459
+  Height = 640
+  Top = 226
+  Width = 978
+  ClientHeight = 620
+  ClientWidth = 978
+  Constraints.MinHeight = 640
+  Constraints.MinWidth = 800
+  OnCreate = FormCreate
+  inherited ButtonPanel1: TButtonPanel
+    Top = 580
+    Width = 966
+  end
+  object PairSplitter1: TPairSplitter[1]
+    Left = 6
+    Height = 576
+    Top = 0
+    Width = 964
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    Position = 482
+    object PairSplitterSide1: TPairSplitterSide
+      Cursor = crArrow
+      Left = 0
+      Height = 576
+      Top = 0
+      Width = 482
+      ClientWidth = 482
+      ClientHeight = 576
+      object Equipos: TGroupBox
+        AnchorSideLeft.Control = PairSplitterSide1
+        AnchorSideTop.Control = PairSplitterSide1
+        AnchorSideRight.Control = PairSplitterSide1
+        AnchorSideRight.Side = asrBottom
+        AnchorSideBottom.Control = PairSplitterSide1
+        AnchorSideBottom.Side = asrBottom
+        Left = 0
+        Height = 576
+        Top = 0
+        Width = 482
+        Anchors = [akTop, akLeft, akRight, akBottom]
+        Caption = 'Equipos'
+        ClientHeight = 558
+        ClientWidth = 478
+        TabOrder = 0
+        object DBGrid1: TDBGrid
+          AnchorSideLeft.Control = Equipos
+          AnchorSideTop.Control = Equipos
+          AnchorSideRight.Control = Equipos
+          AnchorSideRight.Side = asrBottom
+          AnchorSideBottom.Control = Equipos
+          AnchorSideBottom.Side = asrBottom
+          Left = 6
+          Height = 546
+          Top = 6
+          Width = 466
+          Anchors = [akTop, akLeft, akRight, akBottom]
+          BorderSpacing.Around = 6
+          Color = clWindow
+          Columns = <          
+            item
+              Title.Caption = 'NOMBRE'
+              FieldName = 'NOMBRE'
+            end          
+            item
+              ButtonStyle = cbsCheckboxColumn
+              Title.Caption = 'DISPONIBLE'
+              Width = 79
+              FieldName = 'DISPONIBLE'
+            end          
+            item
+              Title.Caption = 'NRO_SERIE'
+              Width = 73
+              FieldName = 'NRO_SERIE'
+            end          
+            item
+              Title.Caption = 'DESCRIPCION'
+              Width = 89
+              FieldName = 'DESCRIPCION'
+            end>
+          DataSource = dsEq
+          Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgAutoSizeColumns]
+          ReadOnly = True
+          TabOrder = 0
+          OnCellClick = DBGrid1CellClick
+        end
+      end
+    end
+    object PairSplitterSide2: TPairSplitterSide
+      Cursor = crArrow
+      Left = 487
+      Height = 576
+      Top = 0
+      Width = 477
+      ClientWidth = 477
+      ClientHeight = 576
+      object Prestamo: TGroupBox
+        AnchorSideLeft.Control = PairSplitterSide2
+        AnchorSideTop.Control = PairSplitterSide2
+        AnchorSideRight.Control = PairSplitterSide2
+        AnchorSideRight.Side = asrBottom
+        AnchorSideBottom.Control = PairSplitterSide2
+        AnchorSideBottom.Side = asrBottom
+        Left = 0
+        Height = 576
+        Top = 0
+        Width = 477
+        Anchors = [akTop, akLeft, akRight, akBottom]
+        Caption = 'Prestamo'
+        ClientHeight = 558
+        ClientWidth = 473
+        TabOrder = 0
+        object LabeledEdit1: TLabeledEdit
+          AnchorSideLeft.Control = DBGrid2
+          AnchorSideBottom.Control = DBGrid2
+          Left = 9
+          Height = 23
+          Top = 21
+          Width = 293
+          Anchors = [akLeft, akBottom]
+          BorderSpacing.Bottom = 4
+          EditLabel.AnchorSideLeft.Control = LabeledEdit1
+          EditLabel.AnchorSideRight.Control = LabeledEdit1
+          EditLabel.AnchorSideRight.Side = asrBottom
+          EditLabel.AnchorSideBottom.Control = LabeledEdit1
+          EditLabel.Left = 9
+          EditLabel.Height = 15
+          EditLabel.Top = 3
+          EditLabel.Width = 293
+          EditLabel.Caption = 'Escriba una palabra para filtrar los resultados'
+          EditLabel.ParentColor = False
+          TabOrder = 0
+          OnChange = LabeledEdit1Change
+        end
+        object DBGrid2: TDBGrid
+          Left = 9
+          Height = 344
+          Top = 48
+          Width = 458
+          Anchors = [akTop, akLeft, akRight, akBottom]
+          Color = clWindow
+          Columns = <          
+            item
+              Title.Caption = 'NOMBRECOMPLETO'
+              Width = 127
+              FieldName = 'NOMBRECOMPLETO'
+            end          
+            item
+              Title.Caption = 'CEDULA'
+              Width = 59
+              FieldName = 'CEDULA'
+            end>
+          DataSource = dsPer
+          Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgAutoSizeColumns]
+          ReadOnly = True
+          TabOrder = 1
+        end
+        object ACTIVO: TDBCheckBox
+          Left = 337
+          Height = 23
+          Top = 448
+          Width = 90
+          Anchors = [akLeft, akBottom]
+          Caption = 'ACTIVO'
+          DataField = 'ACTIVO'
+          DataSource = ds
+          TabOrder = 2
+          ValueChecked = '1'
+          ValueUnchecked = '0'
+        end
+        object DateEdit1: TDateEdit
+          Left = 9
+          Height = 23
+          Top = 448
+          Width = 80
+          CalendarDisplaySettings = [dsShowHeadings, dsShowDayNames]
+          OKCaption = 'OK'
+          CancelCaption = 'Cancel'
+          DateOrder = doDMY
+          ButtonWidth = 23
+          Anchors = [akLeft, akBottom]
+          CharCase = ecNormal
+          NumGlyphs = 1
+          MaxLength = 10
+          TabOrder = 3
+        end
+        object DateEdit2: TDateEdit
+          Left = 177
+          Height = 23
+          Top = 448
+          Width = 80
+          CalendarDisplaySettings = [dsShowHeadings, dsShowDayNames]
+          OKCaption = 'OK'
+          CancelCaption = 'Cancel'
+          DateOrder = doDMY
+          ButtonWidth = 23
+          Anchors = [akLeft, akBottom]
+          CharCase = ecNormal
+          NumGlyphs = 1
+          MaxLength = 10
+          TabOrder = 4
+        end
+        object Inicio: TLabel
+          AnchorSideLeft.Control = DateEdit1
+          AnchorSideBottom.Control = DateEdit1
+          Left = 9
+          Height = 15
+          Top = 433
+          Width = 29
+          Anchors = [akLeft, akBottom]
+          Caption = 'Inicio'
+          ParentColor = False
+        end
+        object Fin: TLabel
+          AnchorSideLeft.Control = DateEdit2
+          AnchorSideBottom.Control = DateEdit2
+          Left = 177
+          Height = 15
+          Top = 433
+          Width = 16
+          Anchors = [akLeft, akBottom]
+          Caption = 'Fin'
+          ParentColor = False
+        end
+      end
+    end
+  end
+  inherited MainMenu1: TMainMenu[2]
+    left = 752
+    top = 8
+    inherited MenuAyuda: TMenuItem
+      inherited MenuItemAyuda: TMenuItem
+        OnClick = MenuItemAyudaClick
+      end
+    end
+  end
+  object dsEq: TDatasource[3]
+    DataSet = eq
+    left = 92
+    top = 181
+  end
+  object eq: TSQLQuery[4]
+    FieldDefs = <    
+      item
+        Name = 'ID'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'NOMBRE'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'NRO_SERIE'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'DESCRIPCION'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'ACTIVO'
+        DataType = ftSmallint
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'DISPONIBLE'
+        DataType = ftSmallint
+        Precision = -1
+        Size = 0
+      end>
+    Filter = 'activo = 1'
+    Filtered = True
+    Database = SGCDDataModule.dbConn
+    Transaction = SGCDDataModule.sqlTran
+    ReadOnly = True
+    SQL.Strings = (
+      'select * from equipos_disponibilidad'
+    )
+    Params = <>
+    left = 176
+    top = 184
+    object eqID: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object eqNOMBRE: TStringField
+      DisplayWidth = 255
+      FieldKind = fkData
+      FieldName = 'NOMBRE'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 255
+    end
+    object eqNRO_SERIE: TStringField
+      DisplayWidth = 255
+      FieldKind = fkData
+      FieldName = 'NRO_SERIE'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 255
+    end
+    object eqDESCRIPCION: TStringField
+      DisplayWidth = 255
+      FieldKind = fkData
+      FieldName = 'DESCRIPCION'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 255
+    end
+    object eqACTIVO: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'ACTIVO'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object eqDISPONIBLE: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'DISPONIBLE'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object ds: TDatasource[5]
+    DataSet = qry
+    left = 624
+    top = 520
+  end
+  object qry: TSQLQuery[6]
+    FieldDefs = <    
+      item
+        Name = 'ID'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'EQUIPOID'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'PERSONAID'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'FECHAINICIO'
+        DataType = ftDate
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'FECHAFIN'
+        DataType = ftDate
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'ACTIVO'
+        DataType = ftSmallint
+        Precision = -1
+        Size = 0
+      end>
+    Filtered = True
+    OnFilterRecord = qryFilterRecord
+    OnNewRecord = qryNewRecord
+    Database = SGCDDataModule.dbConn
+    Transaction = SGCDDataModule.sqlTran
+    SQL.Strings = (
+      'select * from prestamo'
+    )
+    Params = <>
+    left = 696
+    top = 512
+    object qryID: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      ReadOnly = False
+      Required = True
+    end
+    object qryEQUIPOID: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'EQUIPOID'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object qryPERSONAID: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'PERSONAID'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object qryFECHAINICIO: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FECHAINICIO'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object qryFECHAFIN: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FECHAFIN'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object qryACTIVO: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'ACTIVO'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+  end
+  object qryPer: TSQLQuery[7]
+    FieldDefs = <    
+      item
+        Name = 'ID'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'CEDULA'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'NOMBRE'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'APELLIDO'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'SEXO'
+        DataType = ftString
+        Precision = -1
+        Size = 1
+      end    
+      item
+        Name = 'FECHANAC'
+        DataType = ftDate
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'NOMBRECOMPLETO'
+        DataType = ftString
+        Precision = -1
+        Size = 511
+      end    
+      item
+        Name = 'ACTIVO'
+        DataType = ftSmallint
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'ESALUMNO'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'ESVEEDOR'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'ESINTERVENTOR'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'ESENCARGADO'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'ESPROVEEDOR'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'ESCOORDINADOR'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'ESADMINISTRATIVO'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'ESPROFESOR'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end>
+    Filtered = True
+    OnFilterRecord = qryPerFilterRecord
+    Database = SGCDDataModule.dbConn
+    Transaction = SGCDDataModule.sqlTran
+    ReadOnly = True
+    SQL.Strings = (
+      'select * from v_personas_roles'
+    )
+    Params = <>
+    left = 880
+    top = 104
+    object qryPerID: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qryPerCEDULA: TStringField
+      DisplayWidth = 255
+      FieldKind = fkData
+      FieldName = 'CEDULA'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 255
+    end
+    object qryPerNOMBRECOMPLETO: TStringField
+      DisplayWidth = 511
+      FieldKind = fkData
+      FieldName = 'NOMBRECOMPLETO'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 511
+    end
+  end
+  object dsPer: TDatasource[8]
+    DataSet = qryPer
+    left = 880
+    top = 184
+  end
+end

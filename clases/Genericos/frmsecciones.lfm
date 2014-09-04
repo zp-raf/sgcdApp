@@ -1,0 +1,146 @@
+inherited AbmSecciones: TAbmSecciones
+  Top = 240
+  Caption = 'ABM Secciones'
+  OnClose = FormClose
+  OnCreate = FormCreate
+  inherited PanelNuevo: TPanel
+    object LabeledEditNuevoNombre: TLabeledEdit[0]
+      Left = 32
+      Height = 23
+      Top = 32
+      Width = 336
+      EditLabel.AnchorSideLeft.Control = LabeledEditNuevoNombre
+      EditLabel.AnchorSideRight.Control = LabeledEditNuevoNombre
+      EditLabel.AnchorSideRight.Side = asrBottom
+      EditLabel.AnchorSideBottom.Control = LabeledEditNuevoNombre
+      EditLabel.Left = 32
+      EditLabel.Height = 15
+      EditLabel.Top = 14
+      EditLabel.Width = 336
+      EditLabel.Caption = 'Nombre (requerido, único)'
+      EditLabel.ParentColor = False
+      TabOrder = 0
+    end
+    object LabeledEditNuevoDescripcion: TLabeledEdit[1]
+      Left = 32
+      Height = 23
+      Top = 82
+      Width = 336
+      EditLabel.AnchorSideLeft.Control = LabeledEditNuevoDescripcion
+      EditLabel.AnchorSideRight.Control = LabeledEditNuevoDescripcion
+      EditLabel.AnchorSideRight.Side = asrBottom
+      EditLabel.AnchorSideBottom.Control = LabeledEditNuevoDescripcion
+      EditLabel.Left = 32
+      EditLabel.Height = 15
+      EditLabel.Top = 64
+      EditLabel.Width = 336
+      EditLabel.Caption = 'Descripcion'
+      EditLabel.ParentColor = False
+      TabOrder = 1
+    end
+  end
+  inherited PanelModificar: TPanel
+    inherited DBGrid2: TDBGrid
+      Columns = <      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'NOMBRE'
+          FieldName = 'NOMBRE'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'DESCRIPCION'
+          Width = 89
+          FieldName = 'DESCRIPCION'
+        end>
+      Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgAutoSizeColumns, dgDisableInsert]
+    end
+    inherited DBNavigatorModificar: TDBNavigator
+      Hints.Strings = (      )
+    end
+  end
+  inherited PanelEliminar: TPanel
+    inherited DBGrid1: TDBGrid
+      AutoAdvance = aaRightDown
+      Columns = <      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'NOMBRE'
+          FieldName = 'NOMBRE'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'DESCRIPCION'
+          Width = 89
+          FieldName = 'DESCRIPCION'
+        end>
+      Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgAutoSizeColumns, dgDisableInsert]
+    end
+    inherited DBNavigatorEliminar: TDBNavigator
+      Hints.Strings = (      )
+    end
+  end
+  inherited MainMenu1: TMainMenu
+    inherited MenuArchivo: TMenuItem
+      inherited MenuItemGuardar: TMenuItem
+        Caption = '&Guardar'
+      end
+    end
+  end
+  inherited SQLQuery1: TSQLQuery
+    FieldDefs = <    
+      item
+        Name = 'ID'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'NOMBRE'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'DESCRIPCION'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end>
+    SQL.Strings = (
+      'SELECT ID, NOMBRE, DESCRIPCION FROM SECCION'
+    )
+    object SQLQuery1ID: TLongintField[0]
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      ReadOnly = False
+      Required = True
+    end
+    object SQLQuery1NOMBRE: TStringField[1]
+      DisplayWidth = 255
+      FieldKind = fkData
+      FieldName = 'NOMBRE'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 255
+    end
+    object SQLQuery1DESCRIPCION: TStringField[2]
+      DisplayWidth = 255
+      FieldKind = fkData
+      FieldName = 'DESCRIPCION'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 255
+    end
+  end
+end

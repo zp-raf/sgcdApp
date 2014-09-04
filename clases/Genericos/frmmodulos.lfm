@@ -1,0 +1,582 @@
+inherited AbmModulos: TAbmModulos
+  Left = 144
+  Top = 316
+  BorderStyle = bsSizeable
+  Caption = 'ABM Modulos'
+  ClientHeight = 461
+  OnCreate = FormCreate
+  OnResize = FormResize
+  inherited PanelEliminar: TPanel[2]
+    TabOrder = 3
+    inherited DBGrid1: TDBGrid
+      Columns = <      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'NOMBRE'
+          FieldName = 'NOMBRE'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'DURACION'
+          Width = 75
+          FieldName = 'DURACION'
+        end      
+        item
+          ButtonStyle = cbsCheckboxColumn
+          PickList.Strings = (          )
+          Title.Caption = 'HABILITADO'
+          Width = 83
+          FieldName = 'HABILITADO'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'DESCRIPCION'
+          Width = 89
+          FieldName = 'DESCRIPCION'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'FUNDAMENTACION'
+          Width = 124
+          FieldName = 'FUNDAMENTACION'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'OBJETIVOS'
+          Width = 73
+          FieldName = 'OBJETIVOS'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'REQUISITOS'
+          Width = 79
+          FieldName = 'REQUISITOS'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'PERFILEGRESADO'
+          Width = 108
+          FieldName = 'PERFILEGRESADO'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'DURACION_CANTIDAD'
+          Width = 139
+          FieldName = 'DURACION_CANTIDAD'
+        end      
+        item
+          PickList.Strings = (
+            'DIAS'
+            'MESES'
+            'AÑOS'
+          )
+          Title.Caption = 'DURACION_NOMBRE'
+          Width = 129
+          FieldName = 'DURACION_NOMBRE'
+        end>
+    end
+    inherited DBNavigatorEliminar: TDBNavigator
+      Hints.Strings = (      )
+    end
+  end
+  inherited PanelModificar: TPanel[3]
+    TabOrder = 1
+    inherited DBGrid2: TDBGrid
+      Columns = <      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'NOMBRE'
+          FieldName = 'NOMBRE'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'DURACION'
+          Width = 75
+          FieldName = 'DURACION'
+        end      
+        item
+          ButtonStyle = cbsCheckboxColumn
+          PickList.Strings = (          )
+          Title.Caption = 'HABILITADO'
+          Width = 83
+          FieldName = 'HABILITADO'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'DESCRIPCION'
+          Width = 89
+          FieldName = 'DESCRIPCION'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'FUNDAMENTACION'
+          Width = 124
+          FieldName = 'FUNDAMENTACION'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'OBJETIVOS'
+          Width = 73
+          FieldName = 'OBJETIVOS'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'REQUISITOS'
+          Width = 79
+          FieldName = 'REQUISITOS'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'PERFILEGRESADO'
+          Width = 108
+          FieldName = 'PERFILEGRESADO'
+        end      
+        item
+          PickList.Strings = (          )
+          Title.Caption = 'DURACION_CANTIDAD'
+          Width = 139
+          FieldName = 'DURACION_CANTIDAD'
+        end      
+        item
+          PickList.Strings = (
+            'DIAS'
+            'MESES'
+            'AÑOS'
+          )
+          Title.Caption = 'DURACION_NOMBRE'
+          Width = 129
+          FieldName = 'DURACION_NOMBRE'
+        end>
+    end
+    inherited DBNavigatorModificar: TDBNavigator
+      Hints.Strings = (      )
+    end
+  end
+  inherited PanelNuevo: TPanel[4]
+    TabOrder = 2
+    object LabelNuevoPerfil: TLabel[0]
+      AnchorSideLeft.Control = DBMemo4
+      AnchorSideBottom.Control = DBMemo4
+      Left = 336
+      Height = 15
+      Top = 257
+      Width = 97
+      Anchors = [akLeft, akBottom]
+      Caption = 'Perfil del egresado'
+      ParentColor = False
+    end
+    object LabelNuevoRequisitos: TLabel[1]
+      AnchorSideLeft.Control = DBMemo2
+      AnchorSideBottom.Control = DBMemo2
+      Left = 16
+      Height = 15
+      Top = 257
+      Width = 54
+      Anchors = [akLeft, akBottom]
+      Caption = 'Requisitos'
+      ParentColor = False
+    end
+    object LabelNuevoFundamentacion: TLabel[2]
+      AnchorSideLeft.Control = DBMemo1
+      AnchorSideBottom.Control = DBMemo1
+      Left = 16
+      Height = 15
+      Top = 105
+      Width = 90
+      Anchors = [akLeft, akBottom]
+      Caption = 'Fundamentacion'
+      ParentColor = False
+    end
+    object LabelNuevoObjetivos: TLabel[3]
+      Left = 336
+      Height = 15
+      Top = 105
+      Width = 50
+      Anchors = [akLeft, akBottom]
+      Caption = 'Objetivos'
+      ParentColor = False
+    end
+    object DBEdit1: TDBEdit[4]
+      Left = 16
+      Height = 23
+      Top = 16
+      Width = 288
+      DataField = 'NOMBRE'
+      DataSource = Datasource1
+      CharCase = ecNormal
+      MaxLength = 255
+      TabOrder = 0
+    end
+    object Label1: TLabel[5]
+      AnchorSideLeft.Control = DBEdit1
+      AnchorSideBottom.Control = DBEdit1
+      Left = 16
+      Height = 15
+      Top = 1
+      Width = 142
+      Anchors = [akLeft, akBottom]
+      Caption = 'Nombre (requerido, unico)'
+      ParentColor = False
+    end
+    object DBEdit2: TDBEdit[6]
+      Left = 16
+      Height = 23
+      Top = 64
+      Width = 288
+      DataField = 'DESCRIPCION'
+      DataSource = Datasource1
+      CharCase = ecNormal
+      MaxLength = 255
+      TabOrder = 1
+    end
+    object Label2: TLabel[7]
+      AnchorSideLeft.Control = DBEdit2
+      AnchorSideBottom.Control = DBEdit2
+      Left = 16
+      Height = 15
+      Top = 49
+      Width = 62
+      Anchors = [akLeft, akBottom]
+      Caption = 'Descripcion'
+      ParentColor = False
+    end
+    object Habilitado: TDBCheckBox[8]
+      Left = 335
+      Height = 23
+      Top = 16
+      Width = 90
+      Caption = 'Habilitado'
+      DataField = 'HABILITADO'
+      DataSource = Datasource1
+      TabOrder = 2
+      ValueChecked = '1'
+      ValueUnchecked = '0'
+    end
+    object DBEdit3: TDBEdit[9]
+      Left = 335
+      Height = 23
+      Top = 64
+      Width = 80
+      DataField = 'DURACION_CANTIDAD'
+      DataSource = Datasource1
+      CharCase = ecNormal
+      MaxLength = 0
+      TabOrder = 3
+    end
+    object Label3: TLabel[10]
+      AnchorSideLeft.Control = DBEdit3
+      AnchorSideBottom.Control = DBEdit3
+      Left = 335
+      Height = 15
+      Top = 49
+      Width = 48
+      Anchors = [akLeft, akBottom]
+      Caption = 'Duracion'
+      ParentColor = False
+    end
+    object DBLookupComboBox1: TDBLookupComboBox[11]
+      Left = 440
+      Height = 23
+      Top = 64
+      Width = 100
+      DataField = 'DURACION_UNIDAD'
+      DataSource = Datasource1
+      KeyField = 'VALOR'
+      ListField = 'SIGNIFICADO'
+      ListFieldIndex = 0
+      ListSource = dsCod
+      LookupCache = False
+      TabOrder = 4
+    end
+    object DBMemo1: TDBMemo[12]
+      Left = 16
+      Height = 130
+      Top = 120
+      Width = 288
+      DataField = 'FUNDAMENTACION'
+      DataSource = Datasource1
+      TabOrder = 5
+    end
+    object DBMemo2: TDBMemo[13]
+      AnchorSideTop.Side = asrBottom
+      Left = 16
+      Height = 138
+      Top = 272
+      Width = 288
+      Anchors = [akTop, akLeft, akBottom]
+      DataField = 'REQUISITOS'
+      DataSource = Datasource1
+      TabOrder = 6
+    end
+    object DBMemo3: TDBMemo[14]
+      Left = 336
+      Height = 130
+      Top = 120
+      Width = 280
+      Anchors = [akTop, akRight]
+      DataField = 'OBJETIVOS'
+      DataSource = Datasource1
+      TabOrder = 7
+    end
+    object DBMemo4: TDBMemo[15]
+      Left = 336
+      Height = 138
+      Top = 272
+      Width = 280
+      Anchors = [akTop, akRight, akBottom]
+      DataField = 'PERFILEGRESADO'
+      DataSource = Datasource1
+      TabOrder = 8
+    end
+  end
+  inherited MainMenu1: TMainMenu
+    top = 304
+  end
+  inherited Datasource1: TDatasource
+    top = 368
+  end
+  inherited SQLQuery1: TSQLQuery
+    FieldDefs = <    
+      item
+        Name = 'ID'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'NOMBRE'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'DESCRIPCION'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'FUNDAMENTACION'
+        DataType = ftString
+        Precision = -1
+        Size = 4096
+      end    
+      item
+        Name = 'OBJETIVOS'
+        DataType = ftString
+        Precision = -1
+        Size = 4096
+      end    
+      item
+        Name = 'REQUISITOS'
+        DataType = ftString
+        Precision = -1
+        Size = 4096
+      end    
+      item
+        Name = 'PERFILEGRESADO'
+        DataType = ftString
+        Precision = -1
+        Size = 4096
+      end    
+      item
+        Name = 'HABILITADO'
+        DataType = ftSmallint
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'DURACION_UNIDAD'
+        DataType = ftSmallint
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'DURACION_CANTIDAD'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end>
+    SQL.Strings = (
+      'select * from modulo'
+    )
+    top = 336
+    object SQLQuery1ID: TLongintField[0]
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      ReadOnly = False
+      Required = True
+    end
+    object SQLQuery1NOMBRE: TStringField[1]
+      DisplayWidth = 255
+      FieldKind = fkData
+      FieldName = 'NOMBRE'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 255
+    end
+    object SQLQuery1DESCRIPCION: TStringField[2]
+      DisplayWidth = 255
+      FieldKind = fkData
+      FieldName = 'DESCRIPCION'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 255
+    end
+    object SQLQuery1FUNDAMENTACION: TStringField[3]
+      DisplayWidth = 255
+      FieldKind = fkData
+      FieldName = 'FUNDAMENTACION'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 255
+    end
+    object SQLQuery1OBJETIVOS: TStringField[4]
+      DisplayWidth = 255
+      FieldKind = fkData
+      FieldName = 'OBJETIVOS'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 255
+    end
+    object SQLQuery1REQUISITOS: TStringField[5]
+      DisplayWidth = 255
+      FieldKind = fkData
+      FieldName = 'REQUISITOS'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 255
+    end
+    object SQLQuery1PERFILEGRESADO: TStringField[6]
+      DisplayWidth = 255
+      FieldKind = fkData
+      FieldName = 'PERFILEGRESADO'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 255
+    end
+    object SQLQuery1HABILITADO: TSmallintField[7]
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'HABILITADO'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object SQLQuery1DURACION_UNIDAD: TSmallintField[8]
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'DURACION_UNIDAD'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object SQLQuery1DURACION_CANTIDAD: TLongintField[9]
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'DURACION_CANTIDAD'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object StringField1: TStringField[10]
+      DisplayWidth = 255
+      FieldKind = fkLookup
+      FieldName = 'DURACION_NOMBRE'
+      Index = 10
+      KeyFields = 'DURACION_UNIDAD'
+      LookupCache = False
+      LookupDataSet = qryCod
+      LookupKeyFields = 'VALOR'
+      LookupResultField = 'SIGNIFICADO'
+      ProviderFlags = []
+      ReadOnly = False
+      Required = False
+      Size = 255
+    end
+  end
+  object qryCod: TSQLQuery[8]
+    FieldDefs = <    
+      item
+        Name = 'VALOR'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'OBJETO'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'SIGNIFICADO'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end>
+    Database = SGCDDataModule.dbConn
+    Transaction = SGCDDataModule.sqlTran
+    ReadOnly = True
+    SQL.Strings = (
+      'select * from codigos where objeto = ''MODULO.DURACION_UNIDAD'''
+    )
+    Params = <>
+    left = 568
+    top = 8
+    object qryCodVALOR: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'VALOR'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object qryCodSIGNIFICADO: TStringField
+      DisplayWidth = 255
+      FieldKind = fkData
+      FieldName = 'SIGNIFICADO'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 255
+    end
+  end
+  object dsCod: TDatasource[9]
+    DataSet = qryCod
+    left = 576
+    top = 72
+  end
+end

@@ -1,0 +1,74 @@
+inherited PopupBuscarTalonarioNC: TPopupBuscarTalonarioNC
+  Left = 526
+  Top = 443
+  ClientHeight = 300
+  inherited DBGrid1: TDBGrid
+    Height = 148
+    Columns = <    
+      item
+        PickList.Strings = (        )
+        Title.Caption = 'NOMBRE'
+        Width = 170
+        FieldName = 'NOMBRE'
+      end    
+      item
+        PickList.Strings = (        )
+        Title.Caption = 'RUC'
+        Width = 68
+        FieldName = 'RUC'
+      end    
+      item
+        PickList.Strings = (        )
+        Title.Caption = 'TIMBRADO'
+        Width = 75
+        FieldName = 'TIMBRADO'
+      end    
+      item
+        PickList.Strings = (        )
+        Title.Caption = 'VALIDO_DESDE'
+        Width = 95
+        FieldName = 'VALIDO_DESDE'
+      end    
+      item
+        PickList.Strings = (        )
+        Title.Caption = 'VALIDO_HASTA'
+        Width = 99
+        FieldName = 'VALIDO_HASTA'
+      end    
+      item
+        PickList.Strings = (        )
+        Title.Caption = 'SUCURSAL'
+        Width = 72
+        FieldName = 'SUCURSAL'
+      end    
+      item
+        PickList.Strings = (        )
+        Title.Caption = 'CAJA'
+        Width = 43
+        FieldName = 'CAJA'
+      end    
+      item
+        PickList.Strings = (        )
+        Title.Caption = 'NUMERO_INI'
+        Width = 85
+        FieldName = 'NUMERO_INI'
+      end    
+      item
+        PickList.Strings = (        )
+        Title.Caption = 'NUMERO_FIN'
+        Width = 88
+        FieldName = 'NUMERO_FIN'
+      end>
+  end
+  inherited ButtonCancel: TButton
+    Top = 244
+  end
+  inherited ButtonOK: TButton
+    Top = 244
+  end
+  inherited qry: TSQLQuery
+    SQL.Strings = (
+      'select * from v_talonarios_nc'
+    )
+  end
+end
